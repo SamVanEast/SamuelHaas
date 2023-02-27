@@ -1,0 +1,31 @@
+.header {
+    height: 88px;
+    width: 100vw;
+    max-width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    padding-left: 5%;
+    width: 84px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    width: 33%;
+    height: 100%;
+    padding-right: 5%;
+}
+
+.menu_tab {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}

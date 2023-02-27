@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "samuelhaas": {
+      "hosting": {
+        "samuel-haas": [
+          "samuelhaas"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "samuelhaas"
+  }
+}
