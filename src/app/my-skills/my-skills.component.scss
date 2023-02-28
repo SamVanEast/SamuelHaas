@@ -1,0 +1,68 @@
+.my_skills {
+    width: 100vw;
+    max-width: 100%;
+    background-color: black;
+    padding-bottom: 120px;
+}
+
+.indentation_customization{
+    display: flex;
+    justify-content: space-between;
+}
+
+.my_skills_decription {
+    width: 36%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 120px;
+    color: white;
+
+    span {
+        width: 72%;
+    }
+}
+
+.my_skills_description_headline {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+}
+
+.my_skills_description_text {
+    padding-top: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.skills {
+    width: 64%;
+    padding-top: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill {
+    padding-right: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24px;
+
+    img {
+        width: 60px;
+        filter: brightness(0) saturate(100%) invert(12%) sepia(83%) saturate(6229%) hue-rotate(258deg) brightness(90%) contrast(101%);
+    }
+
+    span {
+        padding-top: 16px;
+        color: white;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+    }
+}

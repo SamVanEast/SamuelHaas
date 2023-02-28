@@ -1,0 +1,33 @@
+<div class="contact">
+    <div class="indentation indentation_customization">
+        <div class="contact_decription">
+            <span class="headline">Let’s talk business</span>
+            <span class="text">Now that you know a lot about me, let me know if you are interested to work with
+                me.</span>
+        </div>
+        <form class="contact_fomular" (submit)="sendMail()" #myForm ngNativeValidate>
+            <div class="contact_input" >
+                <span>Name</span>
+                <input type="text" name="name" #nameField required>
+            </div>
+            <div class="contact_input">
+                <span>Email</span>
+                <input type="email" name="emal" #emailField required>
+            </div>
+            <div class="contact_input">
+                <span>Message</span>
+                <textarea type="text" name="message" #messageField required></textarea>
+            </div>
+            <button #sendButton>LET’S GET STARTED</button>
+            
+            <!-- loading animation -->
+            <app-loading-animation class="loading_animation" *ngIf="animationStart"></app-loading-animation>
+            <!-- email has been sent screen -->
+            <div class="sent" *ngIf="emailHasBeenSent">
+                <span>
+                    Your email has been sent.
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

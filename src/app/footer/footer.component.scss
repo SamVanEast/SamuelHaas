@@ -1,0 +1,45 @@
+.footer {
+    width: 100vw;
+    max-width: 100%;
+    background-color: #181823;
+}
+
+.footer_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.footer_logo {
+    width: 84px;
+
+    &:hover {
+        cursor: pointer;
+        opacity: .6;
+    }
+}
+
+.social_media {
+    img {
+        padding-right: 20px;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .6;
+        }
+    }
+}
+
+.impressum {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #8491A0;
+
+    &:hover {
+        cursor: pointer;
+        opacity: .6;
+    }
+}

@@ -1,0 +1,48 @@
+.weclome_section {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    img {
+        max-width: 52%;
+        max-height: 90%;
+        z-index: 1;
+    }
+}
+
+.welcome {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 62%;
+    background-color: #181823;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 5%;
+
+    span {
+        width: 80%;
+        z-index: 2;
+        color: white;
+    }
+}
+
+.weclome_headline {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 65px;
+}
+
+.welcome_text {
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}

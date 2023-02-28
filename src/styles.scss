@@ -1,5 +1,16 @@
 body {
     margin: 0;
     font-family: 'Sen';
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.indentation {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}

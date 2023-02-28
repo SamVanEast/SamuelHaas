@@ -9,11 +9,27 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HeaderComponent } from './header/header.component';
+import { WeclomeSectionComponent } from './welcome-section/welcome-section.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { MySkillsComponent } from './my-skills/my-skills.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
+import { LoadingAnimationComponent } from './loading-animation/loading-animation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    WeclomeSectionComponent,
+    AboutMeComponent,
+    MySkillsComponent,
+    PortfolioComponent,
+    ContactComponent,
+    FooterComponent,
+    LoadingAnimationComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +37,9 @@ import { HeaderComponent } from './header/header.component';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

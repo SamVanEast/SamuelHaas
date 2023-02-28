@@ -1,0 +1,39 @@
+.about_me {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        padding-left: 5%;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    span {
+        width: 80%;
+    }
+
+    img {
+        width: 50%;
+        object-fit: cover;
+    }
+}
+
+.about_me_headline {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+}
+
+.about_me_text {
+    padding-top: 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
