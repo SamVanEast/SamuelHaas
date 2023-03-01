@@ -27,7 +27,7 @@ export class ContactComponent {
     this.disableForm(name, email, message, sendButton);
     this.formData(fd, name, email, message);
     this.animationStart = true;
-    // await this.sendEmail(fd);
+    await this.sendEmail(fd);
     this.showEmailHasBeenSentSrceen();
     this.deleteInputContent(name, email, message);
     this.enableForm(name, email, message, sendButton);

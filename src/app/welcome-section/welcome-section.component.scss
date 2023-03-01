@@ -46,3 +46,18 @@
     font-weight: 400;
     font-size: 18px;
 }
+
+.introAnimation {
+    animation: flyInFromLeft 1s ease-in-out;
+}
+
+@keyframes flyInFromLeft {
+
+    from {
+        transform: translateX(-200%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
