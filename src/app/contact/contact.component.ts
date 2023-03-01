@@ -2,6 +2,7 @@ import { ElementRef } from '@angular/core';
 import { Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { height } from './../../ts/gobalInformation';
 
 @Component({
   selector: 'app-contact',
@@ -16,6 +17,15 @@ export class ContactComponent {
   @ViewChild('sendButton') sendButton: ElementRef;
   animationStart: boolean = false;
   emailHasBeenSent:boolean = false;
+  @ViewChild('contact') contact;
+  heightComponents = height;
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      let height = this.contact.nativeElement.offsetHeight;
+      this.heightComponents['contact'] = height;
+    }, 50);
+  }
 
 
   async sendMail() {

@@ -1,4 +1,7 @@
+import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { height } from './../../ts/gobalInformation';
+
 
 @Component({
   selector: 'app-portfolio',
@@ -11,4 +14,13 @@ export class PortfolioComponent {
   public languages = ['HTML | CSS | JavaScript', 'HTML | CSS | JavaScript', 'HTML | CSS | JavaScript', 'HTML | CSS | JavaScript'];
   public description = ['The replica of the Lieferando order page.', 'A cooking site with delicious recipes.', 'Join is a very clear Kanban board to perfectly plan the day.', 'El pollo loco is a 2D game in which you have to beat chickens and their boss.'];
   public links = ['https://samuel-haas.developerakademie.net/%C3%9Cbungen%20Modul%207/Lieferando%20Bestellseite/index.html', 'https://gruppe-127.developerakademie.net/index.html', 'https://samuel-haas.developerakademie.net/Modul-10/Gruppenarbeit-join/index.html', 'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html'];
+  @ViewChild('portfolio') portfolio;
+  heightComponents = height;
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      let height = this.portfolio.nativeElement.offsetHeight;
+      this.heightComponents['portfolio'] = height;
+    }, 50);
+  }
 }
