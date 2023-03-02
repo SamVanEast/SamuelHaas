@@ -18,6 +18,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 import { LoadingAnimationComponent } from './loading-animation/loading-animation.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { LoadingAnimationComponent } from './loading-animation/loading-animation
     PortfolioComponent,
     ContactComponent,
     FooterComponent,
-    LoadingAnimationComponent
+    LoadingAnimationComponent,
+    HomepageComponent,
+    ImpressumComponent,
+    MenuMobileComponent
   ],
   imports: [
     BrowserModule,

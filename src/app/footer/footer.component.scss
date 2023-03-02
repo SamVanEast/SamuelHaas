@@ -24,6 +24,8 @@
 .social_media {
     img {
         padding-right: 20px;
+        width: 18px;
+        height: 18px;
 
         &:hover {
             cursor: pointer;
@@ -41,5 +43,40 @@
     &:hover {
         cursor: pointer;
         opacity: .6;
+    }
+}
+
+@media (max-width: 770px) {
+    .footer_div {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: unset;
+        padding-top: 24px;
+        padding-bottom: 72px;
+    }
+
+    .footer_logo {
+        &:hover {
+            cursor: unset;
+            opacity: unset;
+        }
+    }
+
+    .social_media {
+        padding: 28px 0 40px 0;
+
+        img {
+            &:hover {
+                cursor: unset;
+                opacity: usnet;
+            }
+        }
+    }
+
+    .impressum {
+        &:hover {
+            cursor: unset;
+            opacity: unset;
+        }
     }
 }

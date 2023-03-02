@@ -1,8 +1,9 @@
 import { ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { HostListener } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { Component } from '@angular/core';
-import { height } from './../../ts/gobalInformation';
+import { height, offsetTop, width } from './../../ts/gobalInformation';
 
 
 @Component({
@@ -11,15 +12,26 @@ import { height } from './../../ts/gobalInformation';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent {
-  // @ViewChild('aboutMe') aboutMe;
-  heightComponents = height;
-  constructor(private elementRef: ElementRef) {}
+  @ViewChild('aboutMeDecription') aboutMeDecription: ElementRef;
+  public showContent: boolean = false;
+  constructor(private elementRef: ElementRef) { }
+  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:load', ['$event'])
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      let height = this.elementRef.nativeElement.offsetHeight;
-      this.heightComponents['about_me'] = height;
-    }, 1000);
+  onLoad() {
+    this.onWindowScroll(event);
   }
 
+  onWindowScroll(event) {
+    if (width[0] > 770) {
+      let scrollPositionTop = window.pageYOffset;
+      let scrollPoitionBottom = scrollPositionTop + window.innerHeight;
+      if (offsetTop.aboutMe + (height.aboutMe / 2) < scrollPoitionBottom && offsetTop.aboutMe > 100) {
+        this.showContent = true;
+        this.aboutMeDecription.nativeElement.classList.add('introAnimationFromRight')
+      };
+    }else{
+      this.showContent = true;
+    }
+  };
 }

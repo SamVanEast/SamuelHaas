@@ -1,11 +1,11 @@
-<div class="contact" #contact>
+<div class="contact">
     <div class="indentation indentation_customization">
         <div class="contact_decription">
             <span class="headline">Let’s talk business</span>
             <span class="text">Now that you know a lot about me, let me know if you are interested to work with
                 me.</span>
         </div>
-        <form class="contact_fomular" (submit)="sendMail()" #myForm ngNativeValidate>
+        <form class="contact_fomular" (submit)="sendMail()" #myForm ngNativeValidate [style.visibility]="showContent ? 'visible' : 'hidden'">
             <div class="contact_input" >
                 <span>Name</span>
                 <input type="text" name="name" #nameField required>

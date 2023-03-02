@@ -1,8 +1,9 @@
 import { ElementRef } from '@angular/core';
 import { Input } from '@angular/core';
+import { HostListener } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
-import { height } from './../../ts/gobalInformation';
+import { height, offsetTop, width } from './../../ts/gobalInformation';
 
 @Component({
   selector: 'app-contact',
@@ -16,17 +17,29 @@ export class ContactComponent {
   @ViewChild('messageField') messageField: ElementRef;
   @ViewChild('sendButton') sendButton: ElementRef;
   animationStart: boolean = false;
-  emailHasBeenSent:boolean = false;
-  @ViewChild('contact') contact;
-  heightComponents = height;
+  emailHasBeenSent: boolean = false;
+  public showContent: boolean = false;
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      let height = this.contact.nativeElement.offsetHeight;
-      this.heightComponents['contact'] = height;
-    }, 50);
+  constructor(private elementRef: ElementRef) { }
+  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:load', ['$event'])
+
+  onLoad() {
+    this.onWindowScroll(event);
   }
 
+  onWindowScroll(event) {
+    if (width[0] > 770) {
+      let scrollPositionTop = window.pageYOffset;
+      let scrollPoitionBottom = scrollPositionTop + window.innerHeight;
+      if (offsetTop.contact + (height.contact / 3) < scrollPoitionBottom && offsetTop.contact > 100) {
+        this.showContent = true;
+        this.myForm.nativeElement.classList.add('introAnimationFromLeft')
+      };
+    }else{
+      this.showContent = true;
+    }
+  };
 
   async sendMail() {
     let name = this.nameField.nativeElement
@@ -51,9 +64,11 @@ export class ContactComponent {
   }
 
   formData(fd, name, email, message) {
+    let joinTogether = [name.value, email.value, message.value
+    ]
     fd.append('name', name.value);
     fd.append('email', email.value);
-    fd.append('message', message.value);
+    fd.append('message', joinTogether);
   }
 
   async sendEmail(fd) {
@@ -64,7 +79,7 @@ export class ContactComponent {
       });
   }
 
-  showEmailHasBeenSentSrceen(){
+  showEmailHasBeenSentSrceen() {
     this.animationStart = false;
     this.emailHasBeenSent = true;
     setTimeout(() => {

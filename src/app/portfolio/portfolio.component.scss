@@ -10,7 +10,7 @@ a{
 
 .portfolio_header{
     width: 100%;
-    padding: 2% 2% 2% 0;
+    padding: 2% 0% 2% 0;
     color: black;
     display: flex;
     flex-direction: column;
@@ -83,4 +83,49 @@ a{
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+}
+
+@media (max-width: 770px) {
+    .headline {
+        font-size: 32px;
+    }
+
+    .description{
+        padding-top: 12px;
+        font-size: 16px;
+    }
+
+    .projects {
+        flex-direction: column;
+        justify-content: unset;
+        flex-wrap: unset;
+    }
+
+    .project {
+        width: 100%;
+        flex-direction: column;
+        align-items: unset;
+    
+        img {
+            width: 100%;
+        }
+    
+        &:hover{
+            cursor: unset;
+            opacity: unset;
+        }
+    }
+
+    .project_headline {
+        padding-top: 24px;
+    }
+    
+    .project_languages {
+        padding-top: 16px;
+    }
+    
+    .project_description {
+        padding-top: 16px;
+        padding-bottom: 24px;
+    }
 }

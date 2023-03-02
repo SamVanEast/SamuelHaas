@@ -38,17 +38,29 @@
     font-size: 18px;
 }
 
-.introAnimation {
-    animation: flyInFromRight 1s ease-in-out;
-}
+@media (max-width: 770px) {
+    .about_me {
+        flex-direction: column;
+        justify-content: center;
+        align-items: unset;
 
-@keyframes flyInFromRight {
 
-    from {
-        transform: translateX(200%);
-    }
+        div {
+            width: 90%;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 46px;
+            padding-bottom: 49px;
+            height: unset;
+        }
 
-    to {
-        transform: translateX(0%);
+        span {
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
     }
 }

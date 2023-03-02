@@ -1,9 +1,9 @@
 <div class="about_me">
-    <div class="introAnimation">
-        <span class="about_me_headline">
+    <div #aboutMeDecription >
+        <span class="about_me_headline" [style.visibility]="showContent ? 'visible' : 'hidden'">
             About me
         </span>
-        <span class="about_me_text">
+        <span class="about_me_text" [style.visibility]="showContent ? 'visible' : 'hidden'">
             I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and
             experience with the universe. I try to grasp these things with my values: authenticity, creativity, &
             hospitality.

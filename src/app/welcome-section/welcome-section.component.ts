@@ -10,14 +10,7 @@ import { height } from './../../ts/gobalInformation';
   templateUrl: './welcome-section.component.html',
   styleUrls: ['./welcome-section.component.scss']
 })
-export class WeclomeSectionComponent implements AfterViewInit {
-  heightComponents = height;
-  constructor(private el:ElementRef){
+export class WeclomeSectionComponent {
+  constructor(private elementRef: ElementRef) { }
 
-  }
-
-  ngAfterViewInit() {
-    var width = this.el.nativeElement.offsetWidth;
-    this.heightComponents['welcome_section'] = width
-  }
 }

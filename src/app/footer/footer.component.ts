@@ -1,4 +1,5 @@
 import { ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { Component } from '@angular/core';
 import { height } from './../../ts/gobalInformation';
 
@@ -9,13 +10,5 @@ import { height } from './../../ts/gobalInformation';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  @ViewChild('footer') footer;
-  heightComponents = height;
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      let height = this.footer.nativeElement.offsetHeight;
-      this.heightComponents['footer'] = height;
-    }, 50);
-  }
+  constructor(private elementRef: ElementRef){}
 }

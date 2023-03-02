@@ -127,7 +127,7 @@
 }
 
 .sent {
-    z-index: 6;
+
     position: absolute;
     width: 75%;
     height: 100%;
@@ -160,5 +160,69 @@
 
     to {
         transform: scale(1);
+    }
+}
+
+@media (max-width: 770px) {
+    .contact {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .indentation_customization {
+        justify-content: unset;
+        flex-direction: column;
+    }
+
+    .contact_decription {
+        align-items: unset;
+        width: 100%;
+        padding-right: unset;
+        padding-bottom: 40px;
+    }
+
+    .headline {
+        font-size: 32px;
+    }
+
+    .text {
+        padding-top: 40px;
+    }
+
+    .contact_fomular {
+        position: relative;
+        width: 100%;
+
+        button {
+            width: 100%;
+            border: unset;
+
+            &:hover {
+                cursor: unset;
+                opacity: unset;
+            }
+        }
+    }
+
+    .contact_input {
+        width: 100%;
+
+        input {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+        }
+    }
+
+    .loading_animation {
+        width: 100%;
+        animation: zoomOut 225ms ease-in-out;
+    }
+
+    .sent {
+        z-index: 2;
+        width: 100%;
     }
 }

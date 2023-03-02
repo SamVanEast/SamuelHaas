@@ -1,20 +1,20 @@
-<div class="my_skills" #skills>
+<div class="my_skills">
     <div class="indentation indentation_customization">
-        <div class="my_skills_decription">
-            <span class="my_skills_description_headline">
+        <div class="my_skills_decription" #skillsDescription>
+            <span class="my_skills_description_headline" [style.visibility]="showContent ? 'visible' : 'hidden'">
                 Skillset
             </span>
-            <span class="my_skills_description_text">
+            <span class="my_skills_description_text" [style.visibility]="showContent ? 'visible' : 'hidden'">
                 I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and
                 experience with the universe. I try to grasp these things with my values: authenticity, creativity, &
                 hospitality.
             </span>
         </div>
-        <div class="skills">
-            <div class="skill" *ngFor="let icon of pathIcons; let i = index">
-                <img src="./../../assets/icons/{{ icon }}" alt="">
-                <span class="skill_description">{{ iconsDescription[i] }}</span>
-            </div>
+        <div class="skills" #skills>
+                <div class="skill" *ngFor="let icon of pathIcons; let i = index" [style.visibility]="showContent ? 'visible' : 'hidden'">
+                    <img src="./../../assets/icons/{{ icon }}" alt="">
+                    <span class="skill_description">{{ iconsDescription[i] }}</span>
+                </div>
         </div>
     </div>
 </div>

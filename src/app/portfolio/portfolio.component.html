@@ -1,6 +1,6 @@
-<div class="portfolio" #portfolio>
+<div class="portfolio">
     <div class="indentation">
-        <div class="portfolio_header">
+        <div class="portfolio_header" #portfolioHeader [style.visibility]="showHeader ? 'visible' : 'hidden'">
             <span class="headline">
                 Portfolio
             </span>
@@ -9,8 +9,9 @@
             </span>
         </div>
 
-        <div class="projects">
-            <a class="project" *ngFor="let project of imgs; let i = index" href="{{ links[i] }}" target="_blank" rel="noopener noreferrer">
+        <div class="projects" #projects>
+            <a class="project" *ngFor="let project of imgs; let i = index" href="{{ links[i] }}" target="_blank"
+                rel="noopener noreferrer" id="project{{ i }}" [style.visibility]="showContent ? 'visible' : 'hidden'">
                 <img src="./../../assets/img/{{ project }}" alt="">
                 <div class="project_headline">
                     {{ headline[i] }}

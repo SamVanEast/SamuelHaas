@@ -1,3 +1,5 @@
+$duratioAnimation: 750ms;
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,8 +15,42 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+a{
+    text-decoration: none;
+}
+
 .indentation {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.introAnimationFromRight {
+    animation: flyInFromRight $duratioAnimation ease-in-out;
+}
+
+@keyframes flyInFromRight {
+
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.introAnimationFromLeft {
+    animation: flyInFromLeft $duratioAnimation ease-in-out;
+}
+
+@keyframes flyInFromLeft {
+
+    from {
+        transform: translateX(-200%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
 }

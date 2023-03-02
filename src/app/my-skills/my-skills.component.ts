@@ -1,6 +1,8 @@
 import { ViewChild } from '@angular/core';
+import { HostListener } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { Component } from '@angular/core';
-import { height } from './../../ts/gobalInformation';
+import { height, offsetTop, width } from './../../ts/gobalInformation';
 
 
 @Component({
@@ -11,13 +13,31 @@ import { height } from './../../ts/gobalInformation';
 export class MySkillsComponent {
   pathIcons = ['angular.png', 'typescript.png', 'javascript.png', 'html.png', 'firebase.png', 'git.png', 'css.png', 'api.png', 'scrum.png', 'material-design.png'];
   iconsDescription = ['Angular', 'TypeScript', 'JavaScript', 'HTML', 'Firebase', 'GIT', 'CSS', 'Rest-Api', 'Scrum', 'Material Design'];
-  @ViewChild('skills') skills;
-  heightComponents = height;
+  @ViewChild('skillsDescription') skillsDescription: ElementRef;
+  @ViewChild('skills') skills: ElementRef;
+  public showContent: boolean = false;
+  constructor(private elementRef: ElementRef) { }
+  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:load', ['$event'])
+  
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      let height = this.skills.nativeElement.offsetHeight;
-      this.heightComponents['skills'] = height;
-    }, 50);
+  onLoad(){
+    this.onWindowScroll(event);
   }
+
+
+
+  onWindowScroll(event) {
+    if (width[0] > 770) {
+      let scrollPositionTop = window.pageYOffset;
+      let scrollPoitionBottom = scrollPositionTop + window.innerHeight;
+      if (offsetTop.skills + (height.skills / 2) < scrollPoitionBottom && offsetTop.skills > 100) {
+        this.showContent = true;
+        this.skillsDescription.nativeElement.classList.add('introAnimationFromLeft')
+        this.skills.nativeElement.classList.add('introAnimationFromRight')
+      };
+    }else{
+      this.showContent = true;
+    }
+  };
 }
