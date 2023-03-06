@@ -18,21 +18,34 @@ export class HeaderComponent {
   public showMenu: boolean = false;
   constructor(private router: Router, private elementRef: ElementRef) {
   }
-  @HostListener('window:scroll', ['$event'])
   @HostListener('window:load', ['$event'])
 
+  /**
+   * when the content is loaded, a function is executed
+  */
   onLoad() {
     this.onWindowScroll(event);
   }
 
+  @HostListener('window:scroll', ['$event'])
+
+  /**
+   * changes the background color in the menu when he is in the homepage component 
+   * @param event 
+   */
   onWindowScroll(event) {
-    if ((this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#skills' || this.router.url == '/#portfolio' || this.router.url == '/#contact')) {
+    if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#skills' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
       if (width[0] > 770) {
         this.checkSection();
       }
+    } else {
+      this.removeAllStyles();
     }
   };
 
+  /**
+   * depending on which area the user is in, the respective area in the header should get a different background color
+   */
   checkSection() {
     let scrollPositionTop = window.pageYOffset;
     if (scrollPositionTop + window.innerHeight / 2 > offsetTop.contact) {
@@ -48,32 +61,53 @@ export class HeaderComponent {
     }
   }
 
+  /**
+   * changes the route
+   */
   welcomeSection() {
     this.router.navigate([], { fragment: 'welcome' });
     this.removeAllStyles();
   }
 
+  /**
+   *changes the route
+   */
   aboutMeSection() {
     this.router.navigate([], { fragment: 'about-me' });
     this.removeAllStyles();
     this.aboutMe.nativeElement.style = 'background-color: #5221E6;';
   }
+
+  /**
+   * changes the route
+   */
   skillsSection() {
     this.router.navigate([], { fragment: 'skills' });
     this.removeAllStyles();
     this.skills.nativeElement.style = 'background-color: #5221E6;';
   }
+
+  /**
+   * changes the route
+   */
   portfolioSection() {
     this.router.navigate([], { fragment: 'portfolio' });
     this.removeAllStyles();
     this.portfolio.nativeElement.style = 'background-color: #5221E6;';
   }
+
+  /**
+   * changes the route
+   */
   contactSection() {
     this.router.navigate([], { fragment: 'contact' });
     this.removeAllStyles();
     this.contact.nativeElement.style = 'background-color: #5221E6;';
   }
 
+  /**
+   * delete all styles
+   */
   removeAllStyles() {
     this.aboutMe.nativeElement.style = '';
     this.skills.nativeElement.style = '';
@@ -81,6 +115,9 @@ export class HeaderComponent {
     this.contact.nativeElement.style = '';
   }
 
+  /**
+   * change value to open mobile menu
+   */
   openMenu() {
     this.showMenu = true;
   }

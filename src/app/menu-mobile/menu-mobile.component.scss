@@ -20,3 +20,18 @@
     color: white;
     font-size: 40px;
 }
+
+.openAnimation{
+    animation: openAnimation 500ms ease-in-out;
+}
+
+@keyframes openAnimation {
+
+    from {
+        transform: translateX(-200%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}

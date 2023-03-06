@@ -1,4 +1,4 @@
-a{
+a {
     text-decoration: none;
 }
 
@@ -8,7 +8,7 @@ a{
     max-width: 100%;
 }
 
-.portfolio_header{
+.portfolio_header {
     width: 100%;
     padding: 2% 0% 2% 0;
     color: black;
@@ -23,7 +23,7 @@ a{
     font-size: 55px;
 }
 
-.description{
+.description {
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -56,7 +56,7 @@ a{
         color: white;
     }
 
-    &:hover{
+    &:hover {
         cursor: pointer;
         opacity: .6;
     }
@@ -74,7 +74,7 @@ a{
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color:#5221E6 !important;
+    color: #5221E6 !important;
 }
 
 .project_description {
@@ -86,12 +86,16 @@ a{
 }
 
 @media (max-width: 770px) {
+    .portfolio_header {
+        padding: 31px 0 20px 0 ;
+    }
+
     .headline {
         font-size: 32px;
     }
 
-    .description{
-        padding-top: 12px;
+    .description {
+        padding-top: 20px;
         font-size: 16px;
     }
 
@@ -105,12 +109,12 @@ a{
         width: 100%;
         flex-direction: column;
         align-items: unset;
-    
+
         img {
             width: 100%;
         }
-    
-        &:hover{
+
+        &:hover {
             cursor: unset;
             opacity: unset;
         }
@@ -119,11 +123,11 @@ a{
     .project_headline {
         padding-top: 24px;
     }
-    
+
     .project_languages {
         padding-top: 16px;
     }
-    
+
     .project_description {
         padding-top: 16px;
         padding-bottom: 24px;

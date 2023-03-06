@@ -1,11 +1,15 @@
 .about_me {
+    position: relative;
+    min-height: 500px;
     width: 100vw;
     max-width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    padding: 40px 0 40px 0;
 
     div {
+        position: relative;
         padding-left: 5%;
         width: 50%;
         height: 100%;
@@ -20,9 +24,15 @@
     }
 
     img {
-        width: 50%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        height: 100%;
+        max-width: 50%;
         object-fit: cover;
     }
+
 }
 
 .about_me_headline {
@@ -43,15 +53,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: unset;
-
+        padding: unset;
+        padding-top: 31px;
 
         div {
             width: 90%;
             padding-left: 5%;
             padding-right: 5%;
-            padding-top: 46px;
-            padding-bottom: 49px;
             height: unset;
+            padding-bottom: 20px;
         }
 
         span {
@@ -59,8 +69,23 @@
         }
 
         img {
+            height: unset;
+            position: unset;
+            max-width: unset;
             width: 100%;
             object-fit: cover;
+            top: unset;
+            right: unset;
+            bottom: unset;
         }
+
+    }
+
+    .about_me_headline {
+        font-size: 32px;
+    }
+    
+    .about_me_text {
+        padding-top: 20px;
     }
 }

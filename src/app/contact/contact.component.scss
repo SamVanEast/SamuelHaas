@@ -165,8 +165,8 @@
 
 @media (max-width: 770px) {
     .contact {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 32px;
+        padding-bottom: 32px;
     }
 
     .indentation_customization {
@@ -186,7 +186,7 @@
     }
 
     .text {
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     .contact_fomular {
@@ -209,10 +209,12 @@
 
         input {
             width: 100%;
+            font-size: 20px;
         }
 
         textarea {
             width: 100%;
+            font-size: 15px;
         }
     }
 

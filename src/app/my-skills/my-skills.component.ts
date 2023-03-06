@@ -20,13 +20,17 @@ export class MySkillsComponent {
   @HostListener('window:scroll', ['$event'])
   @HostListener('window:load', ['$event'])
   
-
+  /**
+   * when the content is loaded, a function is executed
+   */
   onLoad(){
     this.onWindowScroll(event);
   }
 
-
-
+/**
+ * the animation starts when the user scrolls to the component and is not in responsive mode
+ * @param event 
+ */
   onWindowScroll(event) {
     if (width[0] > 770) {
       let scrollPositionTop = window.pageYOffset;

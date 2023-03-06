@@ -1,4 +1,4 @@
-<app-header class="header"></app-header>
+<app-header class="header" #header></app-header>
 <div class='indentation impressum'>
     <h1>Impressum</h1>
     <p>Angaben gemäß § 5 TMG</p>
@@ -112,3 +112,4 @@
 </div>
 
 <app-footer></app-footer>
+<app-menu-mobile class="menu_mobile" *ngIf="showMenu" (click)="closeMenu()" #menuMobile></app-menu-mobile>

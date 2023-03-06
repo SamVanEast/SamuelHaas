@@ -14,14 +14,22 @@ import { height, offsetTop, width } from './../../ts/gobalInformation';
 export class AboutMeComponent {
   @ViewChild('aboutMeDecription') aboutMeDecription: ElementRef;
   public showContent: boolean = false;
-  constructor(private elementRef: ElementRef) { }
-  @HostListener('window:scroll', ['$event'])
+  constructor(private elementRef: ElementRef) {
+   }
+  
   @HostListener('window:load', ['$event'])
-
-  onLoad() {
-    this.onWindowScroll(event);
+  /**
+   * when the content is loaded, it executes a function
+  */
+ onLoad() {
+   this.onWindowScroll(event);
   }
-
+  
+  @HostListener('window:scroll', ['$event'])
+  /**
+   * start the animation when the user scrolls to the component and is not in responsive mode
+   * @param event 
+   */
   onWindowScroll(event) {
     if (width[0] > 770) {
       let scrollPositionTop = window.pageYOffset;

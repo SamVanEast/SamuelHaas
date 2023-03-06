@@ -11,4 +11,11 @@ import { height } from './../../ts/gobalInformation';
 })
 export class FooterComponent {
   constructor(private elementRef: ElementRef){}
+
+  /**
+   * scroll to the top, when imprint is showing
+   */
+  scrollToTop(){
+    window.scrollTo(0, 0);
+  }
 }

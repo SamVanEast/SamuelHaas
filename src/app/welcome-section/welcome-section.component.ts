@@ -12,5 +12,4 @@ import { height } from './../../ts/gobalInformation';
 })
 export class WeclomeSectionComponent {
   constructor(private elementRef: ElementRef) { }
-
 }
