@@ -11,11 +11,11 @@ import { height, offsetTop, width } from './../../ts/gobalInformation';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent {
-  public imgs = ['screen-join.png', 'screen-el-pollo-loco.png', 'screen-ring-of-fire.png'];
-  public headline = ['Join', 'El pollo loco', 'Ring of Fire'];
-  public languages = ['HTML | CSS | JavaScript', 'HTML | CSS | JavaScript', 'HTML | CSS | TypeScript | Angular | Firebase'];
-  public description = ['Join is a very clear Kanban board to perfectly plan the day.', 'El pollo loco is a 2D game in which you have to beat chickens and their boss.', 'Ring of fire is a popular drinking game.'];
-  public links = ['https://samuel-haas.developerakademie.net/Modul-10/Gruppenarbeit-join/index.html', 'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html', 'https://ringoffire-beaf5.web.app/'];
+  public imgs = ['screen-slack-clone.jpg', 'screen-join.png', 'screen-el-pollo-loco.png'];
+  public headline = ['Salck Clone', 'Join', 'El pollo loco'];
+  public languages = ['HTML | CSS | TypeScript | Angular | Firebase', 'HTML | CSS | JavaScript', 'HTML | CSS | JavaScript'];
+  public description = ['Slack Clone is a messanger service.', 'Join is a very clear Kanban board to perfectly plan the day.', 'El pollo loco is a 2D game in which you have to beat chickens and their boss.'];
+  public links = ['https://slack-clone-5e282.web.app', 'https://samuel-haas.developerakademie.net/Modul-10/Gruppenarbeit-join/index.html', 'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html'];
   @ViewChild('portfolioHeader') portfolioHeader: ElementRef;
   @ViewChild('projects') projects: ElementRef;
   public showContent: boolean = false;
