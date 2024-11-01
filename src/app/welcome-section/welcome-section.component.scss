@@ -2,7 +2,7 @@
     width: 100vw;
     max-width: 100%;
     min-height: 100vh;
-    background-color: black;
+    background-color: #2B7A77;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -20,7 +20,7 @@
     padding-top: 95px;
     min-height: calc(100vh - 88px);
     width: 68%;
-    background-color: #181823;
+    background-color: #133B3F;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -44,7 +44,7 @@
     padding-top: 30px;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     padding-bottom: 40px;
 }
 
@@ -54,7 +54,7 @@
         padding-top: 88px;
         flex-direction: column;
         box-sizing: border-box;
-        background-color: #181823;
+        background-color: #133B3F;
 
 
         img {

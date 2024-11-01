@@ -71,7 +71,7 @@ export class MenuMobileComponent {
   aboutMeSection() {
     this.router.navigate([], { fragment: 'about-me' });
     this.removeAllStyles();
-    this.aboutMe.nativeElement.style = 'color: #5221E6;';
+    this.aboutMe.nativeElement.style = 'color: #F25F5C;';
   }
 
   /**
@@ -80,7 +80,7 @@ export class MenuMobileComponent {
   skillsSection() {
     this.router.navigate([], { fragment: 'skills' });
     this.removeAllStyles();
-    this.skills.nativeElement.style = 'color: #5221E6;';
+    this.skills.nativeElement.style = 'color: #F25F5C;';
   }
 
   /**
@@ -89,7 +89,7 @@ export class MenuMobileComponent {
   portfolioSection() {
     this.router.navigate([], { fragment: 'portfolio' });
     this.removeAllStyles();
-    this.portfolio.nativeElement.style = 'color: #5221E6;';
+    this.portfolio.nativeElement.style = 'color: #F25F5C;';
   }
 
   /**
@@ -98,7 +98,7 @@ export class MenuMobileComponent {
   contactSection() {
     this.router.navigate([], { fragment: 'contact' });
     this.removeAllStyles();
-    this.contact.nativeElement.style = 'color: #5221E6;';
+    this.contact.nativeElement.style = 'color: #F25F5C;';
   }
 
   /**

@@ -15,7 +15,7 @@ export class PortfolioComponent {
   public headline = ['Slack Clone', 'Join', 'El pollo loco'];
   public languages = ['HTML | CSS | TypeScript | Angular | Firebase', 'HTML | CSS | JavaScript', 'HTML | CSS | JavaScript'];
   public description = ['Slack Clone is a messanger service.', 'Join is a very clear Kanban board to perfectly plan the day.', 'El pollo loco is a 2D game in which you have to beat chickens and their boss.'];
-  public links = ['https://slack-clone-5e282.web.app', 'https://samuel-haas.developerakademie.net/Modul-10/Gruppenarbeit-join/index.html', 'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html'];
+  public links = ['https://slack-clone-5e282.web.app', 'https://michelbente.com/projects/join-main/join-main/index.html', 'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html'];
   @ViewChild('portfolioHeader') portfolioHeader: ElementRef;
   @ViewChild('projects') projects: ElementRef;
   public showContent: boolean = false;

@@ -10,8 +10,8 @@ a {
 
 .portfolio_header {
     width: 100%;
-    padding: 2% 0% 2% 0;
-    color: black;
+    margin: 2% 0% 2% 0;
+    color: #2B7A77;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -26,7 +26,7 @@ a {
 .description {
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .projects {
@@ -52,7 +52,7 @@ a {
         padding-left: 5%;
         padding-right: 5%;
         width: 100%;
-        background-color: black;
+        background-color: #2b7a77;
         color: white;
     }
 
@@ -74,7 +74,7 @@ a {
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #5221E6 !important;
+    color: #F25F5C !important;
 }
 
 .project_description {

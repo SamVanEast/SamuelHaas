@@ -1,7 +1,7 @@
 .contact {
     width: 100vw;
     max-width: 100%;
-    background-color: black;
+    background-color: #2B7A77;
     color: white;
     padding-top: 120px;
     padding-bottom: 138px;
@@ -30,7 +30,7 @@
     padding-top: 24px;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .contact_fomular {
@@ -44,7 +44,7 @@
     button {
         width: 73%;
         height: 75px;
-        background-color: #5221E6;
+        background-color: #F25F5C;
         color: white;
         display: flex;
         align-items: center;
@@ -53,6 +53,7 @@
         font-weight: 700;
         font-size: 18px;
         border-radius: 5px;
+        border-color: #F25F5C;
 
         &:hover {
             cursor: pointer;
@@ -79,8 +80,8 @@
     input {
         width: 73%;
         height: 50px;
-        background-color: #181823;
-        color: white;
+        background-color: white;
+        color: #2B7A77;
         border-top-style: hidden;
         border-right-style: hidden;
         border-left-style: hidden;
@@ -92,11 +93,21 @@
         padding-left: 2px;
     }
 
+    input:focus-visible {
+        outline: #F25F5C auto 1px;
+    }
+
+    input:-internal-autofill-selected {
+        background-image: none !important;
+        background-color: unset;
+        color: unset !important;
+    }
+
     textarea {
         width: 73%;
         height: 100px;
-        background-color: #181823;
-        color: white;
+        background-color: white;
+        color: #2B7A77;
         border-top-style: hidden;
         border-right-style: hidden;
         border-left-style: hidden;
@@ -113,6 +124,10 @@
 
     textarea::-webkit-scrollbar {
         display: none;
+    }
+
+    textarea:focus-visible {
+        outline: #F25F5C auto 1px;
     }
 }
 
