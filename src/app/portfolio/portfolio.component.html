@@ -1,13 +1,14 @@
 <div class="portfolio">
-    <div class="indentation">
-        <div class="portfolio_header" #portfolioHeader [style.visibility]="showHeader ? 'visible' : 'hidden'">
-            <span class="headline">
-                Portfolio
-            </span>
-            <span class="description">
-                This page is a sample of my work - please feel free to try them out.
-            </span>
-        </div>
+  <div class="indentation">
+    <div class="portfolio_header" #portfolioHeader [style.visibility]="showHeader ? 'visible' : 'hidden'">
+      <span class="headline">
+        Portfolio
+      </span>
+      <span class="description">
+        This page is a sample of my work – please feel free to try them out. I contributed to these products/projects as
+        a Frontend Developer.
+      </span>
+    </div>
 
         <div class="projects" #projects>
             <a class="project" *ngFor="let project of imgs; let i = index" href="{{ links[i] }}" target="_blank"

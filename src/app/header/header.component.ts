@@ -12,7 +12,7 @@ import { height, offsetTop, width } from 'src/ts/gobalInformation';
 })
 export class HeaderComponent {
   @ViewChild('aboutMe') aboutMe: ElementRef;
-  @ViewChild('skills') skills: ElementRef;
+  // @ViewChild('skills') skills: ElementRef;
   @ViewChild('portfolio') portfolio: ElementRef;
   @ViewChild('contact') contact: ElementRef;
   public showMenu: boolean = false;
@@ -30,13 +30,14 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
 
   /**
-   * changes the background color in the menu when he is in the homepage component 
-   * @param event 
+   * changes the background color in the menu when he is in the homepage component
+   * @param event
    */
   onWindowScroll(event) {
-    if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#skills' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
+    // if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#skills' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
+    if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
       if (width[0] > 770) {
-        this.checkSection();
+        // this.checkSection();
       }
     } else {
       this.removeAllStyles();
@@ -49,16 +50,18 @@ export class HeaderComponent {
   checkSection() {
     let scrollPositionTop = window.pageYOffset;
     if (scrollPositionTop + window.innerHeight / 2 > offsetTop.contact) {
+      console.log('scrollPositionTop', scrollPositionTop, 'offsetTop.contact', offsetTop.contact, 'window.innerHeight', window.innerHeight);
       this.contactSection();
     } else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.portfolio) {
       this.portfolioSection();
-    } else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.skills) {
-      this.skillsSection();
     } else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.aboutMe) {
       this.aboutMeSection();
     } else {
       this.welcomeSection();
     }
+    // else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.skills) {
+    //   this.skillsSection();
+    // }
   }
 
   /**
@@ -81,11 +84,11 @@ export class HeaderComponent {
   /**
    * changes the route
    */
-  skillsSection() {
-    this.router.navigate([], { fragment: 'skills' });
-    this.removeAllStyles();
-    this.skills.nativeElement.style = 'background-color: #F25F5C;';
-  }
+  // skillsSection() {
+  //   this.router.navigate([], { fragment: 'skills' });
+  //   this.removeAllStyles();
+  //   this.skills.nativeElement.style = 'background-color: #F25F5C;';
+  // }
 
   /**
    * changes the route
@@ -110,7 +113,7 @@ export class HeaderComponent {
    */
   removeAllStyles() {
     this.aboutMe.nativeElement.style = '';
-    this.skills.nativeElement.style = '';
+    // this.skills.nativeElement.style = '';
     this.portfolio.nativeElement.style = '';
     this.contact.nativeElement.style = '';
   }

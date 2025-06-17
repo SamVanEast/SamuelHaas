@@ -5,29 +5,37 @@
             <span class="text">Now that you know a lot about me, let me know if you are interested to work with
                 me.</span>
         </div>
-        <form class="contact_fomular" (submit)="sendMail()" #myForm ngNativeValidate [style.visibility]="showContent ? 'visible' : 'hidden'">
-            <div class="contact_input" >
-                <span>Name</span>
-                <input type="text" name="name" #nameField required>
-            </div>
-            <div class="contact_input">
-                <span>Email</span>
-                <input type="email" name="emal" #emailField required>
-            </div>
-            <div class="contact_input">
-                <span>Message</span>
-                <textarea type="text" name="message" #messageField required></textarea>
-            </div>
-            <button #sendButton>LET’S GET STARTED</button>
-            
-            <!-- loading animation -->
-            <app-loading-animation class="loading_animation" *ngIf="animationStart"></app-loading-animation>
-            <!-- email has been sent screen -->
-            <div class="sent" *ngIf="emailHasBeenSent">
-                <span>
-                    Your email has been sent.
-                </span>
-            </div>
-        </form>
+<!--        <form class="contact_fomular" (submit)="sendMail()" #myForm ngNativeValidate [style.visibility]="showContent ? 'visible' : 'hidden'">-->
+<!--            <div class="contact_input" >-->
+<!--                <span>Name</span>-->
+<!--                <input type="text" name="name" #nameField required>-->
+<!--            </div>-->
+<!--            <div class="contact_input">-->
+<!--                <span>Email</span>-->
+<!--                <input type="email" name="emal" #emailField required>-->
+<!--            </div>-->
+<!--            <div class="contact_input">-->
+<!--                <span>Message</span>-->
+<!--                <textarea type="text" name="message" #messageField required></textarea>-->
+<!--            </div>-->
+<!--            <button #sendButton>LET’S GET STARTED</button>-->
+<!--            -->
+<!--            &lt;!&ndash; loading animation &ndash;&gt;-->
+<!--            <app-loading-animation class="loading_animation" *ngIf="animationStart"></app-loading-animation>-->
+<!--            &lt;!&ndash; email has been sent screen &ndash;&gt;-->
+<!--            <div class="sent" *ngIf="emailHasBeenSent">-->
+<!--                <span>-->
+<!--                    Your email has been sent.-->
+<!--                </span>-->
+<!--            </div>-->
+<!--        </form>-->
+      <div class="contact-information">
+        <span class="contact-information-headline">Contact Information</span>
+        <div class="contact-information-content">
+          <span>Samuel Haas</span>
+          <span>info@samuel-haas.com</span>
+          <span>+49 1575 677 53 54</span>
+        </div>
+      </div>
     </div>
 </div>

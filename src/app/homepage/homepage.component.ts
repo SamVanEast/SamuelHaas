@@ -15,13 +15,14 @@ export class HomepageComponent {
   @ViewChild('header') header;
   @ViewChild('welcomeSection') welcomeSection: ElementRef;
   @ViewChild('aboutMe') aboutMe: ElementRef;
-  @ViewChild('skills') skills: ElementRef;
+  // @ViewChild('skills') skills: ElementRef;
   @ViewChild('portfolio') portfolio: ElementRef;
   @ViewChild('contact') contact: ElementRef;
   @ViewChild('footer') footer: ElementRef;
   @ViewChild('menuMobile') menuMobile;
   public showMenu: boolean = false;
-  ids = ['welcomeSection', 'aboutMe', 'skills', 'portfolio', 'contact', 'footer']
+  // ids = ['welcomeSection', 'aboutMe', 'skills', 'portfolio', 'contact', 'footer']
+  ids = ['welcomeSection', 'aboutMe', 'portfolio', 'contact', 'footer']
   viewChilds;
 
   constructor(private router: Router, private elementRef: ElementRef, private renderer: Renderer2) { }
@@ -56,7 +57,8 @@ export class HomepageComponent {
    * when the page is load, functions is executed
    */
   onLoad() {
-    this.viewChilds = [this.welcomeSection, this.aboutMe, this.skills, this.portfolio, this.contact, this.footer];
+    // this.viewChilds = [this.welcomeSection, this.aboutMe, this.skills, this.portfolio, this.contact, this.footer];
+    this.viewChilds = [this.welcomeSection, this.aboutMe, this.portfolio, this.contact, this.footer];
     this.getHeight();
     this.getWidth();
   }

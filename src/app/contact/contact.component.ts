@@ -7,11 +7,11 @@ import { height, offsetTop, width } from './../../ts/gobalInformation';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  @ViewChild('myForm') myForm: ElementRef;
-  @ViewChild('nameField') nameField: ElementRef;
-  @ViewChild('emailField') emailField: ElementRef;
-  @ViewChild('messageField') messageField: ElementRef;
-  @ViewChild('sendButton') sendButton: ElementRef;
+  // @ViewChild('myForm') myForm: ElementRef;
+  // @ViewChild('nameField') nameField: ElementRef;
+  // @ViewChild('emailField') emailField: ElementRef;
+  // @ViewChild('messageField') messageField: ElementRef;
+  // @ViewChild('sendButton') sendButton: ElementRef;
   animationStart: boolean = false;
   emailHasBeenSent: boolean = false;
   public showContent: boolean = false;
@@ -31,82 +31,82 @@ export class ContactComponent {
       let scrollPoitionBottom = scrollPositionTop + window.innerHeight;
       if (offsetTop.contact + (height.contact / 3) < scrollPoitionBottom && offsetTop.contact > 100) {
         this.showContent = true;
-        this.myForm.nativeElement.classList.add('introAnimationFromLeft')
+        // this.myForm.nativeElement.classList.add('introAnimationFromLeft')
       };
     } else {
       this.showContent = true;
     }
   };
 
-  async sendMail() {
-    let name = this.nameField.nativeElement;
-    let email = this.emailField.nativeElement;
-    let message = this.messageField.nativeElement;
-    let sendButton = this.sendButton.nativeElement;
-    let fd = new FormData();
-    this.disableForm(name, email, message, sendButton);
-    this.formData(fd, name, email, message);
-    this.animationStart = true;
-    await this.sendEmail(fd);
-    this.showEmailHasBeenSentSrceen();
-    this.deleteInputContent(name, email, message);
-    this.enableForm(name, email, message, sendButton);
-  }
+  // async sendMail() {
+  //   let name = this.nameField.nativeElement;
+  //   let email = this.emailField.nativeElement;
+  //   let message = this.messageField.nativeElement;
+  //   let sendButton = this.sendButton.nativeElement;
+  //   let fd = new FormData();
+  //   this.disableForm(name, email, message, sendButton);
+  //   this.formData(fd, name, email, message);
+  //   this.animationStart = true;
+  //   await this.sendEmail(fd);
+  //   this.showEmailHasBeenSentSrceen();
+  //   this.deleteInputContent(name, email, message);
+  //   this.enableForm(name, email, message, sendButton);
+  // }
 
-  disableForm(name, email, message, sendButton) {
-    name.disabled = true;
-    email.disabled = true;
-    message.disabled = true;
-    sendButton.disabled = true;
-  }
-
-  formData(fd, name, email, message) {
-    let joinTogether = [name.value, email.value, message.value];
-    fd.append('name', name.value);
-    fd.append('email', email.value);
-    fd.append('message', joinTogether);
-  }
-
-  async sendEmail(fd) {
-    try {
-      const response = await fetch('https://samuel-haas.developerakademie.net/send_mail/send_mail.php', {
-        method: 'POST',
-        body: fd,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error('Fehler beim Senden der Nachricht');
-      }
-
-      const data = await response.json();
-      console.log(data.message);
-
-    } catch (error) {
-      console.error('Fehler beim Senden der Nachricht:', error);
-    }
-  }
-
-  showEmailHasBeenSentSrceen() {
-    this.animationStart = false;
-    this.emailHasBeenSent = true;
-    setTimeout(() => {
-      this.emailHasBeenSent = false;
-    }, 2000);
-  }
-
-  deleteInputContent(name, email, message) {
-    name.value = '';
-    email.value = '';
-    message.value = '';
-  }
-
-  enableForm(name, email, message, sendButton) {
-    name.disabled = false;
-    email.disabled = false;
-    message.disabled = false;
-    sendButton.disabled = false;
-  }
+  // disableForm(name, email, message, sendButton) {
+  //   name.disabled = true;
+  //   email.disabled = true;
+  //   message.disabled = true;
+  //   sendButton.disabled = true;
+  // }
+  //
+  // formData(fd, name, email, message) {
+  //   let joinTogether = [name.value, email.value, message.value];
+  //   fd.append('name', name.value);
+  //   fd.append('email', email.value);
+  //   fd.append('message', joinTogether);
+  // }
+  //
+  // async sendEmail(fd) {
+  //   try {
+  //     const response = await fetch('https://samuel-haas.developerakademie.net/send_mail/send_mail.php', {
+  //       method: 'POST',
+  //       body: fd,
+  //       headers: {
+  //         'Accept': 'application/json'
+  //       }
+  //     });
+  //
+  //     if (!response.ok) {
+  //       throw new Error('Fehler beim Senden der Nachricht');
+  //     }
+  //
+  //     const data = await response.json();
+  //     console.log(data.message);
+  //
+  //   } catch (error) {
+  //     console.error('Fehler beim Senden der Nachricht:', error);
+  //   }
+  // }
+  //
+  // showEmailHasBeenSentSrceen() {
+  //   this.animationStart = false;
+  //   this.emailHasBeenSent = true;
+  //   setTimeout(() => {
+  //     this.emailHasBeenSent = false;
+  //   }, 2000);
+  // }
+  //
+  // deleteInputContent(name, email, message) {
+  //   name.value = '';
+  //   email.value = '';
+  //   message.value = '';
+  // }
+  //
+  // enableForm(name, email, message, sendButton) {
+  //   name.disabled = false;
+  //   email.disabled = false;
+  //   message.disabled = false;
+  //   sendButton.disabled = false;
+  // }
 }
