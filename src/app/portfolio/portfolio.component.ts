@@ -29,8 +29,8 @@ export class PortfolioComponent {
   ];
   public languages = [
     'Vue.js | TypeScript | HTML | SCSS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | Figma',
-    'Cordova | AngularJS | HTML | LESS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | neue Versionen im jeweiligen Store vorbereitet und veröffentlicht | Full Dependency Upgrade',
-    'Vue.Js | TypeScript | HTML | SCSS | verschiedene Bezahlmethode | C# | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | Full Dependency Upgrade | verschiede Kartenlesegeräte',
+    'Cordova | AngularJS | HTML | LESS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | New versions prepared and released in the respective store | Full Dependency Upgrade',
+    'Vue.Js | TypeScript | HTML | SCSS | various payment methods | C# | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | Full Dependency Upgrade',
     'HTML | CSS | TypeScript | Angular | Firebase | Figma | Github | REST-API',
     'HTML | CSS | JavaScript  | Figma | Github',
     'HTML | CSS | JavaScript | Figma | Github'
