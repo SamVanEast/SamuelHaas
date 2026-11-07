@@ -14,6 +14,7 @@
             </nav>
 
             <app-language-switch class="header_language" />
+            <app-theme-toggle />
 
             <button #menuButton type="button" class="menu_button" [attr.aria-label]="i18n.t().header.openMenu"
                 aria-controls="mobile-menu" [attr.aria-expanded]="menuOpen()" (click)="openMenu()">

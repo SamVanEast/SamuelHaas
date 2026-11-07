@@ -21,6 +21,7 @@ export interface Translations {
     openMenu: string;
     closeMenu: string;
     language: string;
+    darkMode: string;
   };
   welcome: { headline: string; text: string; portraitAlt: string };
   about: { headline: string; text: string; portraitAlt: string };

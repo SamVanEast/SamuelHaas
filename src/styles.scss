@@ -27,6 +27,47 @@
     --font-size-lead: clamp(16px, 0.85rem + 0.45vw, 20px);
 }
 
+// dark variant of the brand palette: darker petrol, same red accent, light teal for headings
+@mixin dark-theme {
+    color-scheme: dark;
+
+    --color-brand: #1d5653;
+    --color-brand-dark: #0f2a2c;
+    --color-accent: #F25F5C;
+    --color-accent-strong: #ff7b78;
+    --color-on-brand: #f1f7f6;
+    --color-page: #0b1b1c;
+    --color-surface: #132d2e;
+    --color-surface-muted: #173638;
+    --color-heading: #6cc5bf;
+    --color-text: #d9e6e5;
+    --color-text-brand: #b7d3d0;
+    --color-text-muted: #92abaa;
+    --color-footer: #071314;
+    --color-overlay: rgba(15, 42, 44, 0.94);
+    --color-underline: rgba(108, 197, 191, 0.45);
+}
+
+// explicit choice via the toggle (data-theme is set by ThemeService and the script in index.html) ...
+:root[data-theme='dark'] {
+    @include dark-theme;
+}
+
+// ... otherwise the operating system setting decides
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        @include dark-theme;
+    }
+}
+
+// short colour cross-fade while the theme is switched, see ThemeService
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+    transition: background-color 400ms ease, color 400ms ease, border-color 400ms ease, fill 400ms ease !important;
+}
+
 html {
     scrollbar-width: none;
 }
@@ -156,7 +197,9 @@ a {
     color: var(--color-text);
     font-size: 16px;
     line-height: 1.6;
-    overflow-wrap: anywhere;
+    // long German words (and e-mail addresses) wrap at syllables instead of overflowing on small screens
+    overflow-wrap: break-word;
+    hyphens: auto;
 
     h1 {
         margin: 0 0 8px;
@@ -218,7 +261,7 @@ a {
 @media (max-width: 770px) {
     .legal_text {
         h1 {
-            font-size: 32px;
+            font-size: 30px;
         }
 
         h2 {

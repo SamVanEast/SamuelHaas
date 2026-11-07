@@ -4,12 +4,13 @@ import { NAV_LINKS } from '../core/nav-links';
 import { LanguageService } from '../i18n/language.service';
 import { LanguageSwitchComponent } from '../language-switch/language-switch.component';
 import { MenuMobileComponent } from '../menu-mobile/menu-mobile.component';
+import { ThemeToggleComponent } from '../theme/theme-toggle.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [MenuMobileComponent, LanguageSwitchComponent],
+  imports: [MenuMobileComponent, LanguageSwitchComponent, ThemeToggleComponent],
 })
 export class HeaderComponent {
   protected readonly nav = inject(SectionNavigationService);

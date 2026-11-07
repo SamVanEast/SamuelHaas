@@ -18,6 +18,7 @@ export const EN: Translations = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     language: 'Language',
+    darkMode: 'Dark mode',
   },
   welcome: {
     headline: "I'm Samuel Haas. A frontend developer from Germany.",
