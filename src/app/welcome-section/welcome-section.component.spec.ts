@@ -22,8 +22,14 @@ describe('WelcomeSectionComponent', () => {
     expect(headline.textContent).toContain('Samuel Haas');
   });
 
-  it('should show the profile picture', () => {
+  it('should load the profile picture eagerly as responsive WebP', () => {
     const image: HTMLImageElement = fixture.nativeElement.querySelector('img');
-    expect(image.getAttribute('src')).toContain('assets/img/profil_imges/6.jpg');
+    expect(image.getAttribute('src')).toBe('assets/img/profile/welcome-960.webp');
+    expect(image.getAttribute('srcset')).toContain('welcome-480.webp 480w');
+    expect(image.getAttribute('srcset')).toContain('welcome-1920.webp 1920w');
+    expect(image.getAttribute('loading')).toBeNull();
+    expect(image.getAttribute('fetchpriority')).toBe('high');
+    expect(image.getAttribute('width')).toBe('1920');
+    expect(image.getAttribute('height')).toBe('1280');
   });
 });

@@ -40,6 +40,13 @@ describe('AppComponent', () => {
     expect(TestBed.inject(Title).getTitle()).toBe('Impressum – Samuel Haas');
   });
 
+  it('should show a not-found page for unknown URLs', async () => {
+    const harness = await RouterTestingHarness.create();
+    await harness.navigateByUrl('/gibt-es-nicht', LegalLayoutComponent);
+    expect(harness.routeNativeElement.querySelector('main app-not-found')).not.toBeNull();
+    expect(TestBed.inject(Title).getTitle()).toBe('Seite nicht gefunden – Samuel Haas');
+  });
+
   it('should show the privacy policy inside the legal layout on /datenschutz', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/datenschutz', LegalLayoutComponent);

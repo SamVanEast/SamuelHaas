@@ -14,7 +14,8 @@
     "test": "ng test",
     "test:ci": "ng test --watch=false",
     "test:coverage": "ng test --watch=false --coverage",
-    "deploy": "ng build && firebase deploy --only hosting"
+    "deploy": "ng build && firebase deploy --only hosting",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@angular/common": "^22.2.5",
@@ -32,6 +33,7 @@
     "@vitest/coverage-v8": "^5.1.0",
     "firebase-tools": "^15.35.0",
     "jsdom": "^31.0.0",
+    "sharp": "^0.35.5",
     "typescript": "~6.0.3",
     "vitest": "^5.1.0"
   }

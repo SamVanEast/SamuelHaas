@@ -44,6 +44,18 @@ describe('PortfolioComponent', () => {
     });
   });
 
+  it('should lazy-load responsive WebP project images with a fixed aspect ratio', () => {
+    const images = Array.from<HTMLImageElement>(fixture.nativeElement.querySelectorAll('a.project img'));
+    images.forEach((image, i) => {
+      const name = component.imgs[i];
+      expect(image.getAttribute('src')).toBe(`assets/img/projects/${name}-960.webp`);
+      expect(image.getAttribute('srcset')).toContain(`${name}-480.webp 480w`);
+      expect(image.getAttribute('loading')).toBe('lazy');
+      expect(Number(image.getAttribute('width'))).toBeGreaterThan(0);
+      expect(Number(image.getAttribute('height'))).toBeGreaterThan(0);
+    });
+  });
+
   it('should show everything immediately on small screens', () => {
     width[0] = 400;
 

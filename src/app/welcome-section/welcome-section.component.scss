@@ -9,6 +9,8 @@
 
     img {
         padding-top: 88px;
+        width: auto;
+        height: auto;
         max-width: 52%;
         max-height: 90%;
         z-index: 1;
@@ -61,6 +63,7 @@
             padding-top: unset;
             max-width: unset;
             width: 100%;
+            height: auto;
         }
     }
 

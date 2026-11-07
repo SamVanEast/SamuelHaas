@@ -1,6 +1,16 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { height, offsetTop, width } from '../../ts/globalInformation';
 
+/** Available WebP widths and the intrinsic size (of the 960px variant) per project image, see scripts/optimize-images.mjs. */
+const projectImages: Record<string, { widths: number[]; width: number; height: number }> = {
+  'bytecookie': { widths: [480, 960, 1440], width: 960, height: 479 },
+  'lunch-menu-app': { widths: [480, 960, 1440], width: 960, height: 306 },
+  'order-terminal': { widths: [480, 960], width: 960, height: 340 },
+  'slack-clone': { widths: [480, 960, 1440], width: 960, height: 640 },
+  'join': { widths: [480, 960, 1440], width: 960, height: 540 },
+  'el-pollo-loco': { widths: [480, 960, 1440], width: 960, height: 640 },
+};
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -9,13 +19,14 @@ import { height, offsetTop, width } from '../../ts/globalInformation';
 })
 export class PortfolioComponent {
   public imgs = [
-    'byteCookie.png',
-    'lunch-menu-app.png',
-    'order-terminal.png',
-    'screen-slack-clone.jpg',
-    'screen-join.png',
-    'screen-el-pollo-loco.png'
+    'bytecookie',
+    'lunch-menu-app',
+    'order-terminal',
+    'slack-clone',
+    'join',
+    'el-pollo-loco'
   ];
+  public readonly projectImages = projectImages;
   public headline = [
     'ByteCookie',
     'Lunch menu app',
@@ -47,6 +58,13 @@ export class PortfolioComponent {
     'https://michelbente.com/projects/join-main/join-main/index.html',
     'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html'
   ];
+  /**
+   * builds the srcset of a project image from its generated WebP widths
+   */
+  srcset(image: string): string {
+    return projectImages[image].widths.map(w => `assets/img/projects/${image}-${w}.webp ${w}w`).join(', ');
+  }
+
   @ViewChild('portfolioHeader') portfolioHeader: ElementRef;
   public showContent: boolean = false;
   public showHeader: boolean = false;
