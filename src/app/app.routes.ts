@@ -15,7 +15,8 @@ export const routes: Routes = [
     children: [
       { path: 'impressum', component: ImpressumComponent, title: 'imprint' satisfies PageTitleKey },
       { path: 'datenschutz', component: DatenschutzComponent, title: 'privacy' satisfies PageTitleKey },
-      { path: '**', component: NotFoundComponent, title: 'notFound' satisfies PageTitleKey },
+      // Firebase answers unknown paths with index.html (status 200), so the page itself keeps them out of search results
+      { path: '**', component: NotFoundComponent, title: 'notFound' satisfies PageTitleKey, data: { noindex: true } },
     ],
   },
 ];

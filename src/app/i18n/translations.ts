@@ -14,7 +14,10 @@ export interface ProjectText {
 /** All texts of the website that change with the language. */
 export interface Translations {
   skipToContent: string;
+  /** The home title doubles as the title of link previews, see SeoService. */
   pageTitles: Record<PageTitleKey, string>;
+  /** Description for search results and link previews, see SeoService. */
+  metaDescription: string;
   nav: Record<Exclude<SectionId, 'welcome'>, string>;
   header: {
     mainNavigation: string;

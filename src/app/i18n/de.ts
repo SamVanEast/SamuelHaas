@@ -3,11 +3,12 @@ import { Translations } from './translations';
 export const DE: Translations = {
   skipToContent: 'Zum Inhalt springen',
   pageTitles: {
-    home: 'Samuel Haas',
+    home: 'Samuel Haas | Softwareentwickler und Mechatroniker aus Balingen',
     imprint: 'Impressum',
     privacy: 'Datenschutzerklärung',
     notFound: 'Seite nicht gefunden',
   },
+  metaDescription: 'Samuel Haas, Softwareentwickler und Mechatroniker aus Balingen. Software für Web und Mobile und Unterstützung überall dort, wo Software auf Maschinen und Steuerungen trifft.',
   nav: {
     'about-me': 'Über mich',
     'portfolio': 'Portfolio',

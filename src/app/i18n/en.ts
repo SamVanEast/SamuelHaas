@@ -3,11 +3,12 @@ import { Translations } from './translations';
 export const EN: Translations = {
   skipToContent: 'Skip to content',
   pageTitles: {
-    home: 'Samuel Haas',
+    home: 'Samuel Haas | Software developer and mechatronics technician',
     imprint: 'Legal notice',
     privacy: 'Privacy policy',
     notFound: 'Page not found',
   },
+  metaDescription: 'Samuel Haas, software developer and mechatronics technician from Balingen, Germany. Software for web and mobile and support wherever software meets machines and controls.',
   nav: {
     'about-me': 'About me',
     'portfolio': 'Portfolio',

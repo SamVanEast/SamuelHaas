@@ -40,3 +40,39 @@ for (const folder of Object.keys(widths)) {
     }
   }
 }
+
+/**
+ * Preview image for links shared on LinkedIn, WhatsApp & co. (Open Graph, 1200x630).
+ * JPEG, because not every platform shows WebP previews.
+ */
+const og = { width: 1200, height: 630 };
+const logoWidth = 440;
+const logo = await sharp(join(targetDir, 'logos', 'logo-name-white.svg'), { density: 300 })
+  .resize({ width: logoWidth })
+  .toBuffer();
+const { height: logoHeight } = await sharp(logo).metadata();
+const shade = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${og.width}" height="${og.height}">
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#133B3F" stop-opacity="0.96"/>
+      <stop offset="0.38" stop-color="#133B3F" stop-opacity="0.88"/>
+      <stop offset="0.62" stop-color="#133B3F" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#shade)"/>
+  <rect y="${og.height - 12}" width="100%" height="12" fill="#F25F5C"/>
+</svg>`);
+const ogTarget = join(targetDir, 'social', 'og-image.jpg');
+await mkdir(dirname(ogTarget), { recursive: true });
+await sharp(join(sourceDir, 'profile', 'welcome.jpg'))
+  .rotate()
+  // the photo is 3:2; cut less above the head than below the arms
+  .resize({ width: og.width })
+  .extract({ left: 0, top: 40, ...og })
+  .composite([
+    { input: shade },
+    { input: logo, left: 72, top: Math.round((og.height - logoHeight) / 2) },
+  ])
+  .jpeg({ quality: 82, mozjpeg: true })
+  .toFile(ogTarget);
+console.log(`social/og-image.jpg  ${og.width}x${og.height}  ${Math.round((await stat(ogTarget)).size / 1024)} kB`);

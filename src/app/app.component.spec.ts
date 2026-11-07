@@ -49,7 +49,7 @@ describe('AppComponent', () => {
     const harness = await RouterTestingHarness.create();
     const component = await harness.navigateByUrl('/', HomepageComponent);
     expect(component).toBeInstanceOf(HomepageComponent);
-    expect(title()).toBe('Samuel Haas');
+    expect(title()).toBe('Samuel Haas | Softwareentwickler und Mechatroniker aus Balingen');
   });
 
   it('should show the imprint inside the legal layout on /impressum', async () => {
