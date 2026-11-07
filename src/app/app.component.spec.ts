@@ -62,21 +62,21 @@ describe('AppComponent', () => {
   it('should show the imprint inside the legal layout on /impressum', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/impressum', LegalLayoutComponent);
-    expect(harness.routeNativeElement.querySelector('main app-impressum')).not.toBeNull();
+    expect(harness.routeNativeElement?.querySelector('main app-impressum')).not.toBeNull();
     expect(title()).toBe('Impressum | Samuel Haas');
   });
 
   it('should show the privacy policy inside the legal layout on /datenschutz', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/datenschutz', LegalLayoutComponent);
-    expect(harness.routeNativeElement.querySelector('main app-datenschutz')).not.toBeNull();
+    expect(harness.routeNativeElement?.querySelector('main app-datenschutz')).not.toBeNull();
     expect(title()).toBe('Datenschutzerklärung | Samuel Haas');
   });
 
   it('should show a not-found page for unknown URLs', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/gibt-es-nicht', LegalLayoutComponent);
-    expect(harness.routeNativeElement.querySelector('main app-not-found')).not.toBeNull();
+    expect(harness.routeNativeElement?.querySelector('main app-not-found')).not.toBeNull();
     expect(title()).toBe('Seite nicht gefunden | Samuel Haas');
   });
 

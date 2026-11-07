@@ -43,7 +43,7 @@ describe('PortfolioComponent', () => {
   it('should show the project texts in the chosen language', async () => {
     useLanguage('de');
     await fixture.whenStable();
-    expect(cards()[1].querySelector('h3').textContent).toBe(DE.portfolio.projects[PROJECTS[1].id].title);
+    expect(cards()[1].querySelector('h3')?.textContent).toBe(DE.portfolio.projects[PROJECTS[1].id].title);
     expect(fixture.nativeElement.querySelector('.description').textContent).toBe(DE.portfolio.description);
   });
 
@@ -54,14 +54,14 @@ describe('PortfolioComponent', () => {
       expect(card.getAttribute('href')).toBe(PROJECTS[i].link);
       expect(card.getAttribute('target')).toBe('_blank');
       expect(card.getAttribute('rel')).toBe('noopener noreferrer');
-      expect(card.querySelector('h3').textContent).toBe(texts.title);
-      expect(card.querySelector('img').alt).toBe(texts.title);
+      expect(card.querySelector('h3')?.textContent).toBe(texts.title);
+      expect(card.querySelector('img')?.alt).toBe(texts.title);
     });
   });
 
   it('should lazy-load responsive WebP project images with a fixed aspect ratio', () => {
     cards().forEach((card, i) => {
-      const image = card.querySelector('img');
+      const image = card.querySelector('img')!;
       const project = PROJECTS[i];
       expect(image.getAttribute('src')).toBe(`assets/img/projects/${project.id}-960.webp`);
       expect(image.getAttribute('srcset')).toBe(

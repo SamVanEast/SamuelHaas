@@ -23,7 +23,7 @@ describe('FooterComponent', () => {
 
   afterEach(() => vi.restoreAllMocks());
 
-  function legalLinks(): string[][] {
+  function legalLinks(): (string | null)[][] {
     const links = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('.legal_link'));
     return links.map(link => [link.textContent.trim(), link.getAttribute('href')]);
   }

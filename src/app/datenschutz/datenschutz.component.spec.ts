@@ -20,8 +20,8 @@ describe('DatenschutzComponent', () => {
   it('should show a dated privacy policy marked as German', () => {
     const article: HTMLElement = fixture.nativeElement.querySelector('article');
     expect(article.getAttribute('lang')).toBe('de');
-    expect(article.querySelector('h1').textContent).toBe('Datenschutzerklärung');
-    expect(article.querySelector('.legal_meta').textContent).toMatch(/^Stand: /);
+    expect(article.querySelector('h1')?.textContent).toBe('Datenschutzerklärung');
+    expect(article.querySelector('.legal_meta')?.textContent).toMatch(/^Stand: /);
   });
 
   it('should name the controller with the current contact details', () => {
