@@ -70,15 +70,21 @@
     display: none;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    margin-right: -12px;
+    width: 44px;
+    height: 44px;
+    margin-right: -10px;
     padding: 0;
     border: none;
-    border-radius: 8px;
+    border-radius: 50%;
     background: transparent;
     color: var(--color-on-brand);
     cursor: pointer;
+    transition: background-color 200ms ease;
+
+    // touch feedback, also on devices without hover
+    &:active {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
 }
 
 @media (hover: hover) {
@@ -88,6 +94,11 @@
 
     .menu_tab:hover {
         background-color: var(--color-accent);
+    }
+
+    // same round highlight as the dark mode toggle
+    .menu_button:hover {
+        background-color: rgba(255, 255, 255, 0.15);
     }
 }
 
