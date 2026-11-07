@@ -43,12 +43,12 @@ export const EN: Translations = {
       'quantrefy': {
         title: 'Quantrefy',
         technologies: 'Vue.js | TypeScript | Tailwind CSS | AG Grid | AG Charts | Vitest | Visual Tests | Figma | Jira | Confluence | Backend: C# / .NET Aspire',
-        description: 'Since February 2026 I have been working on a web application for Quantrefy, among other things on tables and charts with AG Grid and AG Charts.',
+        description: 'Since February 2026 I have been working on a web application for Quantrefy as part of the development team, among other things on tables and charts with AG Grid and AG Charts.',
       },
       'bytecookie': {
         title: 'ByteCookie',
         technologies: 'Vue.js | TypeScript | HTML | SCSS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | Figma | Backend: Java',
-        description: 'A cooperative marketplace for IT freelancers from Frankfurt am Main, where clients get suitable freelancers recommended by a network of experts. I have been part of the development there as a freelancer since early 2025.',
+        description: 'A cooperative marketplace for IT freelancers from Frankfurt am Main, where clients get suitable freelancers recommended by a network of experts. Since early 2025 I have been working there as a freelancer in the development team.',
       },
       'lunch-menu-app': {
         title: 'Lunch menu app',
