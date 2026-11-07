@@ -23,7 +23,7 @@ export const EN: Translations = {
   },
   welcome: {
     headline: "I'm Samuel Haas. Software developer and mechatronics technician from Germany.",
-    text: 'My education took me from mechatronics to software development. Today I develop software for web and mobile, and with my knowledge as a mechatronics technician I support wherever software meets machines and controls.',
+    text: 'I come from industry and today I develop software for web and mobile. With my knowledge as a mechatronics technician I support wherever software meets machines and controls.',
     portraitAlt: 'Portrait of Samuel Haas',
   },
   about: {
