@@ -1,4 +1,4 @@
-# Samuel Haas – Website
+# Samuel Haas Website
 
 Source code of [samuel-haas.com](https://samuel-haas.com), built with Angular 22 (standalone components, zoneless, signals) and hosted on Firebase Hosting.
 

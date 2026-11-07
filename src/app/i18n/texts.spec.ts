@@ -22,9 +22,23 @@ describe('website texts', () => {
     }
   });
 
-  it('should not promise "everything from one source" or sound high-flown', () => {
+  it('should not use dashes between sentence parts, they read like generated text', () => {
     for (const text of [...allTexts(DE), ...allTexts(EN)]) {
-      expect(text).not.toMatch(/aus einer Hand|from one person|Wissen weitergegeben|passed on what I know|wenn ein Projekt es braucht|if a project needs it/i);
+      expect(text).not.toMatch(/[–—]| - /);
+    }
+  });
+
+  it('should avoid wording the user rejected as weak or high-flown', () => {
+    const rejected = [
+      /aus einer Hand|from one person/i,
+      /Wissen weitergegeben|passed on what I know|beigebracht, was ich selbst gelernt|taught others what I had learned/i,
+      /wenn ein Projekt es braucht|if a project needs it|ab und zu|every now and then/i,
+      /gehören für mich zusammen|belong together/i,
+      /kann ich Sie|I can support/i,
+      /unterstütze auch Projekte|also support projects/i,
+    ];
+    for (const text of [...allTexts(DE), ...allTexts(EN)]) {
+      rejected.forEach(pattern => expect(text).not.toMatch(pattern));
     }
   });
 });

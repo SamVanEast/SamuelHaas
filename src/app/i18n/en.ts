@@ -23,22 +23,22 @@ export const EN: Translations = {
   },
   welcome: {
     headline: "I'm Samuel Haas. Software developer and mechatronics technician from Germany.",
-    text: 'Mechatronics and software – who would have thought that my educational journey would take me here. Today I develop software for web and mobile and also support projects where machines, controls and software work together.',
+    text: 'Who would have thought that my education would one day take me from mechatronics to software development. Today I develop software for web and mobile, and with my knowledge as a mechatronics technician I support wherever software meets machines and controls.',
     portraitAlt: 'Portrait of Samuel Haas',
   },
   about: {
     headline: 'About me',
     text: [
-      'Hello, my name is Samuel Haas. I got into technology at school through Jugend forscht, a German science competition. The small research project went so well that I then made electronics and mechanics the subject of my apprenticeship at a medium-sized company in the region. After more than three years of industrial systems, controls and programming, my programming skills were not enough anymore – I wanted more.',
+      'Hello, my name is Samuel Haas. I got into technology at school through Jugend forscht, a German science competition. The small research project went so well that I then made electronics and mechanics the subject of my apprenticeship at a medium-sized company in the region. After more than three years of industrial systems, controls and programming, my programming skills were not enough anymore. I wanted more.',
       'First I taught myself with books, then I did the further education course to become a frontend developer at the Developer Akademie. After that I worked as a software developer at kamasys (today menio) for a year, on apps and ordering terminals for canteens.',
-      'Since 2024 I have been self-employed and develop software for my clients – currently for ByteCookie and Quantrefy, among others. On the web I prefer Vue.js and TypeScript, and every now and then there is an Angular project too. In between I also worked as an IT trainer and taught others what I had learned myself. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
-      'For me, mechatronics and software belong together. I know machines, controls and sensors from practice, and I develop software every day. When a project needs both, I can support you in both areas.',
+      'Since 2024 I have been self-employed and develop software for my clients, currently for ByteCookie and Quantrefy, among others. On the web I prefer working with Vue.js, TypeScript and Angular. In between I also worked as an IT trainer and gave training courses on Git, Angular and CSS. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
+      'I know machines, controls and sensors from practice. When your software has to work together with this kind of technology, I support you with both.',
     ],
     portraitAlt: 'Portrait of Samuel Haas',
   },
   portfolio: {
     headline: 'Portfolio',
-    description: 'A selection of projects I worked on as a developer – just click on them and try them out.',
+    description: 'A selection of projects I worked on as a developer. Just click on them and try them out.',
     projects: {
       'quantrefy': {
         title: 'Quantrefy',
@@ -79,7 +79,7 @@ export const EN: Translations = {
   },
   contact: {
     headline: 'Let’s talk business',
-    text: 'Now you know a lot about me. If you need support with software development, also in projects where machines and software work together, send me an email or give me a call. I am available for new projects from April 2027.',
+    text: 'Now you know a lot about me. If you need support with software development or your software has to work together with machines and controls, send me an email or give me a call. I am available for new projects from April 2027.',
     infoHeadline: 'Contact information',
   },
   footer: {

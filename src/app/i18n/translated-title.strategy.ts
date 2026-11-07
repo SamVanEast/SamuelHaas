@@ -28,6 +28,6 @@ export class TranslatedTitleStrategy extends TitleStrategy {
     this.snapshot = snapshot;
     const key = this.buildTitle(snapshot) as PageTitleKey | undefined;
     const texts = this.i18n.t();
-    this.title.setTitle(key && key !== 'home' ? `${texts.pageTitles[key]} – Samuel Haas` : texts.pageTitles.home);
+    this.title.setTitle(key && key !== 'home' ? `${texts.pageTitles[key]} | Samuel Haas` : texts.pageTitles.home);
   }
 }

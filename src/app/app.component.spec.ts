@@ -56,21 +56,21 @@ describe('AppComponent', () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/impressum', LegalLayoutComponent);
     expect(harness.routeNativeElement.querySelector('main app-impressum')).not.toBeNull();
-    expect(title()).toBe('Impressum – Samuel Haas');
+    expect(title()).toBe('Impressum | Samuel Haas');
   });
 
   it('should show the privacy policy inside the legal layout on /datenschutz', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/datenschutz', LegalLayoutComponent);
     expect(harness.routeNativeElement.querySelector('main app-datenschutz')).not.toBeNull();
-    expect(title()).toBe('Datenschutzerklärung – Samuel Haas');
+    expect(title()).toBe('Datenschutzerklärung | Samuel Haas');
   });
 
   it('should show a not-found page for unknown URLs', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/gibt-es-nicht', LegalLayoutComponent);
     expect(harness.routeNativeElement.querySelector('main app-not-found')).not.toBeNull();
-    expect(title()).toBe('Seite nicht gefunden – Samuel Haas');
+    expect(title()).toBe('Seite nicht gefunden | Samuel Haas');
   });
 
   it('should translate the tab title as soon as the language changes', async () => {
@@ -80,6 +80,6 @@ describe('AppComponent', () => {
     useLanguage('en');
     TestBed.tick();
 
-    expect(title()).toBe('Privacy policy – Samuel Haas');
+    expect(title()).toBe('Privacy policy | Samuel Haas');
   });
 });
