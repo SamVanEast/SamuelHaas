@@ -23,7 +23,7 @@ export const DE: Translations = {
   },
   welcome: {
     headline: 'Ich bin Samuel Haas. Softwareentwickler und Mechatroniker aus Balingen.',
-    text: 'Wer hätte gedacht, dass mich mein Bildungsweg einmal von der Mechatronik in die Softwareentwicklung führt. Heute entwickle ich Software für Web und Mobile, und mit meinem Wissen als Mechatroniker unterstütze ich überall dort, wo Software auf Maschinen und Steuerungen trifft.',
+    text: 'Mein Bildungsweg hat mich von der Mechatronik in die Softwareentwicklung geführt. Heute entwickle ich Software für Web und Mobile, und mit meinem Wissen als Mechatroniker unterstütze ich überall dort, wo Software auf Maschinen und Steuerungen trifft.',
     portraitAlt: 'Porträt von Samuel Haas',
   },
   about: {

@@ -36,6 +36,7 @@ describe('website texts', () => {
       /gehören für mich zusammen|belong together/i,
       /kann ich Sie|I can support/i,
       /unterstütze auch Projekte|also support projects/i,
+      /wer hätte gedacht|who would have thought/i,
     ];
     for (const text of [...allTexts(DE), ...allTexts(EN)]) {
       rejected.forEach(pattern => expect(text).not.toMatch(pattern));
