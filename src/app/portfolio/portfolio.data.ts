@@ -21,14 +21,14 @@ export const PROJECTS: Project[] = [
     image: { widths: [480, 960, 1440], width: 960, height: 479 },
   },
   {
-    id: 'lunch-menu-app',
-    link: 'https://www.kamasys.de/index.php/portfolio/mittagstisch/#',
-    image: { widths: [480, 960, 1440], width: 960, height: 306 },
-  },
-  {
     id: 'order-terminal',
     link: 'https://www.kamasys.de/index.php/portfolio/kassensysteme-selbstbedienung/',
     image: { widths: [480, 960], width: 960, height: 340 },
+  },
+  {
+    id: 'lunch-menu-app',
+    link: 'https://www.kamasys.de/index.php/portfolio/mittagstisch/#',
+    image: { widths: [480, 960, 1440], width: 960, height: 306 },
   },
   {
     id: 'slack-clone',

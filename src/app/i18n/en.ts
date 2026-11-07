@@ -23,7 +23,7 @@ export const EN: Translations = {
   },
   welcome: {
     headline: "I'm Samuel Haas. A freelance frontend developer from Germany.",
-    text: 'HTML, CSS, JavaScript, TypeScript – who would have thought that my educational journey would take me here. I trained as a mechatronics technician, today I build web applications and apps with Angular and Vue.js as a freelancer. And I still learn something new every day.',
+    text: 'HTML, CSS, JavaScript, TypeScript – who would have thought that my educational journey would take me here. I trained as a mechatronics technician, today I build web applications and apps as a freelancer, preferably with Vue.js. And I still learn something new every day.',
     portraitAlt: 'Portrait of Samuel Haas',
   },
   about: {
@@ -31,7 +31,7 @@ export const EN: Translations = {
     text: [
       'Hello, my name is Samuel Haas. I got into technology at school through Jugend forscht, a German science competition. The small research project went so well that I then made electronics and mechanics the subject of my apprenticeship at a medium-sized company in the region. After more than three years of industrial systems, controls and programming, my programming skills were not enough anymore – I wanted more.',
       'First I taught myself with books, then I did the further education course to become a frontend developer at the Developer Akademie. After that I worked as a software developer at kamasys for a year, on apps and ordering terminals for the catering industry.',
-      'Since 2024 I have been self-employed and work in frontend teams, mostly with Vue.js, Angular and TypeScript – currently at ByteCookie and Quantrefy, among others. In between I also worked as an IT trainer and passed on what I know. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
+      'Since 2024 I have been self-employed and work in frontend teams, mostly with Vue.js and TypeScript – currently at ByteCookie and Quantrefy, among others. If a project needs it, I also work with Angular. In between I also worked as an IT trainer and passed on what I know. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
     ],
     portraitAlt: 'Portrait of Samuel Haas',
   },

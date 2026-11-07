@@ -22,6 +22,12 @@ describe('WelcomeSectionComponent', () => {
     expect(headline.textContent).toContain('Samuel Haas');
   });
 
+  it('should name Vue.js as the preferred framework', () => {
+    const text: string = fixture.nativeElement.querySelector('.welcome_text').textContent;
+    expect(text).toContain('Vue.js');
+    expect(text).not.toContain('Angular');
+  });
+
   it('should load the profile picture eagerly as responsive WebP', () => {
     const image: HTMLImageElement = fixture.nativeElement.querySelector('img');
     expect(image.getAttribute('src')).toBe('assets/img/profile/welcome-960.webp');

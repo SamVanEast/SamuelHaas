@@ -30,10 +30,16 @@ describe('PortfolioComponent', () => {
     });
   });
 
+  it('should list the Vue.js projects first', () => {
+    const technologies = PROJECTS.map(project => EN.portfolio.projects[project.id].technologies);
+    expect(technologies[0]).toContain('Vue.js');
+    expect(technologies[1]).toContain('Vue.js');
+  });
+
   it('should show the project texts in the chosen language', async () => {
     useLanguage('de');
     await fixture.whenStable();
-    expect(cards()[1].querySelector('h3').textContent).toBe(DE.portfolio.projects['lunch-menu-app'].title);
+    expect(cards()[1].querySelector('h3').textContent).toBe(DE.portfolio.projects[PROJECTS[1].id].title);
     expect(fixture.nativeElement.querySelector('.description').textContent).toBe(DE.portfolio.description);
   });
 

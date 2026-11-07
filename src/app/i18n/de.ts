@@ -23,7 +23,7 @@ export const DE: Translations = {
   },
   welcome: {
     headline: 'Ich bin Samuel Haas. Freiberuflicher Frontend-Entwickler aus Balingen.',
-    text: 'HTML, CSS, JavaScript, TypeScript – wer hätte gedacht, dass mich mein Bildungsweg einmal hierher führen würde. Gelernt habe ich Mechatroniker, heute baue ich als Freelancer Webanwendungen und Apps mit Angular und Vue.js. Und ich lerne immer noch jeden Tag dazu.',
+    text: 'HTML, CSS, JavaScript, TypeScript – wer hätte gedacht, dass mich mein Bildungsweg einmal hierher führen würde. Gelernt habe ich Mechatroniker, heute baue ich als Freelancer Webanwendungen und Apps, am liebsten mit Vue.js. Und ich lerne immer noch jeden Tag dazu.',
     portraitAlt: 'Porträt von Samuel Haas',
   },
   about: {
@@ -31,7 +31,7 @@ export const DE: Translations = {
     text: [
       'Hallo, mein Name ist Samuel Haas. Zur Technik bin ich schon in der Schulzeit über Jugend forscht gekommen. Das kleine Forschungsprojekt lief so gut, dass ich danach Elektronik und Mechanik zum Inhalt meiner Ausbildung bei einem mittelständischen Unternehmen in der Region gemacht habe. Nach mehr als drei Jahren zwischen Industrieanlagen, Steuerungen und Programmierungen reichten mir meine Programmierkenntnisse aber nicht mehr – ich wollte mehr.',
       'Erst habe ich mir mit Büchern selbst einiges beigebracht, dann habe ich die Weiterbildung zum Frontend-Entwickler an der Developer Akademie gemacht. Danach war ich ein Jahr als Softwareentwickler bei kamasys und habe dort an Apps und Bestellterminals für die Gastronomie gearbeitet.',
-      'Seit 2024 bin ich selbstständig und arbeite in Teams im Frontend mit, vor allem mit Vue.js, Angular und TypeScript – aktuell unter anderem bei ByteCookie und Quantrefy. Zwischendurch war ich außerdem als IT-Trainer tätig und habe mein Wissen weitergegeben. Mir ist wichtig, dass sich eine Anwendung gut bedienen lässt und der Code auch später noch verständlich ist.',
+      'Seit 2024 bin ich selbstständig und arbeite in Teams im Frontend mit, vor allem mit Vue.js und TypeScript – aktuell unter anderem bei ByteCookie und Quantrefy. Wenn ein Projekt es braucht, arbeite ich auch mit Angular. Zwischendurch war ich außerdem als IT-Trainer tätig und habe mein Wissen weitergegeben. Mir ist wichtig, dass sich eine Anwendung gut bedienen lässt und der Code auch später noch verständlich ist.',
     ],
     portraitAlt: 'Porträt von Samuel Haas',
   },
