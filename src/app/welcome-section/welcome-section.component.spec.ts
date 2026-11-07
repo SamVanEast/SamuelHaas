@@ -22,11 +22,11 @@ describe('WelcomeSectionComponent', () => {
     expect(headline.textContent).toContain('Samuel Haas');
   });
 
-  it('should present a software developer with a mechatronics background, not a frontend developer', () => {
+  it('should present software development combined with mechatronics, not a frontend developer', () => {
     const headline: string = fixture.nativeElement.querySelector('.welcome_headline').textContent;
     const text: string = fixture.nativeElement.querySelector('.welcome_text').textContent;
-    expect(headline).toMatch(/software developer|Softwareentwickler/);
-    expect(text).toMatch(/mechatronics|Mechatronik/);
+    expect(headline).toMatch(/software developer|Softwareentwickler/i);
+    expect(text).toMatch(/mechatronics|Mechatronik/i);
     expect(headline + text).not.toMatch(/frontend/i);
   });
 

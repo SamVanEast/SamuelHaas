@@ -1,7 +1,7 @@
 /**
  * Generates web-optimized WebP variants from the original images.
  *
- * Originals live in resources/images (not deployed),
+ * Originals (JPEG, PNG or SVG) live in resources/images (not deployed),
  * the generated files go to src/assets/img and are referenced via srcset.
  *
  * Usage: pnpm images
@@ -24,7 +24,7 @@ const widths = {
 const quality = 80;
 
 for (const folder of Object.keys(widths)) {
-  const files = (await readdir(join(sourceDir, folder))).filter(file => /\.(jpe?g|png)$/i.test(file));
+  const files = (await readdir(join(sourceDir, folder))).filter(file => /\.(jpe?g|png|svg)$/i.test(file));
   await mkdir(join(targetDir, folder), { recursive: true });
 
   for (const file of files) {
