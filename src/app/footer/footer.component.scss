@@ -3,7 +3,7 @@
 }
 
 .footer {
-    background-color: #133B3F;
+    background-color: var(--color-footer);
 }
 
 .footer_div {
@@ -60,7 +60,7 @@
     border-radius: 8px;
     font-weight: 400;
     font-size: 16px;
-    color: white;
+    color: var(--color-on-brand);
     transition: opacity 200ms ease;
 }
 

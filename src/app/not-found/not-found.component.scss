@@ -13,14 +13,14 @@
     max-width: 560px;
     padding: 24px 0;
     text-align: center;
-    color: #133B3F;
+    color: var(--color-text);
 }
 
 .not_found_code {
     position: relative;
     margin: 0 0 8px;
     padding-bottom: 12px;
-    color: #2B7A77;
+    color: var(--color-heading);
     font-size: clamp(96px, 22vw, 180px);
     font-weight: 800;
     line-height: 1;
@@ -35,14 +35,14 @@
         width: 96px;
         height: 6px;
         border-radius: 3px;
-        background-color: #F25F5C;
+        background-color: var(--color-accent);
         transform: translateX(-50%);
     }
 }
 
 .not_found_headline {
     margin: 24px 0 12px;
-    color: #2B7A77;
+    color: var(--color-heading);
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 700;
 }

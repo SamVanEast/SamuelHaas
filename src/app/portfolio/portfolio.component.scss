@@ -1,11 +1,11 @@
 .portfolio {
-    background-color: #2B7A77;
+    background-color: var(--color-brand);
 }
 
 .portfolio_header {
     width: 100%;
     padding: 2% 0% 2% 0;
-    color: white;
+    color: var(--color-on-brand);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -18,12 +18,14 @@
 
 .headline {
     font-weight: 700;
-    font-size: 55px;
+    font-size: var(--font-size-section);
 }
 
 .description {
+    max-width: 900px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: var(--font-size-lead);
+    line-height: 1.5;
 }
 
 .projects {
@@ -60,28 +62,31 @@
     padding-left: 5%;
     padding-right: 5%;
     width: 100%;
-    background-color: white;
-    color: #2B7A77;
+    background-color: var(--color-surface);
+    color: var(--color-text-brand);
 }
 
 .project_headline {
-    padding-top: 40px;
+    padding-top: clamp(24px, 3vw, 40px);
+    color: var(--color-heading);
     font-weight: 700;
     font-size: 24px;
 }
 
 .project_languages {
-    padding-top: 18px;
+    padding-top: clamp(16px, 1.5vw, 18px);
+    color: var(--color-accent);
     font-weight: 400;
-    font-size: 21px;
-    color: #F25F5C;
+    font-size: clamp(17px, 0.9rem + 0.4vw, 21px);
+    line-height: 1.4;
 }
 
 .project_description {
-    padding-top: 18px;
-    padding-bottom: 40px;
+    padding-top: clamp(16px, 1.5vw, 18px);
+    padding-bottom: clamp(24px, 3vw, 40px);
     font-weight: 400;
-    font-size: 18px;
+    font-size: clamp(16px, 0.9rem + 0.2vw, 18px);
+    line-height: 1.5;
 }
 
 @media (hover: hover) {
@@ -95,13 +100,8 @@
         padding: 31px 0 20px 0;
     }
 
-    .headline {
-        font-size: 32px;
-    }
-
     .description {
         padding-top: 20px;
-        font-size: 16px;
     }
 
     .projects {
@@ -113,18 +113,5 @@
     .project {
         width: 100%;
         align-items: unset;
-    }
-
-    .project_headline {
-        padding-top: 24px;
-    }
-
-    .project_languages {
-        padding-top: 16px;
-    }
-
-    .project_description {
-        padding-top: 16px;
-        padding-bottom: 24px;
     }
 }

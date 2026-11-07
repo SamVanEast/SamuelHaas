@@ -1,13 +1,14 @@
 .contact {
-    background-color: white;
-    color: #2B7A77;
-    padding-top: 120px;
-    padding-bottom: 138px;
+    background-color: var(--color-page);
+    color: var(--color-text-brand);
+    padding-top: clamp(32px, 8vw, 120px);
+    padding-bottom: clamp(32px, 9vw, 138px);
 }
 
 .indentation_customization {
     display: flex;
     justify-content: space-between;
+    gap: 24px;
 }
 
 .contact_description {
@@ -15,7 +16,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 50%;
-    padding-right: 24px;
 }
 
 .headline,
@@ -25,14 +25,16 @@
 }
 
 .headline {
+    color: var(--color-heading);
     font-weight: 700;
-    font-size: 55px;
+    font-size: var(--font-size-section);
 }
 
 .text {
     padding-top: 24px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: var(--font-size-lead);
+    line-height: 1.5;
 }
 
 .contact-information {
@@ -42,8 +44,9 @@
 }
 
 .contact-information-headline {
+    color: var(--color-heading);
     font-weight: 700;
-    font-size: 32px;
+    font-size: clamp(24px, 1rem + 1.4vw, 32px);
     padding-bottom: 16px;
 }
 
@@ -53,11 +56,12 @@
     align-items: flex-start;
     gap: 10px;
     font-style: normal;
+    font-size: 17px;
 
     a {
         color: inherit;
         text-decoration: underline;
-        text-decoration-color: rgba(43, 122, 119, 0.4);
+        text-decoration-color: var(--color-underline);
         text-underline-offset: 4px;
         transition: color 200ms ease, text-decoration-color 200ms ease;
     }
@@ -65,31 +69,20 @@
 
 @media (hover: hover) {
     .contact-information-content a:hover {
-        color: #F25F5C;
+        color: var(--color-accent);
         text-decoration-color: currentColor;
     }
 }
 
 @media (max-width: 770px) {
-    .contact {
-        padding-top: 32px;
-        padding-bottom: 32px;
-    }
-
     .indentation_customization {
-        justify-content: unset;
         flex-direction: column;
+        gap: 0;
     }
 
     .contact_description {
-        align-items: unset;
         width: 100%;
-        padding-right: unset;
         padding-bottom: 40px;
-    }
-
-    .headline {
-        font-size: 32px;
     }
 
     .text {

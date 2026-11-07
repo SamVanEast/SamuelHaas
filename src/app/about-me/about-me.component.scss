@@ -1,99 +1,84 @@
 .about_me {
     position: relative;
     min-height: 500px;
-    width: 100vw;
-    max-width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 40px 0 40px 0;
-    color: #2B7A77;
+    color: var(--color-text-brand);
+}
 
-    div {
-        position: relative;
-        padding-left: 5%;
-        width: 50%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .about_me_headline,
-    .about_me_text {
-        width: 80%;
-    }
-
-    img {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-        height: 100%;
-        max-width: 50%;
-        object-fit: cover;
-    }
-
+.about_me_description {
+    position: relative;
+    padding-left: 5%;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .about_me_headline,
 .about_me_text {
+    width: 80%;
+    max-width: 640px;
     margin: 0;
 }
 
 .about_me_headline {
-    font-style: normal;
+    color: var(--color-heading);
     font-weight: 700;
-    font-size: 55px;
+    font-size: var(--font-size-section);
 }
 
 .about_me_text {
     padding-top: 24px;
-    font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: var(--font-size-lead);
+    line-height: 1.5;
 }
 
-@media (max-width: 770px) {
+img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    max-width: 50%;
+    object-fit: cover;
+}
+
+// phones and tablets in portrait: text on top, photo below
+@media (max-width: 900px) {
     .about_me {
         flex-direction: column;
         justify-content: center;
         align-items: unset;
-        padding: unset;
-        padding-top: 31px;
-
-        div {
-            width: 90%;
-            padding-left: 5%;
-            padding-right: 5%;
-            height: unset;
-            padding-bottom: 20px;
-        }
-
-        .about_me_headline,
-        .about_me_text {
-            width: 100%;
-        }
-
-        img {
-            height: auto;
-            position: unset;
-            max-width: unset;
-            width: 100%;
-            object-fit: cover;
-            top: unset;
-            right: unset;
-            bottom: unset;
-        }
-
+        padding: 31px 0 0 0;
     }
 
-    .about_me_headline {
-        font-size: 32px;
+    .about_me_description {
+        box-sizing: border-box;
+        width: 100%;
+        height: unset;
+        padding: 0 5% 20px 5%;
     }
-    
+
+    .about_me_headline,
+    .about_me_text {
+        width: 100%;
+        max-width: none;
+    }
+
     .about_me_text {
         padding-top: 20px;
+    }
+
+    img {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: none;
     }
 }

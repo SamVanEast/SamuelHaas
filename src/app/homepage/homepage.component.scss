@@ -1,4 +1,6 @@
 .section {
     display: block;
     scroll-margin-top: var(--header-height);
+    // content sliding in from the side must not widen the page
+    overflow-x: clip;
 }

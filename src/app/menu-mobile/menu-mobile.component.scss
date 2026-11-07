@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(43, 122, 119, 0.92);
+    background-color: var(--color-overlay);
     backdrop-filter: blur(6px);
     animation: menuIn 250ms ease-out;
 }
@@ -25,7 +25,7 @@
     border: none;
     border-radius: 8px;
     background: transparent;
-    color: #ffffff;
+    color: var(--color-on-brand);
     cursor: pointer;
 }
 
@@ -39,12 +39,12 @@
 .menu_tab_mobile {
     padding: 12px 24px;
     border-radius: 8px;
-    color: #ffffff;
+    color: var(--color-on-brand);
     font-size: 40px;
     transition: color 200ms ease;
 
     &.active {
-        color: #F25F5C;
+        color: var(--color-accent);
     }
 }
 

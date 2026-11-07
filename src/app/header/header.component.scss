@@ -9,8 +9,8 @@
 
 .header {
     height: 88px;
-    background-color: #2B7A77;
-    border-bottom: 3px solid #F25F5C;
+    background-color: var(--color-brand);
+    border-bottom: 3px solid var(--color-accent);
 }
 
 .header_content {
@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: #ffffff;
+    color: var(--color-on-brand);
     font-weight: 400;
     font-size: 20px;
     padding-left: 24px;
@@ -55,7 +55,7 @@
     transition: background-color 200ms ease;
 
     &.active {
-        background-color: #F25F5C;
+        background-color: var(--color-accent);
     }
 }
 
@@ -70,7 +70,7 @@
     border: none;
     border-radius: 8px;
     background: transparent;
-    color: #ffffff;
+    color: var(--color-on-brand);
     cursor: pointer;
 }
 
@@ -80,7 +80,7 @@
     }
 
     .menu_tab:hover {
-        background-color: #F25F5C;
+        background-color: var(--color-accent);
     }
 }
 
