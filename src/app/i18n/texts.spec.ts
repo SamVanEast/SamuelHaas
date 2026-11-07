@@ -16,8 +16,15 @@ describe('website texts', () => {
     }
   });
 
-  it('should name the Wave platform on the Quantrefy card', () => {
-    expect(DE.portfolio.projects.quantrefy.title).toContain('Wave');
-    expect(EN.portfolio.projects.quantrefy.title).toContain('Wave');
+  it('should not mention the Quantrefy platform name, which is not public yet', () => {
+    for (const text of [...allTexts(DE), ...allTexts(EN)]) {
+      expect(text).not.toMatch(/\bWave\b/);
+    }
+  });
+
+  it('should not promise "everything from one source" or sound high-flown', () => {
+    for (const text of [...allTexts(DE), ...allTexts(EN)]) {
+      expect(text).not.toMatch(/aus einer Hand|from one person|Wissen weitergegeben|passed on what I know|wenn ein Projekt es braucht|if a project needs it/i);
+    }
   });
 });

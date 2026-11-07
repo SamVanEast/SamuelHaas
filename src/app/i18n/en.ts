@@ -23,7 +23,7 @@ export const EN: Translations = {
   },
   welcome: {
     headline: "I'm Samuel Haas. Software developer and mechatronics technician from Germany.",
-    text: 'Mechatronics and software – who would have thought that my educational journey would take me here. Today I combine both: I develop software for web and mobile and solutions where machines, controls and software work together.',
+    text: 'Mechatronics and software – who would have thought that my educational journey would take me here. Today I develop software for web and mobile and also support projects where machines, controls and software work together.',
     portraitAlt: 'Portrait of Samuel Haas',
   },
   about: {
@@ -31,8 +31,8 @@ export const EN: Translations = {
     text: [
       'Hello, my name is Samuel Haas. I got into technology at school through Jugend forscht, a German science competition. The small research project went so well that I then made electronics and mechanics the subject of my apprenticeship at a medium-sized company in the region. After more than three years of industrial systems, controls and programming, my programming skills were not enough anymore – I wanted more.',
       'First I taught myself with books, then I did the further education course to become a frontend developer at the Developer Akademie. After that I worked as a software developer at kamasys (today menio) for a year, on apps and ordering terminals for canteens.',
-      'Since 2024 I have been self-employed and develop software for my clients – currently for ByteCookie and Quantrefy, among others. On the web I prefer Vue.js and TypeScript, and if a project needs it, I also work with Angular. In between I also worked as an IT trainer and passed on what I know. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
-      'For me, mechatronics and software belong together. I know machines, controls and sensors from practice and develop the software for them myself. When a task cannot be solved with an app alone, you get both from one person.',
+      'Since 2024 I have been self-employed and develop software for my clients – currently for ByteCookie and Quantrefy, among others. On the web I prefer Vue.js and TypeScript, and every now and then there is an Angular project too. In between I also worked as an IT trainer and taught others what I had learned myself. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
+      'For me, mechatronics and software belong together. I know machines, controls and sensors from practice, and I develop software every day. When a project needs both, I can support you in both areas.',
     ],
     portraitAlt: 'Portrait of Samuel Haas',
   },
@@ -41,9 +41,9 @@ export const EN: Translations = {
     description: 'A selection of projects I worked on as a developer – just click on them and try them out.',
     projects: {
       'quantrefy': {
-        title: 'Wave (Quantrefy)',
+        title: 'Quantrefy',
         technologies: 'Vue.js | TypeScript | Tailwind CSS | AG Grid | AG Charts | Vitest | Visual Tests | Figma | Jira | Confluence | Backend: C# / .NET Aspire',
-        description: 'At Quantrefy, known for its ESG software for real estate, I have been working on the Wave platform since February 2026. Among other things, I build tables and charts with AG Grid and AG Charts there.',
+        description: 'Since February 2026 I have been working on a web application for Quantrefy, among other things on tables and charts with AG Grid and AG Charts.',
       },
       'bytecookie': {
         title: 'ByteCookie',
@@ -79,7 +79,7 @@ export const EN: Translations = {
   },
   contact: {
     headline: 'Let’s talk business',
-    text: 'Now you know a lot about me. If you need support with software development or are looking for a solution where machines and software have to work together, send me an email or give me a call. I am available for new projects from April 2027.',
+    text: 'Now you know a lot about me. If you need support with software development, also in projects where machines and software work together, send me an email or give me a call. I am available for new projects from April 2027.',
     infoHeadline: 'Contact information',
   },
   footer: {
