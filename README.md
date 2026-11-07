@@ -1,27 +1,20 @@
-# SamuelHaas
+# Samuel Haas – Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+Source code of [samuel-haas.com](https://samuel-haas.com), built with Angular 22 (standalone components, zoneless) and hosted on Firebase Hosting.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js 26 LTS (see `engines` in `package.json`)
+- pnpm (the version is pinned via `packageManager` in `package.json`)
 
-## Code scaffolding
+## Commands
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Command | Description |
+| --- | --- |
+| `pnpm install` | Install dependencies |
+| `pnpm start` | Start the dev server on `http://localhost:4200/` |
+| `pnpm build` | Production build into `dist/samuel-haas/browser` |
+| `pnpm test` | Run the unit tests with Vitest in watch mode |
+| `pnpm test:ci` | Run the unit tests once |
+| `pnpm test:coverage` | Run the unit tests once with a coverage report in `coverage/` |
+| `pnpm deploy` | Build and deploy to Firebase Hosting (requires `firebase login`) |

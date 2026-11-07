@@ -1,37 +1,25 @@
-import { HostListener } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { height, offsetTop, width } from 'src/ts/gobalInformation';
+import { offsetTop } from '../../ts/globalInformation';
 
 @Component({
   selector: 'app-menu-mobile',
   templateUrl: './menu-mobile.component.html',
-  styleUrls: ['./menu-mobile.component.scss']
+  styleUrls: ['./menu-mobile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class MenuMobileComponent {
+  private router = inject(Router);
   @ViewChild('aboutMe') aboutMe: ElementRef;
-  // @ViewChild('skills') skills: ElementRef;
   @ViewChild('portfolio') portfolio: ElementRef;
   @ViewChild('contact') contact: ElementRef;
 
-  constructor(private router: Router, private elementRef: ElementRef) {
-  }
-
-  ngOnChange(){
-    console.log('functioniert');
-
-  }
-
-  @HostListener('window:click', ['$event'])
+  @HostListener('window:click')
 
   /**
    * if user click
    */
   public onClick() {
-
-    // if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#skills' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
     if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
       this.checkSection();
     } else {
@@ -53,9 +41,6 @@ export class MenuMobileComponent {
     } else {
       this.welcomeSection();
     }
-    // else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.skills) {
-    //   this.skillsSection();
-    // }
   }
 
   /**
@@ -74,15 +59,6 @@ export class MenuMobileComponent {
     this.removeAllStyles();
     this.aboutMe.nativeElement.style = 'color: #F25F5C;';
   }
-
-  /**
-   * changes the route
-   */
-  // skillsSection() {
-  //   this.router.navigate([], { fragment: 'skills' });
-  //   this.removeAllStyles();
-  //   this.skills.nativeElement.style = 'color: #F25F5C;';
-  // }
 
   /**
    * changes the route
@@ -107,9 +83,7 @@ export class MenuMobileComponent {
    */
   removeAllStyles() {
     this.aboutMe.nativeElement.style = '';
-    // this.skills.nativeElement.style = '';
     this.portfolio.nativeElement.style = '';
     this.contact.nativeElement.style = '';
   }
-
 }

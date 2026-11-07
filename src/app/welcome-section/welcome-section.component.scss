@@ -1,4 +1,4 @@
-.weclome_section {
+.welcome_section {
     width: 100vw;
     max-width: 100%;
     min-height: 100vh;
@@ -34,7 +34,7 @@
     }
 }
 
-.weclome_headline {
+.welcome_headline {
     font-style: normal;
     font-weight: 700;
     font-size: 58px;
@@ -50,7 +50,7 @@
 
 
 @media (max-width: 770px) {
-    .weclome_section {
+    .welcome_section {
         padding-top: 88px;
         flex-direction: column;
         box-sizing: border-box;
@@ -82,7 +82,7 @@
         }
     }
 
-    .weclome_headline {
+    .welcome_headline {
         padding-top: 31px;
         font-size: 32px;
     }

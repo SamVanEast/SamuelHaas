@@ -1,15 +1,9 @@
-import { OnInit, AfterViewInit } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { Component } from '@angular/core';
-import { height } from './../../ts/gobalInformation';
-
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-weclome-section',
+  selector: 'app-welcome-section',
   templateUrl: './welcome-section.component.html',
-  styleUrls: ['./welcome-section.component.scss']
+  styleUrls: ['./welcome-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
-export class WeclomeSectionComponent {
-  constructor(private elementRef: ElementRef) { }
-}
+export class WelcomeSectionComponent {}

@@ -1,14 +1,11 @@
-import { ViewChild } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { Component } from '@angular/core';
-import { height, offsetTop, width } from './../../ts/gobalInformation';
-
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { height, offsetTop, width } from '../../ts/globalInformation';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.scss']
+  styleUrls: ['./portfolio.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class PortfolioComponent {
   public imgs = [
@@ -39,7 +36,7 @@ export class PortfolioComponent {
     'ByteCookie is the world’s first cooperative marketplace and social network for IT freelancers, precisely connecting clients and freelance experts. Thanks to a verified expert network, the platform automatically recommends the best freelance profiles for each project. We deliberately focus on maximum performance and data privacy by completely avoiding external advertising, cookies, or tracking scripts. Headquartered in Frankfurt am Main with a dedicated team of 11 to 50 employees, ByteCookie combines personal support with modern, digital project placement.',
     'A modular white-label solution for mobile devices: display of current menus, ordering and payment functions, dashboards for occupancy and feedback, as well as numerous additional modules (e.g., voting, news, recipes, ordering options, photo booth, customer frequency counter).',
     'Ordering terminal with an intuitive touch interface, shopping cart, and contactless payment function. Guests easily navigate through the digital menu, select their dishes, and pick them up at the counter at their desired time.',
-    'Slack Clone is a messanger service.',
+    'Slack Clone is a messenger service.',
     'Join is a very clear Kanban board to perfectly plan the day.',
     'El pollo loco is a 2D game in which you have to beat chickens and their boss.'];
   public links = [
@@ -51,13 +48,11 @@ export class PortfolioComponent {
     'https://samuel-haas.developerakademie.net/Modul-11/El-Pollo-Locco/index.html'
   ];
   @ViewChild('portfolioHeader') portfolioHeader: ElementRef;
-  @ViewChild('projects') projects: ElementRef;
   public showContent: boolean = false;
   public showHeader: boolean = false;
 
-  constructor(private elementRef: ElementRef) { }
-  @HostListener('window:scroll', ['$event'])
-  @HostListener('window:load', ['$event'])
+  @HostListener('window:scroll')
+  @HostListener('window:load')
 
   /**
    * when the content is loaded, a function is executed
@@ -73,35 +68,35 @@ export class PortfolioComponent {
   onWindowScroll(event) {
     if (width[0] > 770) {
       let scrollPositionTop = window.pageYOffset;
-      let scrollPoitionBottom = scrollPositionTop + window.innerHeight;
-      this.checkShowHeadline(scrollPoitionBottom);
-      this.checkShowContent(scrollPoitionBottom);
-    }else{
+      let scrollPositionBottom = scrollPositionTop + window.innerHeight;
+      this.checkShowHeadline(scrollPositionBottom);
+      this.checkShowContent(scrollPositionBottom);
+    } else {
       this.showHeader = true;
       this.showContent = true;
     }
   };
 
-/**
- * starts the animation from the headline
- * @param scrollPoitionBottom bottom of the screen
- */
-  checkShowHeadline(scrollPoitionBottom) {
-    if (offsetTop.portfolio + (100) < scrollPoitionBottom && offsetTop.portfolio > 100) {
+  /**
+   * starts the animation from the headline
+   * @param scrollPositionBottom bottom of the screen
+   */
+  checkShowHeadline(scrollPositionBottom) {
+    if (offsetTop.portfolio + (100) < scrollPositionBottom && offsetTop.portfolio > 100) {
       this.showHeader = true;
       this.portfolioHeader.nativeElement.classList.add('introAnimationFromRight');
     };
   }
 
-/**
- * starts the animation from the content
- * @param scrollPoitionBottom bottom of the screen
- */
-  checkShowContent(scrollPoitionBottom) {
+  /**
+   * starts the animation from the content
+   * @param scrollPositionBottom bottom of the screen
+   */
+  checkShowContent(scrollPositionBottom) {
     let self = this;
     this.imgs.forEach(function (img, i) {
       let id = document.getElementById(`project${i}`);
-      if (offsetTop.portfolio + (height.portfolio / 4) < scrollPoitionBottom && offsetTop.portfolio > 100) {
+      if (offsetTop.portfolio + (height.portfolio / 4) < scrollPositionBottom && offsetTop.portfolio > 100) {
         self.showContent = true;
         if (i % 2 == 0) {
           id.classList.add('introAnimationFromLeft');
@@ -110,9 +105,5 @@ export class PortfolioComponent {
         }
       };
     })
-  }
-
-  openLink(url: string) {
-    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

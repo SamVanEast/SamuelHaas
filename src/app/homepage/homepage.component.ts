@@ -1,33 +1,34 @@
-import { ViewChild } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { Renderer2 } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { height, offsetTop, width } from './../../ts/gobalInformation';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, inject } from '@angular/core';
+import { height, offsetTop, width } from '../../ts/globalInformation';
+import { HeaderComponent } from '../header/header.component';
+import { WelcomeSectionComponent } from '../welcome-section/welcome-section.component';
+import { AboutMeComponent } from '../about-me/about-me.component';
+import { PortfolioComponent } from '../portfolio/portfolio.component';
+import { ContactComponent } from '../contact/contact.component';
+import { FooterComponent } from '../footer/footer.component';
+import { MenuMobileComponent } from '../menu-mobile/menu-mobile.component';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  styleUrls: ['./homepage.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [HeaderComponent, WelcomeSectionComponent, AboutMeComponent, PortfolioComponent, ContactComponent, FooterComponent, MenuMobileComponent],
 })
 export class HomepageComponent {
-  @ViewChild('header') header;
-  @ViewChild('welcomeSection') welcomeSection: ElementRef;
-  @ViewChild('aboutMe') aboutMe: ElementRef;
-  // @ViewChild('skills') skills: ElementRef;
-  @ViewChild('portfolio') portfolio: ElementRef;
-  @ViewChild('contact') contact: ElementRef;
-  @ViewChild('footer') footer: ElementRef;
-  @ViewChild('menuMobile') menuMobile;
+  private elementRef = inject(ElementRef);
+  @ViewChild('header') header: HeaderComponent;
+  @ViewChild('welcomeSection', { read: ElementRef }) welcomeSection: ElementRef;
+  @ViewChild('aboutMe', { read: ElementRef }) aboutMe: ElementRef;
+  @ViewChild('portfolio', { read: ElementRef }) portfolio: ElementRef;
+  @ViewChild('contact', { read: ElementRef }) contact: ElementRef;
+  @ViewChild('footer', { read: ElementRef }) footer: ElementRef;
+  @ViewChild('menuMobile') menuMobile: MenuMobileComponent;
   public showMenu: boolean = false;
-  // ids = ['welcomeSection', 'aboutMe', 'skills', 'portfolio', 'contact', 'footer']
-  ids = ['welcomeSection', 'aboutMe', 'portfolio', 'contact', 'footer']
-  viewChilds;
+  ids = ['welcomeSection', 'aboutMe', 'portfolio', 'contact', 'footer'];
+  viewChilds: ElementRef[];
 
-  constructor(private router: Router, private elementRef: ElementRef, private renderer: Renderer2) { }
-
-  @HostListener('window:click', ['$event'])
+  @HostListener('window:click')
 
   /**
    * if user click change value and and executes a function
@@ -42,22 +43,21 @@ export class HomepageComponent {
     }
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
 
   /**
    * when the size changes a function is executed
    */
   onResize() {
-    this.onLoad()
+    this.onLoad();
   }
 
-  @HostListener('window:load', ['$event'])
+  @HostListener('window:load')
 
   /**
    * when the page is load, functions is executed
    */
   onLoad() {
-    // this.viewChilds = [this.welcomeSection, this.aboutMe, this.skills, this.portfolio, this.contact, this.footer];
     this.viewChilds = [this.welcomeSection, this.aboutMe, this.portfolio, this.contact, this.footer];
     this.getHeight();
     this.getWidth();
@@ -69,10 +69,10 @@ export class HomepageComponent {
   getHeight() {
     let childs = this.viewChilds;
     this.ids.forEach(function (id, i) {
-      height[id] = childs[i].elementRef.nativeElement.offsetHeight;
+      height[id] = childs[i].nativeElement.offsetHeight;
     });
     this.ids.forEach(function (id, i) {
-      offsetTop[id] = childs[i].elementRef.nativeElement.offsetTop;
+      offsetTop[id] = childs[i].nativeElement.offsetTop;
     });
   }
 
@@ -91,5 +91,4 @@ export class HomepageComponent {
     this.header.showMenu = false;
     document.body.style.overflow = '';
   }
-
 }

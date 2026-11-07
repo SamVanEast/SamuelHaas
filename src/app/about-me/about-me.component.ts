@@ -1,44 +1,38 @@
-import { ViewChild } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { Component } from '@angular/core';
-import { height, offsetTop, width } from './../../ts/gobalInformation';
-
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { height, offsetTop, width } from '../../ts/globalInformation';
 
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
-  styleUrls: ['./about-me.component.scss']
+  styleUrls: ['./about-me.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class AboutMeComponent {
-  @ViewChild('aboutMeDecription') aboutMeDecription: ElementRef;
+  @ViewChild('aboutMeDescription') aboutMeDescription: ElementRef;
   public showContent: boolean = false;
-  constructor(private elementRef: ElementRef) {
-   }
-  
-  @HostListener('window:load', ['$event'])
+
+  @HostListener('window:load')
   /**
    * when the content is loaded, it executes a function
-  */
- onLoad() {
-   this.onWindowScroll(event);
+   */
+  onLoad() {
+    this.onWindowScroll(event);
   }
-  
+
   @HostListener('window:scroll', ['$event'])
   /**
    * start the animation when the user scrolls to the component and is not in responsive mode
-   * @param event 
+   * @param event
    */
   onWindowScroll(event) {
     if (width[0] > 770) {
       let scrollPositionTop = window.pageYOffset;
-      let scrollPoitionBottom = scrollPositionTop + window.innerHeight;
-      if (offsetTop.aboutMe + (height.aboutMe / 2) < scrollPoitionBottom && offsetTop.aboutMe > 100) {
+      let scrollPositionBottom = scrollPositionTop + window.innerHeight;
+      if (offsetTop.aboutMe + (height.aboutMe / 2) < scrollPositionBottom && offsetTop.aboutMe > 100) {
         this.showContent = true;
-        this.aboutMeDecription.nativeElement.classList.add('introAnimationFromRight')
+        this.aboutMeDescription.nativeElement.classList.add('introAnimationFromRight')
       };
-    }else{
+    } else {
       this.showContent = true;
     }
   };

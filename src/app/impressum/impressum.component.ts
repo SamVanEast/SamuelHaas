@@ -1,16 +1,21 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, ViewChild } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { MenuMobileComponent } from '../menu-mobile/menu-mobile.component';
 
 @Component({
   selector: 'app-impressum',
   templateUrl: './impressum.component.html',
-  styleUrls: ['./impressum.component.scss']
+  styleUrls: ['./impressum.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [HeaderComponent, FooterComponent, MenuMobileComponent],
 })
 export class ImpressumComponent {
-  @ViewChild('header') header;
-  @ViewChild('menuMobile') menuMobile;
+  @ViewChild('header') header: HeaderComponent;
+  @ViewChild('menuMobile') menuMobile: MenuMobileComponent;
   public showMenu: boolean = false;
 
-  @HostListener('window:click', ['$event'])
+  @HostListener('window:click')
 
   /**
    * if user click change value and and executes a function
