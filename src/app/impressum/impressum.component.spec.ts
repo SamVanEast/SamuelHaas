@@ -1,51 +1,56 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
 import { ImpressumComponent } from './impressum.component';
 
 describe('ImpressumComponent', () => {
-  let component: ImpressumComponent;
   let fixture: ComponentFixture<ImpressumComponent>;
+  let text: string;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ImpressumComponent],
-      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ImpressumComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  afterEach(() => {
-    document.body.style.overflow = '';
+    text = fixture.nativeElement.textContent;
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should show the imprint with header and footer', () => {
-    expect(fixture.nativeElement.querySelector('h1').textContent).toContain('Impressum');
-    expect(fixture.nativeElement.querySelector('app-header')).not.toBeNull();
-    expect(fixture.nativeElement.querySelector('app-footer')).not.toBeNull();
+  it('should cite the current legal basis § 5 DDG instead of the repealed TMG', () => {
+    expect(fixture.nativeElement.querySelector('h1').textContent).toBe('Impressum');
+    expect(text).toContain('§ 5 DDG');
+    expect(text).not.toContain('TMG');
   });
 
-  it('should ignore a click that arrives before the header is rendered', () => {
-    const freshFixture = TestBed.createComponent(ImpressumComponent);
-    expect(() => freshFixture.componentInstance.onClick()).not.toThrow();
-    expect(freshFixture.componentInstance.showMenu).toBe(false);
+  it('should contain name, address and VAT ID', () => {
+    expect(text).toContain('Samuel Haas');
+    expect(text).toContain('Owinger Str. 8');
+    expect(text).toContain('72336 Balingen');
+    expect(text).toContain('DE365950601');
   });
 
-  it('should open and close the mobile menu', async () => {
-    fixture.nativeElement.querySelector('.open_menu img').click();
-    fixture.detectChanges();
-    await new Promise(resolve => setTimeout(resolve));
-    expect(fixture.nativeElement.querySelector('app-menu-mobile')).not.toBeNull();
+  it('should only list the mobile number and the e-mail address as contact', () => {
+    const phone: HTMLAnchorElement = fixture.nativeElement.querySelector('a[href^="tel:"]');
+    const mail: HTMLAnchorElement = fixture.nativeElement.querySelector('a[href^="mailto:"]');
+    expect(phone.getAttribute('href')).toBe('tel:+4915756775354');
+    expect(mail.getAttribute('href')).toBe('mailto:info@samuel-haas.com');
+    expect(mail.textContent).toBe('info@samuel-haas.com');
+    expect(text).not.toContain('07433');
+    expect(text).not.toMatch(/Telefax/i);
+  });
 
-    fixture.nativeElement.querySelector('app-menu-mobile').click();
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('app-menu-mobile')).toBeNull();
-    expect(component.showMenu).toBe(false);
+  it('should not contain company-only details that do not apply to a freelancer', () => {
+    expect(text).not.toMatch(/Handelsregister|Registergericht|Vertreten durch|GmbH|UG/);
+  });
+
+  it('should not link to the discontinued EU online dispute resolution platform', () => {
+    expect(fixture.nativeElement.querySelector('a[href*="ec.europa.eu/consumers/odr"]')).toBeNull();
+  });
+
+  it('should not contain leftover template placeholders', () => {
+    expect(text).not.toMatch(/\[[^\]]+\]/);
   });
 });

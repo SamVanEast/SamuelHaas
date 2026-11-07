@@ -1,0 +1,8 @@
+<app-header class="header" #header></app-header>
+<main class="indentation legal_page">
+  <router-outlet />
+</main>
+<app-footer></app-footer>
+@if (showMenu) {
+  <app-menu-mobile class="menu_mobile" (click)="closeMenu()" #menuMobile></app-menu-mobile>
+}

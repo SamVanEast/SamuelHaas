@@ -35,7 +35,12 @@
     }
 }
 
-.impressum {
+.legal_links {
+    display: flex;
+    gap: 24px;
+}
+
+.legal_link {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -69,12 +74,12 @@
         img {
             &:hover {
                 cursor: unset;
-                opacity: usnet;
+                opacity: unset;
             }
         }
     }
 
-    .impressum {
+    .legal_link {
         &:hover {
             cursor: unset;
             opacity: unset;

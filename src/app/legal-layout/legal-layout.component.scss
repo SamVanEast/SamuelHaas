@@ -1,0 +1,22 @@
+.header {
+    top: 0;
+    z-index: 3;
+    position: fixed;
+}
+
+.legal_page {
+    display: block;
+    padding-top: 130px;
+    padding-bottom: 80px;
+}
+
+.menu_mobile {
+    position: absolute;
+}
+
+@media (max-width: 770px) {
+    .legal_page {
+        padding-top: 110px;
+        padding-bottom: 48px;
+    }
+}

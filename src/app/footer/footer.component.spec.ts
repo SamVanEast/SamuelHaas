@@ -8,7 +8,10 @@ describe('FooterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FooterComponent],
-      providers: [provideRouter([{ path: 'impressum', children: [] }])],
+      providers: [provideRouter([
+        { path: 'impressum', children: [] },
+        { path: 'datenschutz', children: [] },
+      ])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
@@ -21,15 +24,19 @@ describe('FooterComponent', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should link to the imprint page', () => {
-    const imprint: HTMLAnchorElement = fixture.nativeElement.querySelector('.impressum');
-    expect(imprint.getAttribute('href')).toBe('/impressum');
+  it('should link to the imprint and the privacy policy', () => {
+    const links = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('.legal_link'));
+    expect(links.map(link => [link.textContent.trim(), link.getAttribute('href')])).toEqual([
+      ['Impressum', '/impressum'],
+      ['Datenschutz', '/datenschutz'],
+    ]);
   });
 
-  it('should scroll to the top when the imprint is opened', () => {
+  it('should scroll to the top when a legal page is opened', () => {
     const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined);
-    fixture.nativeElement.querySelector('.impressum').click();
-    expect(scrollTo).toHaveBeenCalledWith(0, 0);
+    fixture.nativeElement.querySelectorAll('.legal_link').forEach((link: HTMLAnchorElement) => link.click());
+    expect(scrollTo).toHaveBeenCalledTimes(2);
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'instant' });
   });
 
   it('should give every image link an accessible name', () => {

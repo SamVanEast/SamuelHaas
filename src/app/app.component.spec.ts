@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
+import { Title } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { HomepageComponent } from './homepage/homepage.component';
-import { ImpressumComponent } from './impressum/impressum.component';
+import { LegalLayoutComponent } from './legal-layout/legal-layout.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -29,11 +30,20 @@ describe('AppComponent', () => {
     const harness = await RouterTestingHarness.create();
     const component = await harness.navigateByUrl('/', HomepageComponent);
     expect(component).toBeInstanceOf(HomepageComponent);
+    expect(TestBed.inject(Title).getTitle()).toBe('Samuel Haas');
   });
 
-  it('should show the imprint on /impressum', async () => {
+  it('should show the imprint inside the legal layout on /impressum', async () => {
     const harness = await RouterTestingHarness.create();
-    const component = await harness.navigateByUrl('/impressum', ImpressumComponent);
-    expect(component).toBeInstanceOf(ImpressumComponent);
+    await harness.navigateByUrl('/impressum', LegalLayoutComponent);
+    expect(harness.routeNativeElement.querySelector('main app-impressum')).not.toBeNull();
+    expect(TestBed.inject(Title).getTitle()).toBe('Impressum – Samuel Haas');
+  });
+
+  it('should show the privacy policy inside the legal layout on /datenschutz', async () => {
+    const harness = await RouterTestingHarness.create();
+    await harness.navigateByUrl('/datenschutz', LegalLayoutComponent);
+    expect(harness.routeNativeElement.querySelector('main app-datenschutz')).not.toBeNull();
+    expect(TestBed.inject(Title).getTitle()).toBe('Datenschutzerklärung – Samuel Haas');
   });
 });

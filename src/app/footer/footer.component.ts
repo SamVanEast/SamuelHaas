@@ -10,9 +10,10 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   /**
-   * scroll to the top, when imprint is showing
+   * scroll to the top when a legal page is opened;
+   * instant, because a smooth scroll is cancelled when the router swaps the page
    */
   scrollToTop() {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 }
