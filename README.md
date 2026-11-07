@@ -8,6 +8,7 @@ Source code of [samuel-haas.com](https://samuel-haas.com), built with Angular 22
 - Light and dark mode; follows the operating system until the visitor chooses
 - Responsive from small phones to large monitors, keyboard and screen reader friendly
 - Responsive WebP images generated from the originals in `resources/images`
+- Contact form via [Web3Forms](https://web3forms.com) (free plan, 250 messages a month); the public access key is set in `src/app/contact/contact-message.service.ts`
 - Search engines and link previews: title and description per language, Open Graph preview image, canonical links, `noindex` for unknown pages, `robots.txt`, `sitemap.xml` and structured data (JSON-LD) in `index.html`
 
 ## Requirements

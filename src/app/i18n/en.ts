@@ -80,8 +80,26 @@ export const EN: Translations = {
   },
   contact: {
     headline: 'Let’s talk business',
-    text: 'Now you know a lot about me. If you need support with software development or your software has to work together with machines and controls, send me an email or give me a call. I am available for new projects from April 2027.',
+    text: 'Now you know a lot about me. If you need support with software development or your software has to work together with machines and controls, send me a message or give me a call. I am available for new projects from April 2027.',
     infoHeadline: 'Contact information',
+    form: {
+      name: 'Name',
+      email: 'Email',
+      message: 'Your message',
+      submit: 'Send message',
+      sending: 'Sending',
+      privacyBefore: 'I only use your details to answer your request. More about this in the ',
+      privacyLink: 'privacy policy',
+      privacyAfter: ' (German).',
+      errors: {
+        name: 'Please enter your name.',
+        email: 'Please enter a valid email address.',
+        message: 'Please write me a message.',
+      },
+      success: 'Thank you for your message. I will get back to you as soon as possible.',
+      sendAnother: 'Write another message',
+      failure: 'Unfortunately the message could not be sent. Please try again later or write to me directly at',
+    },
   },
   footer: {
     legal: 'Legal',
