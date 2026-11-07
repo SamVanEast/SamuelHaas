@@ -30,6 +30,21 @@ describe('AppComponent', () => {
     expect(fixture.nativeElement.querySelector('router-outlet')).not.toBeNull();
   });
 
+  it('should let keyboard users skip the navigation and jump to the main content', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    document.body.appendChild(fixture.nativeElement);
+    const main = document.body.appendChild(document.createElement('main'));
+    await fixture.whenStable();
+
+    const skipLink: HTMLAnchorElement = fixture.nativeElement.querySelector('.skip_link');
+    expect(skipLink.textContent).toBe('Zum Inhalt springen');
+    skipLink.click();
+
+    expect(document.activeElement).toBe(main);
+    main.remove();
+    fixture.nativeElement.remove();
+  });
+
   it('should show the homepage on the root route', async () => {
     const harness = await RouterTestingHarness.create();
     const component = await harness.navigateByUrl('/', HomepageComponent);

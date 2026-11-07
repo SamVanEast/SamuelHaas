@@ -13,6 +13,7 @@ export interface ProjectText {
 
 /** All texts of the website that change with the language. */
 export interface Translations {
+  skipToContent: string;
   pageTitles: Record<PageTitleKey, string>;
   nav: Record<Exclude<SectionId, 'welcome'>, string>;
   header: {

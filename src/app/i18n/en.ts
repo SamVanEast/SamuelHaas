@@ -1,6 +1,7 @@
 import { Translations } from './translations';
 
 export const EN: Translations = {
+  skipToContent: 'Skip to content',
   pageTitles: {
     home: 'Samuel Haas',
     imprint: 'Legal notice',

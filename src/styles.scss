@@ -269,3 +269,8 @@ a {
         }
     }
 }
+
+// the skip link focuses <main>, which must not show a focus ring itself
+main:focus {
+    outline: none;
+}
