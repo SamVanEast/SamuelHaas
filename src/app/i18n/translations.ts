@@ -25,7 +25,7 @@ export interface Translations {
     darkMode: string;
   };
   welcome: { headline: string; text: string; portraitAlt: string };
-  about: { headline: string; text: string; portraitAlt: string };
+  about: { headline: string; text: string[]; portraitAlt: string };
   portfolio: { headline: string; description: string; projects: Record<ProjectId, ProjectText> };
   contact: { headline: string; text: string; infoHeadline: string };
   footer: { legal: string; imprint: string; privacy: string };

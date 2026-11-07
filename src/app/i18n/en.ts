@@ -22,54 +22,58 @@ export const EN: Translations = {
     darkMode: 'Dark mode',
   },
   welcome: {
-    headline: "I'm Samuel Haas. A frontend developer from Germany.",
-    text: 'HTML, CSS, JavaScript, TypeScript – who would have thought that my educational journey would take me here. With my background in mechatronics, I am grateful to have followed my interest in programming. I keep discovering a whole new world – day by day.',
+    headline: "I'm Samuel Haas. A freelance frontend developer from Germany.",
+    text: 'HTML, CSS, JavaScript, TypeScript – who would have thought that my educational journey would take me here. I trained as a mechatronics technician, today I build web applications and apps with Angular and Vue.js as a freelancer. And I still learn something new every day.',
     portraitAlt: 'Portrait of Samuel Haas',
   },
   about: {
     headline: 'About me',
-    text: 'Hello, my name is Samuel Haas. I am in my mid-twenties and have lived in Germany all my life. During my school years I had the opportunity to get to know the world of technology through Jugend forscht. This small research project turned out to be so successful that I subsequently made electronics and mechanics the subject of my apprenticeship at a leading medium-sized company in the region. After more than three years in the midst of complex industrial systems with various controls and programming, my programming skills were not enough – I wanted more. Initially, I worked on my own with various books, but then I decided to take a professional further education course to become a frontend developer. It was an exciting, educational time – now that I have gained my first experience as a frontend developer, I would like to expand on it and am looking forward to exciting and challenging projects.',
+    text: [
+      'Hello, my name is Samuel Haas. I got into technology at school through Jugend forscht, a German science competition. The small research project went so well that I then made electronics and mechanics the subject of my apprenticeship at a medium-sized company in the region. After more than three years of industrial systems, controls and programming, my programming skills were not enough anymore – I wanted more.',
+      'First I taught myself with books, then I did the further education course to become a frontend developer at the Developer Akademie. After that I worked as a software developer at kamasys for a year, on apps and ordering terminals for the catering industry.',
+      'Since 2024 I have been self-employed and work in frontend teams, mostly with Vue.js, Angular and TypeScript – currently at ByteCookie and Quantrefy, among others. In between I also worked as an IT trainer and passed on what I know. What matters to me is that an application is easy to use and that the code is still easy to understand later on.',
+    ],
     portraitAlt: 'Portrait of Samuel Haas',
   },
   portfolio: {
     headline: 'Portfolio',
-    description: 'This page is a sample of my work – please feel free to try them out. I contributed to these products/projects as a frontend developer.',
+    description: 'A selection of projects I worked on as a frontend developer – just click on them and try them out.',
     projects: {
       'bytecookie': {
         title: 'ByteCookie',
         technologies: 'Vue.js | TypeScript | HTML | SCSS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | Figma',
-        description: 'ByteCookie is the world’s first cooperative marketplace and social network for IT freelancers, precisely connecting clients and freelance experts. Thanks to a verified expert network, the platform automatically recommends the best freelance profiles for each project. ByteCookie deliberately focuses on maximum performance and data privacy by completely avoiding external advertising, cookies, or tracking scripts. Headquartered in Frankfurt am Main with a dedicated team of 11 to 50 employees, ByteCookie combines personal support with modern, digital project placement.',
+        description: 'A cooperative marketplace for IT freelancers from Frankfurt am Main, where clients get suitable freelancers recommended by a network of experts. I have been working on the frontend there as a freelancer since early 2025, with Vue.js and TypeScript.',
       },
       'lunch-menu-app': {
         title: 'Lunch menu app',
-        technologies: 'Cordova | AngularJS | HTML | LESS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | New versions prepared and released in the respective store | Full Dependency Upgrade',
-        description: 'A modular white-label solution for mobile devices: display of current menus, ordering and payment functions, dashboards for occupancy and feedback, as well as numerous additional modules (e.g., voting, news, recipes, ordering options, photo booth, customer frequency counter).',
+        technologies: 'Cordova | AngularJS | HTML | LESS | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger',
+        description: 'A white-label app for canteens with menus, ordering and payment and lots of additional modules, for example votings, news or recipes. At kamasys I developed the app further, brought all dependencies up to date and released new versions in the app stores.',
       },
       'order-terminal': {
         title: 'Order terminal',
-        technologies: 'Vue.js | TypeScript | HTML | SCSS | various payment methods | C# | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger | Full Dependency Upgrade',
-        description: 'Ordering terminal with an intuitive touch interface, shopping cart, and contactless payment function. Guests easily navigate through the digital menu, select their dishes, and pick them up at the counter at their desired time.',
+        technologies: 'Vue.js | TypeScript | HTML | SCSS | C# | REST-API | Scrum | Jira | Confluence | Bitbucket | Swagger',
+        description: 'A self-service terminal: guests choose their dishes on a touchscreen, pay contactless and pick up their food at the counter at the time they want. Among other things, I connected different payment methods and did the complete dependency upgrade.',
       },
       'slack-clone': {
         title: 'Slack Clone',
         technologies: 'HTML | CSS | TypeScript | Angular | Firebase | Figma | GitHub | REST-API',
-        description: 'Slack Clone is a messenger service.',
+        description: 'A messenger modelled on Slack, built with Angular and Firebase.',
       },
       'join': {
         title: 'Join',
         technologies: 'HTML | CSS | JavaScript | Figma | GitHub',
-        description: 'Join is a very clear Kanban board to perfectly plan the day.',
+        description: 'A clear Kanban board to plan your tasks and keep track of your day.',
       },
       'el-pollo-loco': {
         title: 'El Pollo Loco',
         technologies: 'HTML | CSS | JavaScript | Figma | GitHub',
-        description: 'El Pollo Loco is a 2D game in which you have to beat chickens and their boss.',
+        description: 'A 2D game in JavaScript in which you have to fight your way through chickens and, in the end, their boss.',
       },
     },
   },
   contact: {
     headline: 'Let’s talk business',
-    text: 'Now that you know a lot about me, let me know if you are interested in working with me.',
+    text: 'Now you know a lot about me. If you need support with your frontend, send me an email or give me a call. I am available for new projects from April 2027.',
     infoHeadline: 'Contact information',
   },
   footer: {

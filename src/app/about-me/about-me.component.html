@@ -1,7 +1,9 @@
 <section class="about_me">
     <div class="about_me_description" appReveal="right">
         <h2 class="about_me_headline">{{ i18n.t().about.headline }}</h2>
-        <p class="about_me_text">{{ i18n.t().about.text }}</p>
+        @for (paragraph of i18n.t().about.text; track $index) {
+            <p class="about_me_text">{{ paragraph }}</p>
+        }
     </div>
     <img src="assets/img/profile/about-960.webp"
         srcset="assets/img/profile/about-480.webp 480w, assets/img/profile/about-960.webp 960w, assets/img/profile/about-1440.webp 1440w, assets/img/profile/about-1920.webp 1920w"
