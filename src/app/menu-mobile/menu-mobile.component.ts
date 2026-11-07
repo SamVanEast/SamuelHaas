@@ -1,89 +1,68 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { offsetTop } from '../../ts/globalInformation';
+import { Component, ElementRef, afterNextRender, inject, input, output } from '@angular/core';
+import { NavLink, SectionId, SectionNavigationService } from '../core/section-navigation.service';
 
+/**
+ * Full-screen navigation for small screens. Closes via the close button, a click on the backdrop,
+ * the Escape key or after choosing a section; keeps the keyboard focus inside while open.
+ */
 @Component({
   selector: 'app-menu-mobile',
   templateUrl: './menu-mobile.component.html',
   styleUrls: ['./menu-mobile.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  host: {
+    role: 'dialog',
+    'aria-modal': 'true',
+    'aria-label': 'Navigation',
+    '(document:keydown.escape)': 'close()',
+  },
 })
 export class MenuMobileComponent {
-  private router = inject(Router);
-  @ViewChild('aboutMe') aboutMe: ElementRef;
-  @ViewChild('portfolio') portfolio: ElementRef;
-  @ViewChild('contact') contact: ElementRef;
+  readonly links = input.required<NavLink[]>();
+  readonly closed = output<void>();
+  protected readonly nav = inject(SectionNavigationService);
+  private readonly host: HTMLElement = inject(ElementRef).nativeElement;
 
-  @HostListener('window:click')
+  constructor() {
+    afterNextRender(() => this.focusables()[1]?.focus());
+  }
+
+  close(): void {
+    this.closed.emit();
+  }
+
+  select(id: SectionId, event: Event): void {
+    this.nav.goTo(id, event);
+    this.close();
+  }
 
   /**
-   * if user click
+   * closes the menu when the free area around the links is clicked
    */
-  public onClick() {
-    if (this.router.url == '/' || this.router.url == '/#welcome' || this.router.url == '/#about-me' || this.router.url == '/#portfolio' || this.router.url == '/#contact') {
-      this.checkSection();
-    } else {
-      this.removeAllStyles();
+  onBackdropClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.close();
     }
   }
 
   /**
-   * depending on which area the user is in, the respective area in the header should get a different background color
+   * keeps the focus inside the open menu when tabbing
    */
-  checkSection() {
-    let scrollPositionTop = window.scrollY;
-    if (scrollPositionTop + window.innerHeight / 2 > offsetTop.contact) {
-      this.contactSection();
-    } else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.portfolio) {
-      this.portfolioSection();
-    } else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.aboutMe) {
-      this.aboutMeSection();
-    } else {
-      this.welcomeSection();
+  trapFocus(event: Event): void {
+    const backwards = (event as KeyboardEvent).shiftKey;
+    const focusables = this.focusables();
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = this.host.ownerDocument.activeElement;
+    if (backwards && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!backwards && active === last) {
+      event.preventDefault();
+      first.focus();
     }
   }
 
-  /**
-   * changes the route
-   */
-  welcomeSection() {
-    this.router.navigate([], { fragment: 'welcome' });
-    this.removeAllStyles();
-  }
-
-  /**
-   *changes the route
-   */
-  aboutMeSection() {
-    this.router.navigate([], { fragment: 'about-me' });
-    this.removeAllStyles();
-    this.aboutMe.nativeElement.style = 'color: #F25F5C;';
-  }
-
-  /**
-   * changes the route
-   */
-  portfolioSection() {
-    this.router.navigate([], { fragment: 'portfolio' });
-    this.removeAllStyles();
-    this.portfolio.nativeElement.style = 'color: #F25F5C;';
-  }
-
-  /**
-   * changes the route
-   */
-  contactSection() {
-    this.router.navigate([], { fragment: 'contact' });
-    this.removeAllStyles();
-    this.contact.nativeElement.style = 'color: #F25F5C;';
-  }
-
-  /**
-   * delete all styles
-   */
-  removeAllStyles() {
-    this.aboutMe.nativeElement.style = '';
-    this.portfolio.nativeElement.style = '';
-    this.contact.nativeElement.style = '';
+  private focusables(): HTMLElement[] {
+    return Array.from(this.host.querySelectorAll<HTMLElement>('button, a[href]'));
   }
 }

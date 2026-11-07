@@ -1,69 +1,78 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter, Router } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { MenuMobileComponent } from './menu-mobile.component';
-import { offsetTop } from '../../ts/globalInformation';
-import { resetGlobalInformation } from '../../testing/global-information';
+import { SectionNavigationService } from '../core/section-navigation.service';
+import { NAV_LINKS } from '../core/nav-links';
 
 describe('MenuMobileComponent', () => {
   let component: MenuMobileComponent;
   let fixture: ComponentFixture<MenuMobileComponent>;
-  let router: Router;
+  let nav: SectionNavigationService;
+  let closed: ReturnType<typeof vi.fn<() => void>>;
 
   beforeEach(async () => {
-    resetGlobalInformation();
     await TestBed.configureTestingModule({
       imports: [MenuMobileComponent],
       providers: [provideRouter([])],
     }).compileComponents();
 
+    nav = TestBed.inject(SectionNavigationService);
     fixture = TestBed.createComponent(MenuMobileComponent);
+    fixture.componentRef.setInput('links', NAV_LINKS);
     component = fixture.componentInstance;
-    router = TestBed.inject(Router);
-    fixture.detectChanges();
+    closed = vi.fn<() => void>();
+    component.closed.subscribe(() => closed());
+    document.body.appendChild(fixture.nativeElement);
+    await fixture.whenStable();
   });
 
-  afterEach(() => {
-    resetGlobalInformation();
-    vi.restoreAllMocks();
-  });
+  afterEach(() => fixture.nativeElement.remove());
 
-  function link(name: string): HTMLAnchorElement {
-    return fixture.nativeElement.querySelector(`a[href="#${name}"]`);
+  function links(): HTMLAnchorElement[] {
+    return Array.from(fixture.nativeElement.querySelectorAll('.menu_tab_mobile'));
   }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be an accessible dialog with all sections and a close button', () => {
+    expect(fixture.nativeElement.getAttribute('role')).toBe('dialog');
+    expect(fixture.nativeElement.getAttribute('aria-modal')).toBe('true');
+    expect(links().map(link => link.getAttribute('href'))).toEqual(['/#about-me', '/#portfolio', '/#contact']);
+    expect(fixture.nativeElement.querySelector('button.close_button').getAttribute('aria-label')).toBe('Close menu');
   });
 
-  it('should link to all homepage sections', () => {
-    const links = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('.menu_tab_mobile'));
-    expect(links.map(l => l.getAttribute('href'))).toEqual(['#about-me', '#portfolio', '#contact']);
+  it('should move the focus to the first section link when opened', () => {
+    expect(document.activeElement).toBe(links()[0]);
   });
 
-  it('should highlight the section the user is currently in', () => {
-    const navigate = vi.spyOn(router, 'navigate').mockResolvedValue(true);
-    offsetTop.aboutMe = 0;
-    offsetTop.portfolio = 100_000;
-    offsetTop.contact = 200_000;
-
-    component.checkSection();
-
-    expect(navigate).toHaveBeenCalledWith([], { fragment: 'about-me' });
-    expect(link('about-me').style.color).not.toBe('');
-    expect(link('portfolio').style.color).toBe('');
-    expect(link('contact').style.color).toBe('');
+  it('should navigate to the chosen section and close', () => {
+    const goTo = vi.spyOn(nav, 'goTo').mockImplementation(() => undefined);
+    links()[1].click();
+    expect(goTo).toHaveBeenCalledWith('portfolio', expect.any(MouseEvent));
+    expect(closed).toHaveBeenCalledTimes(1);
   });
 
-  it('should clear all highlights in the welcome section', () => {
-    const navigate = vi.spyOn(router, 'navigate').mockResolvedValue(true);
-    offsetTop.aboutMe = 100_000;
-    offsetTop.portfolio = 200_000;
-    offsetTop.contact = 300_000;
-    link('contact').style.color = 'red';
+  it('should close with the close button, the Escape key and a click on the backdrop', () => {
+    fixture.nativeElement.querySelector('.close_button').click();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    fixture.nativeElement.querySelector('.mobile_menu').click();
+    expect(closed).toHaveBeenCalledTimes(3);
+  });
 
-    component.checkSection();
+  it('should keep the keyboard focus inside the menu', () => {
+    const closeButton: HTMLButtonElement = fixture.nativeElement.querySelector('.close_button');
+    const lastLink = links()[links().length - 1];
 
-    expect(navigate).toHaveBeenCalledWith([], { fragment: 'welcome' });
-    expect(link('contact').style.color).toBe('');
+    lastLink.focus();
+    lastLink.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(closeButton);
+
+    closeButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(lastLink);
+  });
+
+  it('should highlight the section that is currently in view', async () => {
+    nav.activeSection.set('portfolio');
+    await fixture.whenStable();
+    expect(links()[1].classList).toContain('active');
+    expect(links()[1].getAttribute('aria-current')).toBe('true');
   });
 });

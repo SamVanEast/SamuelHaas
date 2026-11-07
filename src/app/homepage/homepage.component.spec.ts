@@ -1,72 +1,42 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { HomepageComponent } from './homepage.component';
-import { width } from '../../ts/globalInformation';
-import { resetGlobalInformation } from '../../testing/global-information';
+import { SectionNavigationService } from '../core/section-navigation.service';
 
 describe('HomepageComponent', () => {
-  let component: HomepageComponent;
   let fixture: ComponentFixture<HomepageComponent>;
+  let nav: SectionNavigationService;
+  let observeSections: ReturnType<typeof vi.spyOn>;
 
   beforeEach(async () => {
-    resetGlobalInformation();
     await TestBed.configureTestingModule({
       imports: [HomepageComponent],
       providers: [provideRouter([])],
     }).compileComponents();
 
+    nav = TestBed.inject(SectionNavigationService);
+    observeSections = vi.spyOn(nav, 'observeSections');
     fixture = TestBed.createComponent(HomepageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
-  afterEach(() => {
-    resetGlobalInformation();
-    document.body.style.overflow = '';
+  it('should render header, all sections with their anchor ids and the footer', () => {
+    expect(fixture.nativeElement.querySelector('app-header')).not.toBeNull();
+    const ids = Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('main > .section')).map(s => s.id);
+    expect(ids).toEqual(['welcome', 'about-me', 'portfolio', 'contact']);
+    expect(fixture.nativeElement.querySelector('app-footer')).not.toBeNull();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should have exactly one main heading', () => {
+    expect(fixture.nativeElement.querySelectorAll('h1').length).toBe(1);
   });
 
-  it('should ignore a click that arrives before the header is rendered', () => {
-    const freshFixture = TestBed.createComponent(HomepageComponent);
-    expect(() => freshFixture.componentInstance.onClick()).not.toThrow();
-    expect(freshFixture.componentInstance.showMenu).toBe(false);
-  });
+  it('should let the navigation track the sections and stop when the page is left', () => {
+    const observed = observeSections.mock.calls[0][0] as HTMLElement[];
+    expect(observed.map(section => section.id)).toEqual(['welcome', 'about-me', 'portfolio', 'contact']);
 
-  it('should render every section with its anchor id', () => {
-    const ids = ['header', 'welcome', 'about-me', 'portfolio', 'contact', 'footer'];
-    ids.forEach(id => expect(fixture.nativeElement.querySelector(`#${id}`)).not.toBeNull());
-  });
-
-  it('should measure the page width and the sections on load', () => {
-    component.onLoad();
-    expect(width[0]).toBeTypeOf('number');
-    expect(component.viewChilds.length).toBe(5);
-  });
-
-  it('should open the mobile menu and lock scrolling when the menu icon is clicked', async () => {
-    fixture.nativeElement.querySelector('.open_menu img').click();
-    fixture.detectChanges();
-    await new Promise(resolve => setTimeout(resolve));
-
-    expect(component.showMenu).toBe(true);
-    expect(fixture.nativeElement.querySelector('app-menu-mobile')).not.toBeNull();
-    expect(document.body.style.overflow).toBe('hidden');
-  });
-
-  it('should close the mobile menu and unlock scrolling', async () => {
-    fixture.nativeElement.querySelector('.open_menu img').click();
-    fixture.detectChanges();
-    await new Promise(resolve => setTimeout(resolve));
-
-    fixture.nativeElement.querySelector('app-menu-mobile').click();
-    fixture.detectChanges();
-
-    expect(component.showMenu).toBe(false);
-    expect(component.header.showMenu).toBe(false);
-    expect(fixture.nativeElement.querySelector('app-menu-mobile')).toBeNull();
-    expect(document.body.style.overflow).toBe('');
+    const disconnect = vi.spyOn(nav, 'disconnect');
+    fixture.destroy();
+    expect(disconnect).toHaveBeenCalled();
   });
 });

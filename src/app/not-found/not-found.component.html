@@ -1,5 +1,12 @@
-<article class="legal_text">
-  <h1>Seite nicht gefunden</h1>
-  <p>Die aufgerufene Seite existiert nicht oder wurde verschoben.</p>
-  <p><a routerLink="/">Zur Startseite</a></p>
-</article>
+<section class="not_found" appReveal>
+  <p class="not_found_code" aria-hidden="true">404</p>
+  <h1 class="not_found_headline">Seite nicht gefunden</h1>
+  <p class="not_found_text">
+    Die aufgerufene Seite existiert nicht oder wurde verschoben. Über die Startseite finden Sie alle Inhalte
+    dieser Website.
+  </p>
+  <div class="not_found_actions">
+    <a class="button button--primary" routerLink="/">Zur Startseite</a>
+    <a class="button button--secondary" href="/#portfolio" (click)="nav.goTo('portfolio', $event)">Portfolio ansehen</a>
+  </div>
+</section>

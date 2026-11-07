@@ -1,14 +1,16 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SectionNavigationService } from '../core/section-navigation.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [RouterLink],
 })
 export class FooterComponent {
+  protected readonly nav = inject(SectionNavigationService);
+
   /**
    * scroll to the top when a legal page is opened;
    * instant, because a smooth scroll is cancelled when the router swaps the page

@@ -1,9 +1,8 @@
-<app-header class="header" id="header" #header></app-header>
-<app-welcome-section id="welcome" class="scrollMargin" #welcomeSection></app-welcome-section>
-<app-about-me id="about-me" class="scrollMargin" #aboutMe></app-about-me>
-<app-portfolio id="portfolio" class="scrollMargin" #portfolio></app-portfolio>
-<app-contact id="contact" class="scrollMargin" #contact></app-contact>
-<app-footer id="footer" class="scrollMargin" #footer></app-footer>
-@if (showMenu) {
-  <app-menu-mobile class="menu_mobile" (click)="closeMenu()" #menuMobile></app-menu-mobile>
-}
+<app-header />
+<main>
+  <app-welcome-section id="welcome" class="section" #section />
+  <app-about-me id="about-me" class="section" #section />
+  <app-portfolio id="portfolio" class="section" #section />
+  <app-contact id="contact" class="section" #section />
+</main>
+<app-footer />

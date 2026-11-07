@@ -17,8 +17,8 @@ describe('WelcomeSectionComponent', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should introduce Samuel Haas', () => {
-    const headline: HTMLElement = fixture.nativeElement.querySelector('.welcome_headline');
+  it('should introduce Samuel Haas in the main heading of the page', () => {
+    const headline: HTMLElement = fixture.nativeElement.querySelector('h1.welcome_headline');
     expect(headline.textContent).toContain('Samuel Haas');
   });
 

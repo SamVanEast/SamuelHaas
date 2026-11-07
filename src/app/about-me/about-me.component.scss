@@ -20,7 +20,8 @@
         flex-direction: column;
     }
 
-    span {
+    .about_me_headline,
+    .about_me_text {
         width: 80%;
     }
 
@@ -34,6 +35,11 @@
         object-fit: cover;
     }
 
+}
+
+.about_me_headline,
+.about_me_text {
+    margin: 0;
 }
 
 .about_me_headline {
@@ -65,7 +71,8 @@
             padding-bottom: 20px;
         }
 
-        span {
+        .about_me_headline,
+        .about_me_text {
             width: 100%;
         }
 

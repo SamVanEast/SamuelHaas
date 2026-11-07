@@ -1,6 +1,8 @@
+:host {
+    display: block;
+}
+
 .footer {
-    width: 100vw;
-    max-width: 100%;
     background-color: #133B3F;
 }
 
@@ -12,42 +14,60 @@
     padding-bottom: 34px;
 }
 
+.footer_logo_link {
+    display: inline-flex;
+    border-radius: 4px;
+    transition: opacity 200ms ease;
+}
+
 .footer_logo {
     margin-left: -17px;
     height: 68px;
-
-    &:hover {
-        cursor: pointer;
-        opacity: .6;
-    }
+    width: auto;
 }
 
 .social_media {
+    display: flex;
+    margin-left: -13px;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        transition: opacity 200ms ease;
+    }
+
     img {
-        padding-right: 20px;
         width: 18px;
         height: 18px;
-
-        &:hover {
-            cursor: pointer;
-            opacity: .6;
-        }
     }
 }
 
 .legal_links {
     display: flex;
-    gap: 24px;
+    gap: 8px;
+    margin-right: -12px;
 }
 
 .legal_link {
-    font-style: normal;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 12px;
+    border-radius: 8px;
     font-weight: 400;
     font-size: 16px;
     color: white;
+    transition: opacity 200ms ease;
+}
 
-    &:hover {
-        cursor: pointer;
+@media (hover: hover) {
+    .footer_logo_link:hover,
+    .social_media a:hover,
+    .legal_link:hover {
         opacity: .6;
     }
 }
@@ -56,33 +76,17 @@
     .footer_div {
         flex-direction: column;
         justify-content: flex-start;
-        align-items: unset;
+        align-items: flex-start;
         padding-top: 24px;
-        padding-bottom: 72px;
-    }
-
-    .footer_logo {
-        &:hover {
-            cursor: unset;
-            opacity: unset;
-        }
+        padding-bottom: 48px;
     }
 
     .social_media {
-        padding: 28px 0 40px 0;
-
-        img {
-            &:hover {
-                cursor: unset;
-                opacity: unset;
-            }
-        }
+        padding: 20px 0 24px 0;
     }
 
-    .legal_link {
-        &:hover {
-            cursor: unset;
-            opacity: unset;
-        }
+    .legal_links {
+        margin-left: -12px;
+        margin-right: 0;
     }
 }

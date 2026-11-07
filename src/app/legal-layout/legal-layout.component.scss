@@ -1,22 +1,23 @@
-.header {
-    top: 0;
-    z-index: 3;
-    position: fixed;
+// the footer stays at the bottom of the window, even on short pages
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .legal_page {
-    display: block;
-    padding-top: 130px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + 40px);
     padding-bottom: 80px;
-}
-
-.menu_mobile {
-    position: absolute;
 }
 
 @media (max-width: 770px) {
     .legal_page {
-        padding-top: 110px;
+        padding-top: calc(var(--header-height) + 20px);
         padding-bottom: 48px;
     }
 }

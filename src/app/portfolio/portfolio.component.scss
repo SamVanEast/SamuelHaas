@@ -1,11 +1,5 @@
-a {
-    text-decoration: none;
-}
-
 .portfolio {
     background-color: #2B7A77;
-    width: 100vw;
-    max-width: 100%;
 }
 
 .portfolio_header {
@@ -17,14 +11,17 @@ a {
     align-items: flex-start;
 }
 
+.headline,
+.description {
+    margin: 0;
+}
+
 .headline {
-    font-style: normal;
     font-weight: 700;
     font-size: 55px;
 }
 
 .description {
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
 }
@@ -41,54 +38,61 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 4px;
+
+    // the hover effect fades the content, the card itself keeps the opacity of the reveal animation
+    > * {
+        transition: opacity 200ms ease;
+    }
 
     img {
         width: 100%;
         height: auto;
         object-fit: cover;
     }
+}
 
-    div {
-        box-sizing: border-box;
-        padding-left: 5%;
-        padding-right: 5%;
-        width: 100%;
-        background-color: white;
-        color: #2B7A77;
-    }
-
-    &:hover {
-        cursor: pointer;
-        opacity: .6;
-    }
+.project_headline,
+.project_languages,
+.project_description {
+    box-sizing: border-box;
+    margin: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+    background-color: white;
+    color: #2B7A77;
 }
 
 .project_headline {
     padding-top: 40px;
-    font-style: normal;
     font-weight: 700;
     font-size: 24px;
 }
 
 .project_languages {
     padding-top: 18px;
-    font-style: normal;
     font-weight: 400;
     font-size: 21px;
-    color: #F25F5C !important;
+    color: #F25F5C;
 }
 
 .project_description {
     padding-top: 18px;
     padding-bottom: 40px;
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
 }
 
+@media (hover: hover) {
+    .project:hover > * {
+        opacity: .6;
+    }
+}
+
 @media (max-width: 770px) {
     .portfolio_header {
-        padding: 31px 0 20px 0 ;
+        padding: 31px 0 20px 0;
     }
 
     .headline {
@@ -108,17 +112,7 @@ a {
 
     .project {
         width: 100%;
-        flex-direction: column;
         align-items: unset;
-
-        img {
-            width: 100%;
-        }
-
-        &:hover {
-            cursor: unset;
-            opacity: unset;
-        }
     }
 
     .project_headline {

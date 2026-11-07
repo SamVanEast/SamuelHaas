@@ -1,6 +1,4 @@
 .welcome_section {
-    width: 100vw;
-    max-width: 100%;
     min-height: 100vh;
     background-color: #2B7A77;
     display: flex;
@@ -28,23 +26,23 @@
     flex-direction: column;
     align-items: flex-end;
     padding-right: 5%;
+}
 
-    span {
-        width: 80%;
-        z-index: 2;
-        color: white;
-    }
+.welcome_headline,
+.welcome_text {
+    width: 80%;
+    margin: 0;
+    z-index: 2;
+    color: white;
 }
 
 .welcome_headline {
-    font-style: normal;
     font-weight: 700;
     font-size: 58px;
 }
 
 .welcome_text {
     padding-top: 30px;
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     padding-bottom: 40px;
@@ -57,7 +55,6 @@
         flex-direction: column;
         box-sizing: border-box;
         background-color: #133B3F;
-
 
         img {
             padding-top: unset;
@@ -74,15 +71,13 @@
         padding-top: unset;
         min-height: unset;
         flex: 1 1 auto;
+    }
 
-
-        span {
-            width: 90%;
-            padding-right: 5%;
-            padding-left: 5%;
-            z-index: 2;
-            color: #ffffff;
-        }
+    .welcome_headline,
+    .welcome_text {
+        width: 90%;
+        padding-right: 5%;
+        padding-left: 5%;
     }
 
     .welcome_headline {

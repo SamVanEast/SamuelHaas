@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { FooterComponent } from './footer.component';
+import { SectionNavigationService } from '../core/section-navigation.service';
 
 describe('FooterComponent', () => {
   let fixture: ComponentFixture<FooterComponent>;
@@ -37,6 +38,14 @@ describe('FooterComponent', () => {
     fixture.nativeElement.querySelectorAll('.legal_link').forEach((link: HTMLAnchorElement) => link.click());
     expect(scrollTo).toHaveBeenCalledTimes(2);
     expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'instant' });
+  });
+
+  it('should take the logo back to the top of the homepage without a reload', () => {
+    const goTo = vi.spyOn(TestBed.inject(SectionNavigationService), 'goTo').mockImplementation(() => undefined);
+    const logo: HTMLAnchorElement = fixture.nativeElement.querySelector('.footer_logo_link');
+    expect(logo.getAttribute('href')).toBe('/#welcome');
+    logo.click();
+    expect(goTo).toHaveBeenCalledWith('welcome', expect.any(MouseEvent));
   });
 
   it('should give every image link an accessible name', () => {

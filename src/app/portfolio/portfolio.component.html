@@ -1,33 +1,25 @@
-<div class="portfolio">
+<section class="portfolio">
   <div class="indentation">
-    <div class="portfolio_header" #portfolioHeader [style.visibility]="showHeader ? 'visible' : 'hidden'">
-      <span class="headline">
-        Portfolio
-      </span>
-      <span class="description">
+    <div class="portfolio_header" appReveal="right">
+      <h2 class="headline">Portfolio</h2>
+      <p class="description">
         This page is a sample of my work – please feel free to try them out. I contributed to these products/projects as
         a Frontend Developer.
-      </span>
+      </p>
     </div>
 
     <div class="projects">
-      @for (project of imgs; track project; let i = $index) {
-        <a class="project" href="{{ links[i] }}" target="_blank"
-          rel="noopener noreferrer" id="project{{ i }}" [style.visibility]="showContent ? 'visible' : 'hidden'">
-          <img [src]="'assets/img/projects/' + project + '-960.webp'" [attr.srcset]="srcset(project)"
-            sizes="(max-width: 770px) 90vw, 40vw" [width]="projectImages[project].width"
-            [height]="projectImages[project].height" loading="lazy" decoding="async" [alt]="headline[i]">
-          <div class="project_headline">
-            {{ headline[i] }}
-          </div>
-          <div class="project_languages">
-            {{ languages[i] }}
-          </div>
-          <div class="project_description">
-            {{ description[i] }}
-          </div>
+      @for (project of projects; track project.id; let even = $even) {
+        <a class="project" [href]="project.link" target="_blank" rel="noopener noreferrer"
+          [appReveal]="even ? 'left' : 'right'">
+          <img [src]="'assets/img/projects/' + project.id + '-960.webp'" [attr.srcset]="srcset(project)"
+            sizes="(max-width: 770px) 90vw, 40vw" [width]="project.image.width" [height]="project.image.height"
+            loading="lazy" decoding="async" [alt]="texts[project.id].title">
+          <h3 class="project_headline">{{ texts[project.id].title }}</h3>
+          <p class="project_languages">{{ texts[project.id].technologies }}</p>
+          <p class="project_description">{{ texts[project.id].description }}</p>
         </a>
       }
     </div>
   </div>
-</div>
+</section>
