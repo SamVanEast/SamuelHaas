@@ -1,4 +1,4 @@
-export type ProjectId = 'bytecookie' | 'lunch-menu-app' | 'order-terminal' | 'slack-clone' | 'join' | 'el-pollo-loco';
+export type ProjectId = 'quantrefy' | 'bytecookie' | 'lunch-menu-app' | 'order-terminal' | 'slack-clone' | 'join' | 'el-pollo-loco';
 
 export interface ProjectImage {
   /** Generated WebP widths, see scripts/optimize-images.mjs */
@@ -16,18 +16,24 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'quantrefy',
+    link: 'https://quantrefy.com',
+    image: { widths: [480, 960, 1440], width: 960, height: 640 },
+  },
+  {
     id: 'bytecookie',
     link: 'https://www.bytecookie.net',
     image: { widths: [480, 960, 1440], width: 960, height: 479 },
   },
   {
+    // kamasys is called menio today
     id: 'order-terminal',
-    link: 'https://www.kamasys.de/index.php/portfolio/kassensysteme-selbstbedienung/',
+    link: 'https://menio.com/portfolio/meniosot/',
     image: { widths: [480, 960], width: 960, height: 340 },
   },
   {
     id: 'lunch-menu-app',
-    link: 'https://www.kamasys.de/index.php/portfolio/mittagstisch/#',
+    link: 'https://menio.com/portfolio/menioapp/',
     image: { widths: [480, 960, 1440], width: 960, height: 306 },
   },
   {

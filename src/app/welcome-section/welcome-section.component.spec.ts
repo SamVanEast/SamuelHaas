@@ -22,10 +22,12 @@ describe('WelcomeSectionComponent', () => {
     expect(headline.textContent).toContain('Samuel Haas');
   });
 
-  it('should name Vue.js as the preferred framework', () => {
+  it('should present a software developer with a mechatronics background, not a frontend developer', () => {
+    const headline: string = fixture.nativeElement.querySelector('.welcome_headline').textContent;
     const text: string = fixture.nativeElement.querySelector('.welcome_text').textContent;
-    expect(text).toContain('Vue.js');
-    expect(text).not.toContain('Angular');
+    expect(headline).toMatch(/software developer|Softwareentwickler/);
+    expect(text).toMatch(/mechatronics|Mechatronik/);
+    expect(headline + text).not.toMatch(/frontend/i);
   });
 
   it('should load the profile picture eagerly as responsive WebP', () => {

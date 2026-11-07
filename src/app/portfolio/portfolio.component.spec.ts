@@ -30,6 +30,10 @@ describe('PortfolioComponent', () => {
     });
   });
 
+  it('should not link to the old kamasys domain, which now ends in a 404 at menio', () => {
+    expect(PROJECTS.filter(project => project.link.includes('kamasys'))).toEqual([]);
+  });
+
   it('should list the Vue.js projects first', () => {
     const technologies = PROJECTS.map(project => EN.portfolio.projects[project.id].technologies);
     expect(technologies[0]).toContain('Vue.js');
