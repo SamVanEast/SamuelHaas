@@ -8,20 +8,14 @@
 .indentation_customization {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: clamp(24px, 5vw, 96px);
+    gap: 24px;
 }
 
-.contact_intro {
+.contact_description {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 1 1 0;
-}
-
-.contact_form_column {
-    flex: 1 1 0;
-    max-width: 640px;
+    width: 50%;
 }
 
 .headline,
@@ -46,7 +40,7 @@
 .contact-information {
     display: flex;
     flex-direction: column;
-    padding-top: 48px;
+    min-width: 40%;
 }
 
 .contact-information-headline {
@@ -91,19 +85,15 @@
 @media (max-width: 770px) {
     .indentation_customization {
         flex-direction: column;
-        align-items: stretch;
-        gap: 48px;
+        gap: 0;
     }
 
-    .contact_form_column {
-        max-width: none;
+    .contact_description {
+        width: 100%;
+        padding-bottom: 40px;
     }
 
     .text {
         padding-top: 20px;
-    }
-
-    .contact-information {
-        padding-top: 32px;
     }
 }

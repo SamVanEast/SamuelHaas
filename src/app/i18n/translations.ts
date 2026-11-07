@@ -11,23 +11,6 @@ export interface ProjectText {
   description: string;
 }
 
-export interface ContactFormTexts {
-  name: string;
-  email: string;
-  message: string;
-  submit: string;
-  sending: string;
-  /** "... more in the <link>privacy policy</link>." */
-  privacyBefore: string;
-  privacyLink: string;
-  privacyAfter: string;
-  errors: { name: string; email: string; message: string };
-  success: string;
-  sendAnother: string;
-  /** followed by the e-mail address as a link */
-  failure: string;
-}
-
 /** All texts of the website that change with the language. */
 export interface Translations {
   skipToContent: string;
@@ -47,7 +30,7 @@ export interface Translations {
   welcome: { headline: string; text: string; portraitAlt: string };
   about: { headline: string; text: string[]; portraitAlt: string };
   portfolio: { headline: string; description: string; projects: Record<ProjectId, ProjectText> };
-  contact: { headline: string; text: string; infoHeadline: string; form: ContactFormTexts };
+  contact: { headline: string; text: string; infoHeadline: string };
   footer: { legal: string; imprint: string; privacy: string };
   notFound: { headline: string; text: string; home: string; portfolio: string };
   legal: { germanOnly: string };

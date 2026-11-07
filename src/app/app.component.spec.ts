@@ -1,6 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { Title } from '@angular/platform-browser';
 import { TitleStrategy, provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
@@ -15,12 +13,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [
-        provideRouter(routes),
-        provideHttpClient(),
-        provideHttpClientTesting(),
-        { provide: TitleStrategy, useClass: TranslatedTitleStrategy },
-      ],
+      providers: [provideRouter(routes), { provide: TitleStrategy, useClass: TranslatedTitleStrategy }],
     }).compileComponents();
     useLanguage('de');
   });

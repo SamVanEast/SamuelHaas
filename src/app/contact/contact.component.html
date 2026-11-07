@@ -1,17 +1,16 @@
 <section class="contact">
     <div class="indentation indentation_customization">
-        <div class="contact_intro" appReveal="left">
+        <div class="contact_description" appReveal="left">
             <h2 class="headline">{{ i18n.t().contact.headline }}</h2>
             <p class="text">{{ i18n.t().contact.text }}</p>
-            <div class="contact-information">
-                <h3 class="contact-information-headline">{{ i18n.t().contact.infoHeadline }}</h3>
-                <address class="contact-information-content">
-                    <span>Samuel Haas</span>
-                    <a href="mailto:info@samuel-haas.com">info&#64;samuel-haas.com</a>
-                    <a href="tel:+4915756775354">+49 1575 677 53 54</a>
-                </address>
-            </div>
         </div>
-        <app-contact-form class="contact_form_column" appReveal="right" />
+        <div class="contact-information" appReveal="right">
+            <h3 class="contact-information-headline">{{ i18n.t().contact.infoHeadline }}</h3>
+            <address class="contact-information-content">
+                <span>Samuel Haas</span>
+                <a href="mailto:info@samuel-haas.com">info&#64;samuel-haas.com</a>
+                <a href="tel:+4915756775354">+49 1575 677 53 54</a>
+            </address>
+        </div>
     </div>
 </section>

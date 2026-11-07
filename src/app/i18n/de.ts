@@ -80,26 +80,8 @@ export const DE: Translations = {
   },
   contact: {
     headline: 'Reden wir über Ihr Projekt',
-    text: 'Jetzt wissen Sie schon einiges über mich. Wenn Sie Unterstützung bei der Softwareentwicklung brauchen oder Ihre Software mit Maschinen und Steuerungen zusammenarbeiten muss, schreiben Sie mir oder rufen Sie mich an. Für neue Projekte bin ich ab April 2027 wieder verfügbar.',
+    text: 'Jetzt wissen Sie schon einiges über mich. Wenn Sie Unterstützung bei der Softwareentwicklung brauchen oder Ihre Software mit Maschinen und Steuerungen zusammenarbeiten muss, schreiben Sie mir eine E-Mail oder rufen Sie mich an. Für neue Projekte bin ich ab April 2027 wieder verfügbar.',
     infoHeadline: 'Kontaktdaten',
-    form: {
-      name: 'Name',
-      email: 'E-Mail',
-      message: 'Ihre Nachricht',
-      submit: 'Nachricht senden',
-      sending: 'Wird gesendet',
-      privacyBefore: 'Ihre Angaben nutze ich nur, um Ihre Anfrage zu beantworten. Mehr dazu in der ',
-      privacyLink: 'Datenschutzerklärung',
-      privacyAfter: '.',
-      errors: {
-        name: 'Bitte geben Sie Ihren Namen ein.',
-        email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
-        message: 'Bitte schreiben Sie mir eine Nachricht.',
-      },
-      success: 'Danke für Ihre Nachricht. Ich melde mich so schnell wie möglich bei Ihnen.',
-      sendAnother: 'Weitere Nachricht schreiben',
-      failure: 'Die Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später noch einmal oder schreiben Sie mir direkt an',
-    },
   },
   footer: {
     legal: 'Rechtliches',

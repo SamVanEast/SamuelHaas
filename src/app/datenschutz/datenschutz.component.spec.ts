@@ -31,26 +31,23 @@ describe('DatenschutzComponent', () => {
     expect(fixture.nativeElement.querySelector('a[href="mailto:info@samuel-haas.com"]')).not.toBeNull();
   });
 
-  it('should cover hosting, contact, the contact form, stored settings, external links, rights and the supervisory authority', () => {
+  it('should cover hosting, contact, stored settings, external links, rights and the supervisory authority', () => {
     const headings = Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('h2')).map(h => h.textContent);
     expect(headings).toEqual([
       '1. Verantwortlicher',
       '2. Das Wichtigste in Kürze',
       '3. Hosting und Server-Logdaten',
       '4. Kontaktaufnahme per E-Mail oder Telefon',
-      '5. Kontaktformular',
-      '6. Speicherung Ihrer Einstellungen im Browser',
-      '7. Links zu externen Websites',
-      '8. Ihre Rechte',
-      '9. Beschwerderecht bei einer Aufsichtsbehörde',
-      '10. Automatisierte Entscheidungen',
-      '11. Änderungen dieser Datenschutzerklärung',
+      '5. Speicherung Ihrer Einstellungen im Browser',
+      '6. Links zu externen Websites',
+      '7. Ihre Rechte',
+      '8. Beschwerderecht bei einer Aufsichtsbehörde',
+      '9. Automatisierte Entscheidungen',
+      '10. Änderungen dieser Datenschutzerklärung',
     ]);
     expect(text).toContain('Firebase Hosting');
     expect(text).toContain('EU-US Data Privacy Framework');
     expect(text).toContain('§ 25 Abs. 2 Nr. 2 TDDDG');
-    expect(text).toContain('Web3Forms');
-    expect(text).toContain('Standardvertragsklauseln');
     expect(text).toContain('Art. 21 DSGVO');
     expect(text).toContain('Baden-Württemberg');
   });
