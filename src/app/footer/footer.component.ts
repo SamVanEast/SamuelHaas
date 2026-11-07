@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionNavigationService } from '../core/section-navigation.service';
+import { LanguageService } from '../i18n/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,6 +11,7 @@ import { SectionNavigationService } from '../core/section-navigation.service';
 })
 export class FooterComponent {
   protected readonly nav = inject(SectionNavigationService);
+  protected readonly i18n = inject(LanguageService);
 
   /**
    * scroll to the top when a legal page is opened;

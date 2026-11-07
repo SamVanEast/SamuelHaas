@@ -15,9 +15,9 @@
                     <img src="assets/icons/linkedIn.png" alt="LinkedIn" width="18" height="18">
                 </a>
             </div>
-            <nav class="legal_links" aria-label="Rechtliches">
-                <a class="legal_link" routerLink="/impressum" (click)="scrollToTop()">Impressum</a>
-                <a class="legal_link" routerLink="/datenschutz" (click)="scrollToTop()">Datenschutz</a>
+            <nav class="legal_links" [attr.aria-label]="i18n.t().footer.legal">
+                <a class="legal_link" routerLink="/impressum" (click)="scrollToTop()">{{ i18n.t().footer.imprint }}</a>
+                <a class="legal_link" routerLink="/datenschutz" (click)="scrollToTop()">{{ i18n.t().footer.privacy }}</a>
             </nav>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatenschutzComponent } from './datenschutz.component';
+import { useLanguage } from '../../testing/language';
 
 describe('DatenschutzComponent', () => {
   let fixture: ComponentFixture<DatenschutzComponent>;
@@ -10,18 +11,17 @@ describe('DatenschutzComponent', () => {
       imports: [DatenschutzComponent],
     }).compileComponents();
 
+    useLanguage('de');
     fixture = TestBed.createComponent(DatenschutzComponent);
-    fixture.detectChanges();
-    text = fixture.nativeElement.textContent;
+    await fixture.whenStable();
+    text = fixture.nativeElement.querySelector('article').textContent;
   });
 
-  it('should create', () => {
-    expect(fixture.componentInstance).toBeTruthy();
-  });
-
-  it('should show a dated privacy policy', () => {
-    expect(fixture.nativeElement.querySelector('h1').textContent).toBe('Datenschutzerklärung');
-    expect(fixture.nativeElement.querySelector('.legal_meta').textContent).toMatch(/^Stand: /);
+  it('should show a dated privacy policy marked as German', () => {
+    const article: HTMLElement = fixture.nativeElement.querySelector('article');
+    expect(article.getAttribute('lang')).toBe('de');
+    expect(article.querySelector('h1').textContent).toBe('Datenschutzerklärung');
+    expect(article.querySelector('.legal_meta').textContent).toMatch(/^Stand: /);
   });
 
   it('should name the controller with the current contact details', () => {
@@ -31,21 +31,23 @@ describe('DatenschutzComponent', () => {
     expect(fixture.nativeElement.querySelector('a[href="mailto:info@samuel-haas.com"]')).not.toBeNull();
   });
 
-  it('should cover hosting, contact, external links, rights and the supervisory authority', () => {
+  it('should cover hosting, contact, stored settings, external links, rights and the supervisory authority', () => {
     const headings = Array.from<HTMLElement>(fixture.nativeElement.querySelectorAll('h2')).map(h => h.textContent);
     expect(headings).toEqual([
       '1. Verantwortlicher',
       '2. Das Wichtigste in Kürze',
       '3. Hosting und Server-Logdaten',
       '4. Kontaktaufnahme per E-Mail oder Telefon',
-      '5. Links zu externen Websites',
-      '6. Ihre Rechte',
-      '7. Beschwerderecht bei einer Aufsichtsbehörde',
-      '8. Automatisierte Entscheidungen',
-      '9. Änderungen dieser Datenschutzerklärung',
+      '5. Speicherung Ihrer Einstellungen im Browser',
+      '6. Links zu externen Websites',
+      '7. Ihre Rechte',
+      '8. Beschwerderecht bei einer Aufsichtsbehörde',
+      '9. Automatisierte Entscheidungen',
+      '10. Änderungen dieser Datenschutzerklärung',
     ]);
     expect(text).toContain('Firebase Hosting');
     expect(text).toContain('EU-US Data Privacy Framework');
+    expect(text).toContain('§ 25 Abs. 2 Nr. 2 TDDDG');
     expect(text).toContain('Art. 21 DSGVO');
     expect(text).toContain('Baden-Württemberg');
   });
@@ -67,5 +69,16 @@ describe('DatenschutzComponent', () => {
   it('should not contain leftover template placeholders', () => {
     expect(text).not.toMatch(/\[[^\]]+\]/);
     expect(text).not.toContain('Telefax');
+  });
+
+  it('should only show the English hint about the binding German version in English mode', async () => {
+    expect(fixture.nativeElement.querySelector('.legal_language_note')).toBeNull();
+
+    useLanguage('en');
+    await fixture.whenStable();
+
+    const note: HTMLElement = fixture.nativeElement.querySelector('.legal_language_note');
+    expect(note.getAttribute('lang')).toBe('en');
+    expect(note.textContent).toContain('only available in German');
   });
 });

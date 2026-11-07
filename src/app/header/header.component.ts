@@ -1,16 +1,19 @@
 import { Component, DOCUMENT, DestroyRef, ElementRef, effect, inject, signal, viewChild } from '@angular/core';
 import { SectionNavigationService } from '../core/section-navigation.service';
 import { NAV_LINKS } from '../core/nav-links';
+import { LanguageService } from '../i18n/language.service';
+import { LanguageSwitchComponent } from '../language-switch/language-switch.component';
 import { MenuMobileComponent } from '../menu-mobile/menu-mobile.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [MenuMobileComponent],
+  imports: [MenuMobileComponent, LanguageSwitchComponent],
 })
 export class HeaderComponent {
   protected readonly nav = inject(SectionNavigationService);
+  protected readonly i18n = inject(LanguageService);
   protected readonly links = NAV_LINKS;
   readonly menuOpen = signal(false);
   private readonly menuButton = viewChild.required<ElementRef<HTMLButtonElement>>('menuButton');

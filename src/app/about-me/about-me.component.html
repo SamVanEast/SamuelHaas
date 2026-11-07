@@ -1,34 +1,10 @@
 <section class="about_me">
     <div class="about_me_description" appReveal="right">
-        <h2 class="about_me_headline">
-            About me
-        </h2>
-        <p class="about_me_text">
-            Hello, my name is Samuel Haas. I am in my mid-twenties and have lived in Germany all my life. During
-            my school years I had the opportunity to get to know the world of technology through Jugend Forscht.
-            This small research project turned out to be so successful that I subsequently made electronics and
-            mechanics the subject of my apprenticeship at a leading medium-sized company in the region. After
-            more than three years in the midst of complex industrial systems with various controls and programming,
-            my programming skills were not enough - I wanted more. Initially, I worked on my own with various
-            books, but then I decided to take a professional further education course to become a frontend
-            developer. It was an exciting, educational time - now that I have gained my first experience as a
-            Frontend developer, I would like to expand on it and am looking forward to exciting and challenging projects.
-            <!-- Hallo. Mein Name ist Samuel Haas. Ich bin Mitte Zwanzig und lebe mein ganzes Leben
-            schon in Deutschland. In meiner Schulzeit habe recht früh die Möglichkeit gehabt, durch
-            Jugend Forscht die Welt der Technik kennen zu lernen. Dieses kleine Forschungsprojekt
-            entwickelte sich so erfolgreich, dass ich anschließend Elektronik und Mechanik zum Inhalt
-            meiner Ausbildung bei einem führenden mittelständischen Unternehmen in der Region
-            machte. Nach mehr als drei Jahren inmitten von komplexen Industrieanlagen mit
-            diversen Steuerungen und Programmierungen, reichten mir meine
-            Programmierkenntnisse nicht mehr – ich wollte mehr. Anfangs noch in Eigenregie mit
-            verschiedenen Büchern, entschied ich mich dann zu einer professionellen Weiterbildung
-            zum Frontend-Developer. Es war eine spannende, lehrreiche Zeit – jetzt nachdem ich 
-            meine ersten Erfahrungen als Frontend-Developer gemacht habe, möchte ich sie ausbauen 
-            und freue mich auf spannende und herausfordernde Projekte. -->
-        </p>
+        <h2 class="about_me_headline">{{ i18n.t().about.headline }}</h2>
+        <p class="about_me_text">{{ i18n.t().about.text }}</p>
     </div>
     <img src="assets/img/profile/about-960.webp"
         srcset="assets/img/profile/about-480.webp 480w, assets/img/profile/about-960.webp 960w, assets/img/profile/about-1440.webp 1440w, assets/img/profile/about-1920.webp 1920w"
         sizes="(max-width: 900px) 100vw, 50vw" width="1920" height="1440" loading="lazy" decoding="async"
-        alt="Portrait of Samuel Haas">
+        [alt]="i18n.t().about.portraitAlt">
 </section>

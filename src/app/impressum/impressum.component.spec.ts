@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImpressumComponent } from './impressum.component';
+import { useLanguage } from '../../testing/language';
 
 describe('ImpressumComponent', () => {
   let fixture: ComponentFixture<ImpressumComponent>;
@@ -10,13 +11,21 @@ describe('ImpressumComponent', () => {
       imports: [ImpressumComponent],
     }).compileComponents();
 
+    useLanguage('de');
     fixture = TestBed.createComponent(ImpressumComponent);
-    fixture.detectChanges();
+    await fixture.whenStable();
     text = fixture.nativeElement.textContent;
   });
 
-  it('should create', () => {
-    expect(fixture.componentInstance).toBeTruthy();
+  it('should stay German, with an English hint in English mode', async () => {
+    expect(fixture.nativeElement.querySelector('article').getAttribute('lang')).toBe('de');
+    expect(fixture.nativeElement.querySelector('.legal_language_note')).toBeNull();
+
+    useLanguage('en');
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('.legal_language_note').textContent).toContain('legally binding');
+    expect(fixture.nativeElement.querySelector('h1').textContent).toBe('Impressum');
   });
 
   it('should cite the current legal basis § 5 DDG instead of the repealed TMG', () => {

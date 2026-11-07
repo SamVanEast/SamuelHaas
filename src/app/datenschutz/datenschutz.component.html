@@ -1,4 +1,7 @@
-<article class="legal_text">
+@if (i18n.t().legal.germanOnly) {
+  <p class="legal_language_note" lang="en">{{ i18n.t().legal.germanOnly }}</p>
+}
+<article class="legal_text" lang="de">
   <h1>Datenschutzerklärung</h1>
   <p class="legal_meta">Stand: 7. November 2026</p>
 
@@ -19,6 +22,10 @@
   <h2>2. Das Wichtigste in Kürze</h2>
   <ul>
     <li>Diese Website setzt keine Cookies und verwendet keine Analyse-, Tracking- oder Werbedienste.</li>
+    <li>
+      Wenn Sie Sprache oder Darstellung (hell/dunkel) selbst wählen, wird nur diese Auswahl lokal in Ihrem Browser
+      gespeichert.
+    </li>
     <li>
       Es werden keine Inhalte von Drittanbietern eingebunden. Schriftarten und Bilder werden direkt von dieser
       Website geladen.
@@ -76,7 +83,21 @@
     Aufbewahrungspflichten, insbesondere steuerrechtliche, entgegenstehen.
   </p>
 
-  <h2>5. Links zu externen Websites</h2>
+  <h2>5. Speicherung Ihrer Einstellungen im Browser</h2>
+  <p>
+    Wenn Sie auf dieser Website die Sprache oder die Darstellung (hell/dunkel) selbst auswählen, wird diese Auswahl im
+    lokalen Speicher Ihres Browsers (Local Storage) abgelegt, damit sie bei Ihrem nächsten Besuch erhalten bleibt.
+    Gespeichert werden ausschließlich die gewählte Sprache und das gewählte Farbschema. Diese Angaben verlassen Ihr
+    Gerät nicht und werden nicht an mich oder Dritte übermittelt. Ohne eigene Auswahl richtet sich die Website nach
+    den Einstellungen Ihres Browsers bzw. Betriebssystems, ohne etwas zu speichern.
+  </p>
+  <p>
+    Rechtsgrundlage ist § 25 Abs. 2 Nr. 2 TDDDG, da die Speicherung unbedingt erforderlich ist, um die von Ihnen
+    ausdrücklich gewünschte Einstellung bereitzustellen. Sie können die gespeicherte Auswahl jederzeit über die
+    Einstellungen Ihres Browsers (Websitedaten löschen) entfernen.
+  </p>
+
+  <h2>6. Links zu externen Websites</h2>
   <p>
     Diese Website enthält Links zu meinen Profilen bei Xing, GitHub und LinkedIn sowie zu Projekten auf Websites
     Dritter. Es handelt sich um einfache Links und nicht um eingebettete Inhalte oder Plugins. Beim Besuch dieser
@@ -85,7 +106,7 @@
     verantwortlich.
   </p>
 
-  <h2>6. Ihre Rechte</h2>
+  <h2>7. Ihre Rechte</h2>
   <p>Sie haben nach Maßgabe der gesetzlichen Voraussetzungen folgende Rechte:</p>
   <ul>
     <li>Auskunft über die zu Ihrer Person verarbeiteten Daten (Art. 15 DSGVO)</li>
@@ -108,7 +129,7 @@
     </strong>
   </p>
 
-  <h2>7. Beschwerderecht bei einer Aufsichtsbehörde</h2>
+  <h2>8. Beschwerderecht bei einer Aufsichtsbehörde</h2>
   <p>
     Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Für mich
     zuständig ist:
@@ -120,10 +141,10 @@
     <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank" rel="noopener noreferrer">www.baden-wuerttemberg.datenschutz.de</a>
   </p>
 
-  <h2>8. Automatisierte Entscheidungen</h2>
+  <h2>9. Automatisierte Entscheidungen</h2>
   <p>Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.</p>
 
-  <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+  <h2>10. Änderungen dieser Datenschutzerklärung</h2>
   <p>
     Ich passe diese Datenschutzerklärung an, sobald sich die Website oder die rechtlichen Anforderungen ändern. Es
     gilt die jeweils hier veröffentlichte Fassung.

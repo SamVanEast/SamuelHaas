@@ -1,23 +1,21 @@
 <section class="portfolio">
   <div class="indentation">
     <div class="portfolio_header" appReveal="right">
-      <h2 class="headline">Portfolio</h2>
-      <p class="description">
-        This page is a sample of my work – please feel free to try them out. I contributed to these products/projects as
-        a Frontend Developer.
-      </p>
+      <h2 class="headline">{{ i18n.t().portfolio.headline }}</h2>
+      <p class="description">{{ i18n.t().portfolio.description }}</p>
     </div>
 
     <div class="projects">
       @for (project of projects; track project.id; let even = $even) {
+        @let texts = i18n.t().portfolio.projects[project.id];
         <a class="project" [href]="project.link" target="_blank" rel="noopener noreferrer"
           [appReveal]="even ? 'left' : 'right'">
           <img [src]="'assets/img/projects/' + project.id + '-960.webp'" [attr.srcset]="srcset(project)"
             sizes="(max-width: 770px) 90vw, 40vw" [width]="project.image.width" [height]="project.image.height"
-            loading="lazy" decoding="async" [alt]="texts[project.id].title">
-          <h3 class="project_headline">{{ texts[project.id].title }}</h3>
-          <p class="project_languages">{{ texts[project.id].technologies }}</p>
-          <p class="project_description">{{ texts[project.id].description }}</p>
+            loading="lazy" decoding="async" [alt]="texts.title">
+          <h3 class="project_headline">{{ texts.title }}</h3>
+          <p class="project_languages">{{ texts.technologies }}</p>
+          <p class="project_description">{{ texts.description }}</p>
         </a>
       }
     </div>

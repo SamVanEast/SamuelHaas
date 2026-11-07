@@ -1,0 +1,37 @@
+:host {
+    display: inline-flex;
+}
+
+.language_switch {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+}
+
+.language_option {
+    min-width: 44px;
+    min-height: 36px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-on-brand);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease;
+
+    &.active {
+        background-color: var(--color-on-brand);
+        color: var(--color-brand);
+    }
+}
+
+@media (hover: hover) {
+    .language_option:not(.active):hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+}

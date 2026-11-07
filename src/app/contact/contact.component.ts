@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LanguageService } from '../i18n/language.service';
 import { RevealDirective } from '../shared/reveal.directive';
 
 @Component({
@@ -7,4 +8,6 @@ import { RevealDirective } from '../shared/reveal.directive';
   styleUrls: ['./contact.component.scss'],
   imports: [RevealDirective],
 })
-export class ContactComponent {}
+export class ContactComponent {
+  protected readonly i18n = inject(LanguageService);
+}

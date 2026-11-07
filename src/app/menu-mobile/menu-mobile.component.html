@@ -1,16 +1,18 @@
 <div class="mobile_menu" (click)="onBackdropClick($event)" (keydown.tab)="trapFocus($event)"
     (keydown.shift.tab)="trapFocus($event)">
-    <button type="button" class="close_button" aria-label="Close menu" (click)="close()">
+    <button type="button" class="close_button" [attr.aria-label]="i18n.t().header.closeMenu" (click)="close()">
         <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
     </button>
 
-    <nav class="mobile_nav" aria-label="Main navigation">
+    <nav class="mobile_nav" [attr.aria-label]="i18n.t().header.mainNavigation">
         @for (link of links(); track link.id) {
             <a class="menu_tab_mobile" [href]="'/#' + link.id" [class.active]="nav.activeSection() === link.id"
                 [attr.aria-current]="nav.activeSection() === link.id ? 'true' : null"
-                (click)="select(link.id, $event)">{{ link.label }}</a>
+                (click)="select(link.id, $event)">{{ i18n.t().nav[link.id] }}</a>
         }
     </nav>
+
+    <app-language-switch class="mobile_language" />
 </div>

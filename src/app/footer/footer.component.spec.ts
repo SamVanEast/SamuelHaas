@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { FooterComponent } from './footer.component';
 import { SectionNavigationService } from '../core/section-navigation.service';
+import { useLanguage } from '../../testing/language';
 
 describe('FooterComponent', () => {
   let fixture: ComponentFixture<FooterComponent>;
@@ -15,21 +16,31 @@ describe('FooterComponent', () => {
       ])],
     }).compileComponents();
 
+    useLanguage('de');
     fixture = TestBed.createComponent(FooterComponent);
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   afterEach(() => vi.restoreAllMocks());
 
-  it('should create', () => {
-    expect(fixture.componentInstance).toBeTruthy();
-  });
+  function legalLinks(): string[][] {
+    const links = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('.legal_link'));
+    return links.map(link => [link.textContent.trim(), link.getAttribute('href')]);
+  }
 
   it('should link to the imprint and the privacy policy', () => {
-    const links = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('.legal_link'));
-    expect(links.map(link => [link.textContent.trim(), link.getAttribute('href')])).toEqual([
+    expect(legalLinks()).toEqual([
       ['Impressum', '/impressum'],
       ['Datenschutz', '/datenschutz'],
+    ]);
+  });
+
+  it('should translate the legal links', async () => {
+    useLanguage('en');
+    await fixture.whenStable();
+    expect(legalLinks()).toEqual([
+      ['Legal notice', '/impressum'],
+      ['Privacy policy', '/datenschutz'],
     ]);
   });
 

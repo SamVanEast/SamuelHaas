@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LanguageService } from '../i18n/language.service';
 import { RevealDirective } from '../shared/reveal.directive';
-import { PROJECT_TEXTS, PROJECTS, Project } from './portfolio.data';
+import { PROJECTS, Project } from './portfolio.data';
 
 @Component({
   selector: 'app-portfolio',
@@ -9,8 +10,8 @@ import { PROJECT_TEXTS, PROJECTS, Project } from './portfolio.data';
   imports: [RevealDirective],
 })
 export class PortfolioComponent {
+  protected readonly i18n = inject(LanguageService);
   protected readonly projects = PROJECTS;
-  protected readonly texts = PROJECT_TEXTS;
 
   /**
    * builds the srcset of a project image from its generated WebP widths

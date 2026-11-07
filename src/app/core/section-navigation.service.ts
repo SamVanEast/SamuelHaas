@@ -5,8 +5,7 @@ import { filter } from 'rxjs';
 export type SectionId = 'welcome' | 'about-me' | 'portfolio' | 'contact';
 
 export interface NavLink {
-  id: SectionId;
-  label: string;
+  id: Exclude<SectionId, 'welcome'>;
 }
 
 /**

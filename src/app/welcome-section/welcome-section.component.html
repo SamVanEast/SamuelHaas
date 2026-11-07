@@ -2,19 +2,9 @@
     <img src="assets/img/profile/welcome-960.webp"
         srcset="assets/img/profile/welcome-480.webp 480w, assets/img/profile/welcome-960.webp 960w, assets/img/profile/welcome-1440.webp 1440w, assets/img/profile/welcome-1920.webp 1920w"
         sizes="(max-width: 900px) 100vw, 52vw" width="1920" height="1280" fetchpriority="high"
-        alt="Portrait of Samuel Haas">
+        [alt]="i18n.t().welcome.portraitAlt">
     <div class="welcome">
-        <h1 class="welcome_headline" appReveal="left">
-            I'm Samuel Haas. A frontend developer from Germany.
-            <!-- Ich bin Samuel Haas. Ein Frontend-Entwickler aus Deutschland. -->
-        </h1>
-        <p class="welcome_text" appReveal="left">
-            HTML, CSS, JavaScript, TypeScript - who would have thought that my educational journey would take me
-            here. With my background in mechatronics I though am grateful to have followed my interest in programming. I
-            keep discovering a whole new world – day by day.
-            <!-- HTML, CSS, JavaScript, TypeScript - wer hätte gedacht, dass mich mein Bildungsweg einmal hierher führen
-            würde. Mit meinem Hintergrund in Mechatronik bin ich jedoch dankbar, dass ich meinem Interesse am
-            Programmieren gefolgt bin. Ich entdecke eine ganz neue Welt - Tag für Tag. -->
-        </p>
+        <h1 class="welcome_headline" appReveal="left">{{ i18n.t().welcome.headline }}</h1>
+        <p class="welcome_text" appReveal="left">{{ i18n.t().welcome.text }}</p>
     </div>
 </section>

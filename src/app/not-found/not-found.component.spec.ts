@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { NotFoundComponent } from './not-found.component';
 import { SectionNavigationService } from '../core/section-navigation.service';
+import { useLanguage } from '../../testing/language';
 
 describe('NotFoundComponent', () => {
   let fixture: ComponentFixture<NotFoundComponent>;
@@ -12,8 +13,16 @@ describe('NotFoundComponent', () => {
       providers: [provideRouter([])],
     }).compileComponents();
 
+    useLanguage('de');
     fixture = TestBed.createComponent(NotFoundComponent);
     await fixture.whenStable();
+  });
+
+  it('should be translated into English', async () => {
+    useLanguage('en');
+    await fixture.whenStable();
+    expect(fixture.nativeElement.querySelector('h1').textContent).toBe('Page not found');
+    expect(fixture.nativeElement.querySelector('.button--primary').textContent.trim()).toBe('Go to homepage');
   });
 
   it('should explain that the page does not exist', () => {

@@ -59,14 +59,19 @@ describe('MenuMobileComponent', () => {
 
   it('should keep the keyboard focus inside the menu', () => {
     const closeButton: HTMLButtonElement = fixture.nativeElement.querySelector('.close_button');
-    const lastLink = links()[links().length - 1];
+    // the language switch is the last element of the menu
+    const lastButton: HTMLButtonElement = fixture.nativeElement.querySelector('.language_option:last-child');
 
-    lastLink.focus();
-    lastLink.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true }));
+    lastButton.focus();
+    lastButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true }));
     expect(document.activeElement).toBe(closeButton);
 
     closeButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true }));
-    expect(document.activeElement).toBe(lastLink);
+    expect(document.activeElement).toBe(lastButton);
+  });
+
+  it('should offer the language switch inside the menu', () => {
+    expect(fixture.nativeElement.querySelectorAll('app-language-switch .language_option').length).toBe(2);
   });
 
   it('should highlight the section that is currently in view', async () => {

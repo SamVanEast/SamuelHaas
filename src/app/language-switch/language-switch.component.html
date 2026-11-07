@@ -1,0 +1,7 @@
+<div class="language_switch" role="group" [attr.aria-label]="i18n.t().header.language">
+  @for (language of i18n.languages; track language) {
+    <button type="button" class="language_option" [class.active]="i18n.language() === language"
+      [attr.aria-pressed]="i18n.language() === language" [attr.aria-label]="names[language]" [attr.lang]="language"
+      (click)="i18n.setLanguage(language)">{{ language.toUpperCase() }}</button>
+  }
+</div>

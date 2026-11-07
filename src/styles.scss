@@ -9,6 +9,7 @@
     --color-on-brand: #ffffff;
     --color-page: #ffffff;
     --color-surface: #ffffff;
+    --color-surface-muted: #eef5f4;
     --color-heading: #2B7A77;
     --color-text: #133B3F;
     --color-text-brand: #2B7A77;
@@ -198,6 +199,20 @@ a {
         color: var(--color-text-muted);
         font-size: 14px;
     }
+}
+
+// hint on the German-only legal pages when the site is shown in English
+.legal_language_note {
+    box-sizing: border-box;
+    max-width: 820px;
+    margin: 0 0 32px;
+    padding: 12px 16px;
+    border-left: 4px solid var(--color-accent);
+    border-radius: 4px;
+    background-color: var(--color-surface-muted);
+    color: var(--color-text);
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 @media (max-width: 770px) {

@@ -1,5 +1,7 @@
 import { Component, ElementRef, afterNextRender, inject, input, output } from '@angular/core';
-import { NavLink, SectionId, SectionNavigationService } from '../core/section-navigation.service';
+import { NavLink, SectionNavigationService } from '../core/section-navigation.service';
+import { LanguageService } from '../i18n/language.service';
+import { LanguageSwitchComponent } from '../language-switch/language-switch.component';
 
 /**
  * Full-screen navigation for small screens. Closes via the close button, a click on the backdrop,
@@ -9,10 +11,11 @@ import { NavLink, SectionId, SectionNavigationService } from '../core/section-na
   selector: 'app-menu-mobile',
   templateUrl: './menu-mobile.component.html',
   styleUrls: ['./menu-mobile.component.scss'],
+  imports: [LanguageSwitchComponent],
   host: {
     role: 'dialog',
     'aria-modal': 'true',
-    'aria-label': 'Navigation',
+    '[attr.aria-label]': 'i18n.t().header.navigation',
     '(document:keydown.escape)': 'close()',
   },
 })
@@ -20,6 +23,7 @@ export class MenuMobileComponent {
   readonly links = input.required<NavLink[]>();
   readonly closed = output<void>();
   protected readonly nav = inject(SectionNavigationService);
+  protected readonly i18n = inject(LanguageService);
   private readonly host: HTMLElement = inject(ElementRef).nativeElement;
 
   constructor() {
@@ -30,7 +34,7 @@ export class MenuMobileComponent {
     this.closed.emit();
   }
 
-  select(id: SectionId, event: Event): void {
+  select(id: NavLink['id'], event: Event): void {
     this.nav.goTo(id, event);
     this.close();
   }

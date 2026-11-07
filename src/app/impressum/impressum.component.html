@@ -1,4 +1,7 @@
-<article class="legal_text">
+@if (i18n.t().legal.germanOnly) {
+  <p class="legal_language_note" lang="en">{{ i18n.t().legal.germanOnly }}</p>
+}
+<article class="legal_text" lang="de">
   <h1>Impressum</h1>
 
   <h2>Angaben gemäß § 5 DDG</h2>

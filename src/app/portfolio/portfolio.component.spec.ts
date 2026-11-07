@@ -1,12 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PortfolioComponent } from './portfolio.component';
-import { PROJECTS, PROJECT_TEXTS } from './portfolio.data';
+import { PROJECTS } from './portfolio.data';
+import { DE } from '../i18n/de';
+import { EN } from '../i18n/en';
+import { useLanguage } from '../../testing/language';
 
 describe('PortfolioComponent', () => {
   let fixture: ComponentFixture<PortfolioComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({ imports: [PortfolioComponent] }).compileComponents();
+    useLanguage('en');
     fixture = TestBed.createComponent(PortfolioComponent);
     await fixture.whenStable();
   });
@@ -15,18 +19,28 @@ describe('PortfolioComponent', () => {
     return Array.from(fixture.nativeElement.querySelectorAll('a.project'));
   }
 
-  it('should have texts for every project', () => {
+  it('should have texts for every project in both languages', () => {
     PROJECTS.forEach(project => {
-      expect(PROJECT_TEXTS[project.id].title).toBeTruthy();
-      expect(PROJECT_TEXTS[project.id].technologies).toBeTruthy();
-      expect(PROJECT_TEXTS[project.id].description).toBeTruthy();
+      for (const translations of [DE, EN]) {
+        const texts = translations.portfolio.projects[project.id];
+        expect(texts.title).toBeTruthy();
+        expect(texts.technologies).toBeTruthy();
+        expect(texts.description).toBeTruthy();
+      }
     });
+  });
+
+  it('should show the project texts in the chosen language', async () => {
+    useLanguage('de');
+    await fixture.whenStable();
+    expect(cards()[1].querySelector('h3').textContent).toBe(DE.portfolio.projects['lunch-menu-app'].title);
+    expect(fixture.nativeElement.querySelector('.description').textContent).toBe(DE.portfolio.description);
   });
 
   it('should render one card per project that opens the project safely in a new tab', () => {
     expect(cards().length).toBe(PROJECTS.length);
     cards().forEach((card, i) => {
-      const texts = PROJECT_TEXTS[PROJECTS[i].id];
+      const texts = EN.portfolio.projects[PROJECTS[i].id];
       expect(card.getAttribute('href')).toBe(PROJECTS[i].link);
       expect(card.getAttribute('target')).toBe('_blank');
       expect(card.getAttribute('rel')).toBe('noopener noreferrer');
