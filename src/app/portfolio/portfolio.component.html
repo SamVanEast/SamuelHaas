@@ -14,7 +14,7 @@
       @for (project of imgs; track project; let i = $index) {
         <a class="project" href="{{ links[i] }}" target="_blank"
           rel="noopener noreferrer" id="project{{ i }}" [style.visibility]="showContent ? 'visible' : 'hidden'">
-          <img src="./../../assets/img/{{ project }}" loading="lazy" alt="">
+          <img src="./../../assets/img/{{ project }}" loading="lazy" [alt]="headline[i]">
           <div class="project_headline">
             {{ headline[i] }}
           </div>

@@ -58,16 +58,15 @@ export class PortfolioComponent {
    * when the content is loaded, a function is executed
    */
   onLoad() {
-    this.onWindowScroll(event);
+    this.onWindowScroll();
   }
 
   /**
    * the animations starts when the user scrolls to the component and is not in responsive mode
-   * @param event
    */
-  onWindowScroll(event) {
+  onWindowScroll() {
     if (width[0] > 770) {
-      let scrollPositionTop = window.pageYOffset;
+      let scrollPositionTop = window.scrollY;
       let scrollPositionBottom = scrollPositionTop + window.innerHeight;
       this.checkShowHeadline(scrollPositionBottom);
       this.checkShowContent(scrollPositionBottom);

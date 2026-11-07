@@ -40,6 +40,7 @@ describe('PortfolioComponent', () => {
       expect(project.getAttribute('target')).toBe('_blank');
       expect(project.getAttribute('rel')).toBe('noopener noreferrer');
       expect(project.textContent).toContain(component.headline[i]);
+      expect(project.querySelector('img').alt).toBe(component.headline[i]);
     });
   });
 

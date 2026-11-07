@@ -31,7 +31,7 @@ export class MenuMobileComponent {
    * depending on which area the user is in, the respective area in the header should get a different background color
    */
   checkSection() {
-    let scrollPositionTop = window.pageYOffset;
+    let scrollPositionTop = window.scrollY;
     if (scrollPositionTop + window.innerHeight / 2 > offsetTop.contact) {
       this.contactSection();
     } else if (scrollPositionTop + window.innerHeight / 2 > offsetTop.portfolio) {

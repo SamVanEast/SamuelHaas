@@ -32,6 +32,11 @@ describe('FooterComponent', () => {
     expect(scrollTo).toHaveBeenCalledWith(0, 0);
   });
 
+  it('should give every image link an accessible name', () => {
+    const images = Array.from<HTMLImageElement>(fixture.nativeElement.querySelectorAll('a img'));
+    expect(images.map(img => img.alt)).toEqual(['Samuel Haas', 'Xing', 'GitHub', 'LinkedIn']);
+  });
+
   it('should open the social media profiles safely in a new tab', () => {
     const links = Array.from<HTMLAnchorElement>(fixture.nativeElement.querySelectorAll('.social_media a'));
     expect(links.length).toBe(3);

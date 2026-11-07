@@ -34,11 +34,12 @@ export class HomepageComponent {
    * if user click change value and and executes a function
    */
   onClick() {
-    this.showMenu = this.header.showMenu;
+    // The header is not rendered yet when the click that navigated here reaches window.
+    this.showMenu = this.header?.showMenu ?? false;
     if (this.showMenu) {
       setTimeout(() => {
         document.body.style.overflow = 'hidden';
-        this.menuMobile.onClick();
+        this.menuMobile?.onClick();
       }, 0);
     }
   }

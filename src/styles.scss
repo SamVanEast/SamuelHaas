@@ -1,19 +1,18 @@
-$duratioAnimation: 750ms;
+$durationAnimation: 750ms;
 
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
     margin: 0;
-    font-family: 'Futura';
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-    display: none;
+    font-family: 'Futura', 'Sen', sans-serif;
 }
 
 a{
@@ -27,7 +26,7 @@ a{
 }
 
 .introAnimationFromRight {
-    animation: flyInFromRight $duratioAnimation ease-in-out;
+    animation: flyInFromRight $durationAnimation ease-in-out;
 }
 
 @keyframes flyInFromRight {
@@ -42,7 +41,7 @@ a{
 }
 
 .introAnimationFromLeft {
-    animation: flyInFromLeft $duratioAnimation ease-in-out;
+    animation: flyInFromLeft $durationAnimation ease-in-out;
 }
 
 @keyframes flyInFromLeft {

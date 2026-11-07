@@ -29,7 +29,7 @@ describe('AboutMeComponent', () => {
     offsetTop.aboutMe = 5000;
     height.aboutMe = 800;
 
-    component.onWindowScroll(undefined);
+    component.onWindowScroll();
 
     expect(component.showContent).toBe(false);
   });
@@ -52,7 +52,7 @@ describe('AboutMeComponent', () => {
   it('should show the content immediately on small screens', () => {
     width[0] = 400;
 
-    component.onWindowScroll(undefined);
+    component.onWindowScroll();
 
     expect(component.showContent).toBe(true);
   });

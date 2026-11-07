@@ -31,6 +31,12 @@ describe('ImpressumComponent', () => {
     expect(fixture.nativeElement.querySelector('app-footer')).not.toBeNull();
   });
 
+  it('should ignore a click that arrives before the header is rendered', () => {
+    const freshFixture = TestBed.createComponent(ImpressumComponent);
+    expect(() => freshFixture.componentInstance.onClick()).not.toThrow();
+    expect(freshFixture.componentInstance.showMenu).toBe(false);
+  });
+
   it('should open and close the mobile menu', async () => {
     fixture.nativeElement.querySelector('.open_menu img').click();
     fixture.detectChanges();

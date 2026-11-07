@@ -29,6 +29,12 @@ describe('HomepageComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should ignore a click that arrives before the header is rendered', () => {
+    const freshFixture = TestBed.createComponent(HomepageComponent);
+    expect(() => freshFixture.componentInstance.onClick()).not.toThrow();
+    expect(freshFixture.componentInstance.showMenu).toBe(false);
+  });
+
   it('should render every section with its anchor id', () => {
     const ids = ['header', 'welcome', 'about-me', 'portfolio', 'contact', 'footer'];
     ids.forEach(id => expect(fixture.nativeElement.querySelector(`#${id}`)).not.toBeNull());
